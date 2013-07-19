@@ -1,0 +1,20 @@
+{
+    "debug": true,
+    "lintScripts": false,
+    "preprocessorLocations": "public",
+    "preprocessorScriptOutput": "public/scripts",
+    "preprocessorStyleOutput": "public/styles",
+    "projectName": "Alvin Sherman Library RITC",
+    "projectDescription": "The Alvin Sherman Library, Research, and Information Technology Center",
+    "publishedId": null,
+    "serverHostname": "localhost",
+    "serverPort": null,
+    "templateDirectory": "templates",
+    "templateDefaultLayout": "sherman",
+    "templateDefaultPage": "index",
+    "type": "mixture",
+    "useCompass": true,
+    "simpleModePartnerServer": null,
+    "modelSource": null,
+    "domain": null
+}

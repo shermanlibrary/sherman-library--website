@@ -1,0 +1,165 @@
+{% block scopedCSS %}
+{{ "home" | asset_url | stylesheet_tag }}
+{% endblock %}
+
+{% block bodyClass %}<body class="page-template-default">{% endblock %}
+
+{% block content %}
+<!-- Left Sidebar
+======================
+--> <div class="threecol first">
+		{% include "sidebar" %}
+	</div><!--/.threecol-->
+
+<div class="ninecol last">
+	<article class="page clearfix">
+		<header>
+			<h1>Hours and Directions</h1>
+		</header>
+
+		<div class="row">
+		
+			<section class="fourcol first">
+				<h2 class="icon-library"> Building Hours</h2>
+
+				<o>
+					<b>Monday - Thursday:</b> 7:30a.m. - 11p.m.<br>
+					<b>Friday:</b> 7:30a.m. - 9p.m.<br>
+					<b>Saturday:</b> 8a.m. - 8p.m.<br>
+					<b>Sunday:</b> 11a.m. - 11:30p.m.<br>
+				</o>
+			</section>
+
+			<section class="fourcol">
+				<h2 class="icon-help"> Reference Desk</h2>
+				<p>
+					<b>Monday - Friday:</b> 9a.m. - 9p.m.<br>
+					<b>Saturday:</b> 9a.m. - 8p.m.<br>
+					<b>Sunday:</b> 11a.m. - 9p.m.<br>
+				</p>
+			</section>
+
+			<section class="fourcol last">
+				<h2 class="icon-book"> Public Desk</h2>
+				<p>
+					For <b>Public Library Services Desk</b> hours and more information about
+					upcoming programs, call <a class="icon-phone" href="tel:19542625477" title="Call PLS"> (954) 262-5477</a>
+				</p>
+			</section>
+
+		</div><!--/.row-->
+
+		<div class="row">
+			<section class="fourcol first">
+				<h2 class="icon-calendar"> Exhibit Gallery</h2>
+				<p>
+					The <b>Exhibit Gallery</b> is opened only when an exhibit is scheduled.
+				</p>
+
+				<p>
+					<b>Monday - Friday:</b> 9a.m. - 9p.m. <br>
+					<b>Saturday:</b> 9a.m. - 8p.m. <br>
+					<b>Sunday:</b> 11a.m. - 9p.m.
+				</p>
+			</section>
+
+			<section class="eightcol last">
+				<h2 class="icon-coffee"> West End Deli</h2>
+				<p>
+					Deli hours can vary - especially during breaks and summer. Please call <a class="icon-phone" href="tel:19542625500" class="Call the West End Deli"> (954) 262-5500</a> to verify.
+				</p>
+				<p>
+					<b>Monday - Thursday:</b> 9a.m. - 9p.m. <br>
+					<b>Friday:</b> 9a.m. - 9p.m. <br>
+					<b>Saturday:</b> 9a.m. - 8p.m. <br>
+					<b>Sunday:</b> 11a.m. - 9p.m.
+				</p>
+			</section>
+		</div><!--/.row-->
+
+		<section>
+			<a name="holidays"></a> <h2 class="icon-calendar"> Holidays</h2>
+
+			<p>
+				The <b>Alvin Sherman Library</b> follows the <a href="http://www.nova.edu/hr/holiday-schedule.html" title="NSU Holiday Schedule">NSU Holiday Schedule</a> except for winter closure.
+			</p>
+		</section>
+
+		<section>
+			<a name="directions"></a> <h2 class="icon-safari"> Directions</h2>
+	
+			<p>
+				The <b>Alvin Sherman Library</b> is located on the main campus of <a href="http://www.nova.edu" target="new" title="Nova Southeastern University">Nova Southeastern University</a> in Davie, Florida.
+
+				<address>
+					Alvin Sherman Library, Research, and Information Technology Center <br>
+					3100 Ray Ferrero Jr. Blvd. <br>
+					Fort Lauderdale - Davie, Florida 33314-7796
+				</address>
+			</p>
+
+			<!-- Map
+			======================
+			--> <iframe class="shadow" width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Alvin+Sherman+Library,+Research,+and+Information+Technology+Center,+Fort+Lauderdale,+FL&amp;aq=&amp;sll=27.698638,-83.804601&amp;sspn=16.743766,19.753418&amp;ie=UTF8&amp;hq=Alvin+Sherman+Library,+Research,+and+Information+Technology+Center,+Fort+Lauderdale,+FL&amp;t=m&amp;ll=26.079459,-80.242542&amp;spn=0.020044,0.032015&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Alvin+Sherman+Library,+Research,+and+Information+Technology+Center,+Fort+Lauderdale,+FL&amp;aq=&amp;sll=27.698638,-83.804601&amp;sspn=16.743766,19.753418&amp;ie=UTF8&amp;hq=Alvin+Sherman+Library,+Research,+and+Information+Technology+Center,+Fort+Lauderdale,+FL&amp;t=m&amp;ll=26.079459,-80.242542&amp;spn=0.020044,0.032015" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+
+			<a name="parking"></a> <h2 class="icon-marker"> Parking, Buses, and Shuttles</h2>
+
+			<p>
+				Parking is available in the library parking garage. Public patrons visiting the campus must enter the parking garage from one of the two entrances off SW 30th Street (see Map & Directions for more details). Public parking costs $1.00 per hour. Please make note of your parking space number and pay in advance at one of the meters located near the elevator in the southeast corner of the garage.
+			</p>
+
+			<p>
+				You may add time at a meter located in the library near the West End Ave Deli entrance.
+			</p>
+
+			<p>
+				You can check on the current status of the meter machine or to report a problem yourself in the <a href="http://sherman.library.nova.edu/sys/status.php" class="icon-link"> Equipment and Service Status</a> page.
+			</p>
+
+			<p>
+				Students, faculty, and staff must enter on the north and west sides of the library parking garage and hold their campus cards up to the readers to obtain access and to leave the parking garage.
+			</p>
+
+			<a name="transport"></a> <h3>NSU Wave and Ride Shuttle</h3>
+			<p>
+				Free Wave and Ride Shuttles are available to and from all areas of the campus and stop adjacent to the library. For more details, see the <a href="http://www.nova.edu/locations/maps/shuttle.html" class="icon-link" target="new"> Wave and Ride Shuttle</a> webpage. It may be useful to consult the <a href="http://www.nova.edu/cwis/campusmaps/map.html" class="icon-link" target="new"> Campus Map</a> for additional orientation.
+			</p>
+
+			<h3>SFEC / Tri-Rail Express</h3>
+			<p>
+				Free SFEC/Tri-Rail Express shuttles are available from the Fort Lauderdale Airport Tri-Rail Station to the SFEC campus in Davie and back. The SFEC (South Florida Education Center) includes the Davie campuses of NSU, BCC, FAU, McFatter, and UF. Stops at NSU are located near the parking garage, at the Shepherd Broad Law Center, and the Health Professions Division Center. For more details, see the <a href="http://www.sfec.org/" class="icon-link" target="new"> SFEC/Tri-Rail Express</a> webpage.
+			</p>
+
+			<h3>Broward County Transit</h3>
+			<p>
+				Broward County Transit buses serve the NSU campus. For fares, maps, schedules and additional details, see the <a href="http://www.co.broward.fl.us/bct/" class="icon-link" target="new"> Broward County Transit</a> webpage.
+			</p>
+
+		</section>
+
+	</article>
+
+</div><!--/.ninecol-->
+
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="bread-crumbs"> 
+		<ul class="breadbox">
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="http://nova.edu/library/main" itemprop="url">
+					<span itemprop="title">Alvin Sherman Library</span>
+				</a>
+				<span class="arrow"><span>&nbsp;</span></span>
+			</li>
+
+			
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="/hours" title="Directory">
+					<span itemprop="title"> Hours and Directions</span>
+				</a><span class="arrow"><span>&nbsp;</span></span>
+			</li>
+			
+		</ul><!--/.breadbox-->
+	</div>
+{% endblock %}

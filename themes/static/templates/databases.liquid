@@ -1,0 +1,79 @@
+{% block title %}Alvin Sherman Library Gateway to our Databases{% endblock %}
+
+{% block description %}A jumping-off point for users to access the electronic library by choosing a path (student, alum, guest, etc.).{% endblock %}
+
+{% block bodyClass %}<body>{% endblock %}
+
+{% block content %}
+
+<div class="sevencol typeplate" style="max-width: 400px;">
+
+	<nav role='navigation'>
+	  <ul class="vertical-menu gateway">
+	    
+	    <header class="gradient--rtl">      
+	      <span class="icon-pencil" aria-hidden="true"></span>
+	      We tailored the databases just for you.
+	    </header>
+
+	    <li>
+	      <a href="http://sherman2.library.nova.edu/e-library/index.php?col=n" title="Databases for NSU Students, Faculty, and Staff">
+	        Students, Faculty, and Staff
+	      </a>
+	    </li>
+
+	    <li>
+	      <a href="http://sherman2.library.nova.edu/e-library/index.php?col=a" title="Databases for Registered Alumni">
+	        Registered <abbr title="Nova Southeastern University">NSU</abbr> alumni
+	      </a>
+	    </li>
+	    <li>
+	      <a href="http://sherman2.library.nova.edu/e-library/index.php?col=p" title="Databases for Broward County Cardholders">
+	         Public Library Cardholders
+	      </a>
+	    </li>
+	    <li>
+	      <a href="http://sherman2.library.nova.edu/e-library/index.php?col=w" title="Databases for Walk-in Visitors">
+	        Walk-in Visitors
+	      </a>
+	    </li>
+	        
+	  </ul>
+	</nav>
+	 
+	<p> 
+	  By accessing these databases, you agree to abide by the <a href="http://sherman.library.nova.edu/sites/policies/use-of-licensed-electronic-resources-policy/" title="Electronic Resources Policy">Use of Licensed Electronic Resources Policy</a>.
+	</p>
+	  
+	<p class="align-center">
+	  <small>
+	    <a href="http://novacat.nova.edu/screens/selfregpick.html" target="new" title="Register for an ASL Card">Get a Library Card</a>
+	  </small>  
+	</p>
+
+</div>
+
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="bread-crumbs"> 
+		<ul class="breadbox">
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="http://nova.edu/library/main" itemprop="url">
+					<span itemprop="title">Alvin Sherman Library</span>
+				</a>
+				<span class="arrow"><span>&nbsp;</span></span>
+			</li>
+
+			
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="/directory" title="Staff Directory">
+					<span itemprop="title"> Path to the Databases</span>
+				</a><span class="arrow"><span>&nbsp;</span></span>
+			</li>
+			
+		</ul><!--/.breadbox-->
+	</div>
+{% endblock %}
+
+{% block scripts %}{% endblock %}

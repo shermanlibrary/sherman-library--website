@@ -1,0 +1,112 @@
+<div id="tabs" class="search_tabs shadow" style="background: white; margin-bottom: 1em; border-left: 3px solid #21438a; border-top: 2px solid #1fbaf2;" >
+			
+		<ul>
+			<li class="tabtitle"><a href="#tabs-1">NovaCat</a></li>
+			<li class="tabtitle"><a href="#tabs-2">Articles</a></li>
+			<li class="tabtitle"><a href="#tabs-3">Journal Finder</a></li>
+			<li class="tabtitle"><a href="#tabs-4">Tutorials</a></li>
+			<li class="tabtitle"><a href="#tabs-5">Google Scholar</a></li>
+		</ul>
+
+		<div id="tabs-1">
+			<form name="novacat_search" id="novacat_search" onSubmit="return searchIt(this)">
+				<strong>Find Books, Journals, Media:</strong>
+				<br /><br />
+
+				<select id="searchtype" name="engine">
+				  <option value="0" selected>Keyword</option>
+				  <option value="1">Author</option>
+				  <option value="2">Title</option>
+
+				  <option value="3">Subject</option>
+				  <option value="4">LC Call Number</option>
+				  <option value="5">Dewey Call Number</option>
+				  <option value="6">NLM Call Number</option>
+				  <option value="7">ISN</option>  
+				</select>
+				<input name="criteria" id="searcharg"  maxlength="75" />
+				<input id="buttonSubmit" value="Search" type="submit" style="float:left;" class="nsu-aqua">
+					<br style="clear:both;"/>
+				<span class="searchOnlyEbooks" style="font-size:12px; margin-left:1px;"><input type="checkbox" id="ebookLimit" name="m" value="n"/> Search <b>E-books Only</b></span>
+			</form>		
+			
+			<div class="clear"></div>
+			<br />
+
+			<span style="font-size:12px;">
+
+				<a href="http://novacat.nova.edu/search/X">Advanced Search</a> |									
+
+				<a href="http://sherman.library.nova.edu/e-library/index.php?action=subject&cat=ebo&col=n" title="See E-book Databases">See E-book Databases</a> | 									
+				<a href="http://0-auth.novasoutheastern.org.novacat.nova.edu/go/redirect.php?aid=712" target="_blank">Credo Reference</a>	
+				
+			</span>
+		</div>
+						
+		<div id="tabs-2">	
+				<strong>Quick Search Using Gale Databases:</strong>
+				<br />
+				<br />
+				<a href = "http://access.gale.com/cgi-bin/widgets/v2/search.pl?id=42063__novaseu_main&amp;prod=&amp;host=&amp;pub=&amp;dir=psx&amp;click=1&amp;key=" target = "_blank"></a>
+				<form target = "_blank" method = "get" action = "http://access.gale.com/cgi-bin/widgets/v2/search.pl">  
+				  <input type = "text" name = "keyword" id = "psx_search">	
+				  <input type = "submit" id = "psx_go" class="nsu-aqua" style="float:left;" value = "Search">
+				  <input type = "hidden" name = "test" value = "" />
+				  <input type = "hidden" name = "id" value = "42063__novaseu_main" />
+				  <input type = "hidden" name = "prod" value = "" />
+				  <input type = "hidden" name = "host" value = "" />
+				  <input type = "hidden" name = "pub" value = "" />									 								  
+				  <input type = "hidden" name = "dir" value = "psx" />
+				  <input type = "hidden" name = "key" value = "" />  	
+				 
+				</form>
+			<div class="clear"></div>									
+			<br />
+				<strong>For more in-depth/specialized research and other materials, use: </strong> 
+			<div class="clear"></div>
+			<br />
+			<a href="http://sherman.library.nova.edu/e-library/index.php?col=n" title="Databases by Subject">Databases by Subject</a> <strong>OR</strong>	
+			<a href="http://sherman.library.nova.edu/e-library/index.php?action=all&col=n" title="Alphabetical List of Databases">All Databases</a>
+		</div>
+		
+		<div id="tabs-3">		
+			<form name="frmSimpleSearch" action="http://atoz.ebsco.com/Titles/SearchResults/1507" id="searchForm" method="get" target="_blank">
+				<input data-val="true" data-val-required="The IsFromAdvancedSearch field is required." id="IsFromAdvancedSearch" name="IsFromAdvancedSearch" type="hidden" value="True" />
+				<input type="hidden" name='GetResourcesBy' ID='TitleNameSearch' value='TitleNameSearch'>
+				<strong>Find an eJournal: Enter Journal Name</strong><br /> <br /> 
+				<select name='SearchType' id="SearchType" style="float:left;"> <option value="Contains" id="Contains" selected="selected"> Contains</option> <option value="BeginsWith" id="BeginsWith">Begins With</option> <option value="ExactMatch" id="ExactMatch">Exact Match</option> </select> 
+				<input class="FindTextBox" data-val="true" data-val-required="The Find field is required." id="Find" name="Find" type="text" value="" /> 
+				<input id="nsubtnSubmit1" value="Search" type="submit" style="float:left;" class="nsu-aqua">	
+			</form>						
+		</div>
+		
+		<div id="tabs-4">
+			<strong>Find Research Tips and Useful Resources:</strong><br /><br />								
+			<form action="http://nova.campusguides.com/search.php?" method="get">
+			<input type="hidden" name="iid" value="1100">
+			<input type="hidden" name="c" value="0">							
+			<input type="text" name="search" id="libguides" maxlength="256">								
+			<input id="nsubtnSubmit2" value="Search" type="submit" style="float:left;" class="nsu-aqua">	
+			</form>
+			<div class="clear"></div>
+			<br />
+			<a href="http://nova.campusguides.com/cat.php?cid=20746&#38;gid=104" target="_blank">Writing & Citation Style</a> | 
+			<a href="http://nova.campusguides.com/cat.php?cid=20747&#38;gid=104" target="_blank">Course Guides</a>
+			<div class="clear"></div>
+			<br />
+			<a href="http://nova.campusguides.com/index.php?gid=104 " target="_blank">Browse by Subject</a> |
+			<a href="http://nova.campusguides.com/cat.php?cid=20755&amp;gid=104" target="_blank">How To...</a>
+	
+		</div>
+	
+		<div id="tabs-5">
+			<strong>Find Select Scholarly Articles:</strong>
+			<br /><br />												
+			<form action="http://scholar.google.com.ezproxylocal.library.nova.edu/scholar?" method="get">  
+			<input type="text" value="" name="q" id="google_scholar" maxlength="256">		
+			<input value="Search" type="submit" style="float:left;" class="nsu-aqua">	
+			<input type="hidden" name="hl" value="en" />
+			<input type="hidden" name="inst" value="webbridge-NOVAL" />						 
+			</form>	
+		</div>
+	</div><!--/.tabs-->

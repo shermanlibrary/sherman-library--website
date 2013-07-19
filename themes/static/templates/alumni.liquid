@@ -1,0 +1,107 @@
+{% block scopedCSS %}
+
+
+{{ "home" | asset_url | stylesheet_tag }}
+
+{% endblock %}
+
+{% block bodyClass %}<body class="page-template-default">{% endblock %}
+
+{% block content %}
+
+<div class="ninecol last">
+	<article class="page clearfix">
+		<header>
+			<h1>Resources for Alumni</h1>
+		</header>
+
+		<div class="sixcol first">
+			<h2>Getting Started</h2>
+			<ul>
+								<li><a href="http://novacat.nova.edu/screens/selfreg_nsu.html">How to get an NSU Library Card</a></li>
+								<li>Your <a href="../serv/circulation/winalumni.html" onclick="winalumni(); return false;">borrowing privileges</a> as an alumnus of NSU</li>
+							</ul>
+			<h2>Library Services</h2>
+<ul>
+							<li><a href="../serv/reference">Reference assistance</a></li>
+							<li><a href="../help/libtraining.html">Individual library training/research consultation</a> </li>
+							<li>Copy of MARP, Applied Dissertation or Practicum: <br>
+								<span class="smallfont">The MARPS, Practicums &amp; Applied Dissertation database, along 
+								with its contents, is only available to current NSU students, faculty and staff. 
+								As an alum, if you wish to obtain a copy of your  MARP, Applied Dissertation or 
+								Practicum, please download this <a href="http://www.nova.edu/library/documents/marps__request-form-for-copies(05-2013).pdf">Request Form (PDF)</a> 
+								and carefully follow the instructions therein. <strong>The form must be fully completed, notarized, and mailed to the address specified.</strong></span>
+							</li>						
+						</ul>
+		</div>
+
+		<div class="sixcol last">
+			<h2>Doing Research</h2>
+			<ul>
+							<li><a href="http://sherman.library.nova.edu/e-library/index.php?col=a"> Databases</a> (for registered alumni only)
+							<br><a href="http://www.nova.edu/library/help/video/login/newlogin.htm"><span class="smallfont red">Need help logging in?</span> </a></li>
+							<li><a href="http://atoz.ebsco.com/Search.asp?id=nseu">Journal Finder</a> (for registered alumni only)</li>
+							<li>Library Catalogs - items owned by libraries 
+								<ul>
+									<li><a href="http://novacat.nova.edu/screens/opacmenu.html"> NovaCat,</a> NSU's online catalog</li>
+									<li><a href="../eleclib/othercatalogs.html">Other Library Catalogs</a></li>
+								</ul>
+							</li>
+				  
+							<li>Internet Resources 
+								<ul>
+									<li><a href="../eleclib/eref.html">Reference</a></li>
+									<!-- Broken link. Does this resource even exist?
+										<li><a href="../eleclib/internet.html">Subject-specific</a></li>
+									-->
+								</ul>
+							</li>
+						</ul>
+
+			<h2>Register to Use Library Databases</h2>
+			<ul>
+								<li><a href="http://sherman.library.nova.edu/db_backup_lists/alumnidbs.html">See what we have to offer</a></li>
+								<li><a href="http://www.nova.edu/library/portal/alumnidbregister.html">How to register to use library databases</a></li>
+							</ul>
+
+			<h2>Getting Help</h2>
+			<ul>
+								<li><a href="../help/libtraining.html">Let us show you</a> how to use our resources. </li>
+								<li><a href="http://nova.campusguides.com/index.php?gid=104">Find a Library Guide</a> to aid you in your research. </li>
+								<li>Technical difficulties with our online systems or databases? <a href="../help/techhelp.html">Here's  some guidance</a>...</li>	
+							</ul>
+		</div>
+
+	</article>
+</div>
+
+<!-- Sidebar
+======================
+--> <div class="threecol first">
+		{% include "sidebar" %}
+	</div>
+
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="bread-crumbs"> 
+		<ul class="breadbox">
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="http://nova.edu/library/main" itemprop="url">
+					<span itemprop="title">Alvin Sherman Library</span>
+				</a>
+				<span class="arrow"><span>&nbsp;</span></span>
+			</li>
+
+			
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="/alumni" title="Local Student Portal">
+					<span itemprop="title"> Quick Resources for Alumni</span>
+				</a><span class="arrow"><span>&nbsp;</span></span>
+			</li>
+			
+		</ul><!--/.breadbox-->
+	</div>
+{% endblock %}
+
+{% block scripts %}{% endblock %}

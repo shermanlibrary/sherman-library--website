@@ -1,0 +1,166 @@
+{% block scopedCSS %}
+{{ "home" | asset_url | stylesheet_tag }}
+
+{% endblock %}
+
+{% block bodyClass %}<body class="page-template-default">{% endblock %}
+
+{% block content %}
+
+<div class="ninecol last">
+	<article class="page clearfix">
+		<header>
+			<h1>Contact Information</h1>
+		</header>
+
+		<section class="post-content">
+
+			<h2>Circulation Desk</h2>
+			<p>
+				For questions on borrowing policies, library cards, book renewals, holds, print reserves, and group study rooms. You can also <a class="icon-book" href="https://novacat.nova.edu/patroninfo"> renew items online.</a>
+			</p>
+
+			<h2>Reference Desk / Research Assistance</h2>
+			<p>
+				For help locating information, logging onto or searching a database, 
+				or any other reference or research question.<br>
+				<a href="/ask">Ask-a-Librarian</a> | (954)262-4613 
+				or 1-800-541-6682, ext. 24613 | Fax: (954)262-6830<br>
+			</p>	
+		
+				
+
+			<h2>Public Library Services Reference 
+				Desk</h2>
+
+			<p>
+				For information on children's, teens' and public library programs 
+				and services, questions about popular collection items.<br>
+				<a href="mailto:plsrefdesk@nova.edu">plsrefdesk@nova.edu</a> | (954)262-5477 
+				or 1-800-541-6682, ext. 25477<br>
+			</p>
+			
+				
+
+			<h2>Document Delivery</h2>
+				<p>
+				For questions on document delivery for NSU students enrolled in distance 
+				programs. Please visit the Document Delivery Web page for ordering 
+				procedures and online order forms.<br>
+				 
+				<a href="mailto:library@nova.edu">library@nova.edu</a> | (954)262-4602 
+				or 1-800-541-6682, ext. 24602<br>
+				</p>
+	
+				
+
+			<h2>Interlibrary Loan (ILL)</h2>
+				<p>
+				For questions on interlibrary loan for local NSU program students 
+				and registered Broward County patrons. Please visit the Interlibrary 
+				Loan Web page for more information and online order forms. <br>
+				 
+				<a href="mailto:ill@nova.edu">ill@nova.edu</a> | (954)262-4619 or 
+				1-800-541-6682, ext. 24619<br>
+				</p>
+			
+			
+				
+
+			<h2>Distance &amp; Instructional Library Services</h2>
+			<p>
+				For questions on library training for the NSU community, online research 
+				tutorials, and library services for NSU distance students.<br>
+				 
+				<a href="mailto:dils@nova.edu">dils@nova.edu</a> | (954)262-5380 or 
+				1-800-541-6682, ext. 25380<br>
+			</p>
+			
+				
+
+			<h2>Collection Development</h2>
+			<p>
+				To make a suggestion for acquisition or a donation of library materials. 
+				Use online form to make a suggestion for acquisition of a <a href="../serv/collectiondev/suggest.html">
+				journal/periodical, book, or other item</a>.&nbsp; <br>
+				 
+				<a href="mailto:lia@nova.edu">lia@nova.edu</a> | (954)262-4633 or 
+				1-800-541-6682, ext. 24633<br>			
+			</p>
+			 	
+         
+				
+
+			<h2>Online Computing Help 
+				Desk</h2>
+			<p>
+				For technical difficulties with computer access, email, computer programs, 
+				or applications.<br>
+				 
+				<a href="mailto:help@nova.edu">help@nova.edu</a> | (954)262-4357 or 
+				1-800-541-6682 ext. 24357<br>
+			</p>
+			
+				
+
+			<h2>Facilities and Events</h2>
+			<p>
+				For information on using and reserving library conference rooms and other library
+				spaces.<br>
+				 <a href="mailto:librooms@nova.edu">librooms@nova.edu</a> |
+				(954)262-4612 or 1-800-541-6682 ext. 24612<br>
+			</p>
+			
+				
+
+			<h2>Exhibits</h2>
+			<p>
+				For information on displaying an exhibit at the library.<br>
+				 <a href="mailto:nora@nova.edu">nora@nova.edu</a> |
+				(954)262-4637 or 1-800-541-6682 ext. 24637<br>
+			</p>
+				
+
+			<h2>Library Web Services </h2>
+			<p>
+				For comments, suggestions, or questions on the design or content of 
+				library Web pages, or to report a problem with our site.<br><br>
+
+				 
+				<a href="http://nova.edu/library/main/feedback.html">Feedback form</a>
+			</p>
+		</section>
+
+	</article>
+</div>
+
+<!-- Sidebar
+======================
+--> <div class="threecol first">
+		{% include "sidebar" %}
+	</div>
+
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="bread-crumbs"> 
+		<ul class="breadbox">
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="http://nova.edu/library/main" itemprop="url">
+					<span itemprop="title">Alvin Sherman Library</span>
+				</a>
+				<span class="arrow"><span>&nbsp;</span></span>
+			</li>
+
+			
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="/contact" title="Contact Information">
+					<span itemprop="title"> Contact Information</span>
+				</a><span class="arrow"><span>&nbsp;</span></span>
+			</li>
+			
+		</ul><!--/.breadbox-->
+	</div>
+{% endblock %}
+
+{% block scripts %}{% endblock %}

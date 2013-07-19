@@ -1,0 +1,202 @@
+{% block scopedCSS %}
+
+{{ "home" | asset_url | stylesheet_tag }}
+
+
+{% endblock %}
+
+{% block bodyClass %}<body class="page-template-default">{% endblock %}
+
+{% block content %}
+
+<div class="ninecol last">
+	<article class="page clearfix">
+
+		<header>
+			<h1 class="hide-text">
+				Ask a Librarian
+			</h1>
+		</header>
+
+		<nav class="row">
+
+		<!-- In Person
+		======================
+		-->	<div class="align-center twocol first">
+				<a href="#ask-in-person">
+				<div class="row"><span class="h1 icon-user" aria-hidden="true"></span></div>
+					<span class="h3">Ask in Person</span>
+				</a>
+			</div>
+
+		<!-- By Phone
+		======================
+		--> <div class="align-center twocol">
+				<a href="#by-phone">
+					<div class="row"><span class="h1 icon-phone" aria-hidden="true"></span></div>
+					<span class="h3">Give Us a Call</span>
+				</a>
+			</div>
+
+		<!-- By Mail
+		======================
+		--> <div class="align-center twocol">
+				<a href="#by-email">
+					<div class="row"><span class="h1 icon-mail" aria-hidden="true"></span></div>
+					<span class="h3">Write an Email</span>
+				</a>
+			</div>
+
+		<!-- Chatroom
+		======================
+		--> <div class="align-center twocol">
+				<a href="#by-chat">
+					<div class="row"><span class="h1 icon-comments" aria-hidden="true"></span></div>
+					<span class="h3">Drop into Chat</span>
+				</a>
+			</div>
+
+		<!-- Send us a Text
+		======================
+		--> <div class="align-center twocol">
+				<a href="#by-text">
+					<div class="row"><span class="h1 icon-keyboard" aria-hidden="true"></span></div>
+					<span class="h3">Text Us</span>
+				</a>
+			</div>
+
+		<!-- Make an Appointment
+		======================
+		--> <div class="align-center twocol last">
+				<a href="#by-appointment">
+					<div class="row"><span class="h1 icon-users" aria-hidden="true"></span></div>
+					<span class="h3">Make an Appointment</span>
+				</a>
+			</div>
+
+		</nav>
+
+		<section class="post-content">
+			<a name="ask-in-person"></a><h2 class="icon-user"> Ask in Person</h2>
+			
+			<p>
+				The <b>reference desk</b> is located on the second floor of the library. Swing by any time during
+				our desk hours <small>(below)</small>.				
+			</p>
+
+			<p>
+				<b>Monday - Friday:</b> 9a.m. - 9p.m.<br>
+				<b>Saturday:</b> 9a.m. - 8p.m.<br>
+				<b>Sunday:</b> 11a.m. - 9p.m.<br>
+			</p>
+
+			<a name="by-phone"></a><h2 class="icon-phone"> Ask by Phone</h2>
+			<p>
+				Local: <a href="tel:19542624613" title="Local Number">(954) 262-4613</a><br>
+				Toll Free: <a href="tel:18005416682" title="Toll Free">1 (800) 541-6682</a> ext. 24613<br>
+				Canada / the Caribbean / Panama: <a href="tel:18005546682" title="Internationally">1 (800) 554-6682 ext. 24613
+			</p>
+
+			<a name="by-email"></a><h2 class="icon-mail"> Write an Email</h2>			
+			<p>
+				This is ideal for <b>brief</b>, factual questions. A librarian will respond typically within 24 hours except for weekends and holidays.
+			</p>
+			
+			<iframe height="1009" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; width: 100%;" src="http://systems.library.nova.edu/form/embed.php?id=6" title="Ask a Librarian form"></iframe>
+
+			<a name="by-chat"></a><h2 class="icon-comments"> Chat with a Florida Librarian</h2>
+			<p>
+		<script type="text/javascript">
+
+							var primary_smartbutton_di=22870;
+							var secondary_smartbutton_di=22498;
+							var tertiary_smartbutton_di=23217;
+							var sb_di,p_sb_img=new Image(),s_sb_img=new Image(),t_sb_img=new Image();
+							 
+							function chk_t_di(){
+							t_sb_img.src='https://admin.instantservice.com/resources/smartbutton/6212/'+tertiary_smartbutton_di+'/available.gif?'+Math.floor(Math.random()*10001);
+							t_sb_img.onload=function(evt){sb_di=tertiary_smartbutton_di;write_collaborative_smartbutton();};t_sb_img.onerror=function(evt){write_unavailable_smartbutton();};
+							}
+							 
+							function write_nsu_smartbutton(){
+							document.getElementById('smartbutton').innerHTML = '<a href="http://www.askalibrarian.org/chat_form_local2011.php?LibraryName=NovaSoutheasternUniversity&DepartmentNumber=22870&Source=Widget" target="_blank"><img src="http://www.nova.edu/library/help/pics/askNSUchat.png" border="0" alt="Chat Now With an NSU Librarian" title="Chat Now With an NSU Librarian"/><\/a>';
+							}
+
+							function write_academic_smartbutton(){
+							document.getElementById('smartbutton').innerHTML = '<a href="http://www.askalibrarian.org/chat_form_academic2011.php?LibraryName=NovaSoutheasternUniversity&DepartmentNumber=22498&LibraryType=Academic&Source=Widget" target="_blank"><img src="http://www.nova.edu/library/help/pics/askFLchat.png" border="0" alt="Chat Now With a Florida Librarian" title="Chat Now With a Florida Librarian"/><\/a>';
+							}
+
+							function write_collaborative_smartbutton(){
+							document.getElementById('smartbutton').innerHTML = '<a href="http://www.askalibrarian.org/chat_form_collaborative2011.php?LibraryName=NovaSoutheasternUniversity&Source=Widget" target="_blank"><img src="http://www.nova.edu/library/help/pics/askFLchat.png" border="0" alt="Chat Now With a Florida Librarian" title="Chat Now With a Florida Librarian"/><\/a>';
+							}
+							 
+							function write_unavailable_smartbutton(){
+							document.getElementById('smartbutton').innerHTML = '<a href="askbyemail.html"><img src="http://www.nova.edu/library/help/pics/asknochat.png" border="0" alt="Chat service currently unavailable. Click here to email the Reference Desk." title="Chat service currently unavailable. Click here to email the Reference Desk."/><\/a>';
+							}
+							 
+							p_sb_img.src='https://admin.instantservice.com/resources/smartbutton/6212/'+primary_smartbutton_di+'/available.gif?'+Math.floor(Math.random()*10001);
+							p_sb_img.onload=function(evt){sb_di=primary_smartbutton_di;write_nsu_smartbutton();};p_sb_img.onerror=function(evt){chk_s_di();};
+
+
+							function chk_s_di(){
+							s_sb_img.src='https://admin.instantservice.com/resources/smartbutton/6212/'+secondary_smartbutton_di+'/available.gif?'+Math.floor(Math.random()*10001);
+							s_sb_img.onload=function(evt){sb_di=secondary_smartbutton_di;write_academic_smartbutton();};s_sb_img.onerror=function(evt){chk_t_di();};
+							}
+							</script>
+
+				<div id="smartbutton"></div>				
+			</p>
+			<p>
+				<b>Chat Service Hours (EST)</b> <br>
+				<b>Monday - Thursday, Sunday:</b> 10a.m. - 12a.m. <br>
+				<b>Friday - Saturday:</b> 10a.m. - 5p.m.
+			</p>
+
+			<a name="by-text"></a><h2 class="icon-keyboard"> Text a Librarian</h2>
+			<p>
+				Need an answer on the fly? You can <b>text</b> us any time. Send a text message beginning with the letters <b>NSU</b> to <a href="tel:19543723505">(954) 372-3505</a> - then just ask your question! Of course, your phone company's normal charges for text messaging apply.
+			</p>
+			
+			<p>
+				<b>Text Service Hours (EST)</b> <br>
+				<b>Monday - Thursday, Sunday:</b> 10a.m. - 12a.m. <br>
+				<b>Friday - Saturday:</b> 10a.m. - 5p.m.
+			</p>
+
+			<a name="by-appointment"></a><h2 class="icon-users"> Make an Appointment</h2>			
+			Please submit this brief online form [<a class="icon-link" href="http://systems.library.nova.edu/form/view.php?id=22" title="Make an Individual Appointment with an NSU Librarian">here</a>].
+		</section>
+		
+	</article>
+</div>
+
+<!-- Sidebar
+======================
+--> <div class="threecol first">
+		{% include "sidebar" %}
+	</div>
+
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="bread-crumbs"> 
+		<ul class="breadbox">
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="http://nova.edu/library/main" itemprop="url">
+					<span itemprop="title">Alvin Sherman Library</span>
+				</a>
+				<span class="arrow"><span>&nbsp;</span></span>
+			</li>
+
+			
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="/ask" title="A-Z Help Index">
+					<span itemprop="title">Ask a Librarian</span>
+				</a><span class="arrow"><span>&nbsp;</span></span>
+			</li>
+			
+		</ul><!--/.breadbox-->
+	</div>
+{% endblock %}
+
+{% block scripts %}{% endblock %}

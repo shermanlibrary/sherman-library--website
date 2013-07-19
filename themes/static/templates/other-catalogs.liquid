@@ -1,0 +1,102 @@
+{% block scopedCSS %}
+{{ "home" | asset_url | stylesheet_tag }}
+{% endblock %}
+
+{% block bodyClass %}<body class="page-template-default">{% endblock %}
+
+{% block content %}
+<!-- Left Sidebar
+======================
+--> <div class="threecol first">
+		{% include "sidebar" %}
+	</div><!--/.threecol-->
+
+<div class="ninecol last">
+	<article class="page clearfix">
+		<header>
+			<h1>Other Catalogs</h1>
+		</header>
+
+		<section class="post-content">
+			<ul>
+				<li><a href="#nsu-catalogs" class="icon-link"> NSU Catalogs</a></li>
+				<li><a href="#florida-catalogs" class="icon-link"> Florida Catalogs</a></li>
+				<li><a href="#national-catalogs" class="icon-link"> National / International Catalogs</a></li>
+			</ul>
+
+			<a name="nsu-catalogs"></a>
+			<h3>NSU Catalogs</h3>
+			<ul>
+				<li> <a class="icon-link" href="http://novacat.nova.edu"> The NSU Libraries' Catalog - "NovaCat"</a></li>
+
+				<li>
+					<a class="icon-link" href="http://www.nova.edu/cwis/oit/vidlib.html"> NSU Video Library</a> <br>
+					NSU Center for Media and Technology for NSU Only
+				</li>
+
+				<li>
+					<a class="icon-link" href="http://p8080-marps.library.nova.edu.ezproxylocal.library.nova.edu/MARPs/mydefault.aspx"> NSU MARPS, Practicums and Applied Dissertations Databases</a><br>
+					Available to NSU Students, Faculty, and Staff Only
+				</li>
+			</ul>
+
+			<a name="florida-catalogs"></a> <h3>Florida Catalogs</h3>
+			<ul>
+				<li>
+					<a class="icon-link" target="new" href="http://www.browardlibrary.org/advcatalog.html"> Broward County Library Catalog</a>
+				</li>
+
+				<li>
+					<a class="icon-link" target="new" href="http://firstsearch.oclc.org/WebZ/FSPrefs?entityjsdetect=:javascript=true:screensize=large:sessionid=fsapp5-46312-g1dybmqh-fft0gd:entitypagenum=1:0"> FloridaCat</a> -
+					Combined catalog of Florida libraries available online in FirstSearch. Includes only libraries participating in OCLC.
+				</li>
+          
+				<li><a class="icon-link" target="new" href="http://dlis.dos.state.fl.us/fgils/fl_lib.html"> Florida Libraries</a> - 
+				Links to Florida libraries including cooperatives, 
+				academic, public, and special libraries. Provided by Florida Division 
+				of Library and Information Services.</li>
+          
+				<li><a class="icon-link" target="new" href="http://www.linccweb.org"> LINCCWeb</a> - 
+				Library Information Network for Florida Community Colleges Catalog</li>
+           
+				<li><a class="icon-link" target="new" href="http://webluis.fcla.edu/cgi-bin/cgiwrap/fclwlv3/wlv3/CM02/DGgen/DBwebluis/P1home"> 
+				 WebLuis</a> - State University System of Florida Catalogs</li>
+
+			</ul>
+
+			<a name="national-catalogs"></a> 
+			<h3>National / International Catalogs</h3>
+			
+			<ul>
+				<li><a class="icon-link" target="new" href="http://lcweb.loc.gov/catalog/"> Library of Congress</a></li>
+			</ul>
+
+
+		</section>
+
+	</article>
+
+</div><!--/.ninecol-->
+
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="bread-crumbs"> 
+		<ul class="breadbox">
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="http://nova.edu/library/main" itemprop="url">
+					<span itemprop="title">Alvin Sherman Library</span>
+				</a>
+				<span class="arrow"><span>&nbsp;</span></span>
+			</li>
+
+			
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="http://nova.edu/library/main/other-catalogs.html" title="Other Catalogs">
+					<span itemprop="title"> Other Catalogs</span>
+				</a><span class="arrow"><span>&nbsp;</span></span>
+			</li>
+			
+		</ul><!--/.breadbox-->
+	</div>
+{% endblock %}

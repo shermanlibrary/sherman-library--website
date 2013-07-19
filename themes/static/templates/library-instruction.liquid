@@ -1,0 +1,101 @@
+{% block scopedCSS %}
+
+{{ "home" | asset_url | stylesheet_tag }}
+
+
+{% endblock %}
+
+{% block bodyClass %}<body class="page-template-default">{% endblock %}
+
+{% block content %}
+
+<div class="ninecol last">
+	<article class="page clearfix">
+
+		<header>
+			<h1>Library Instruction</h1>
+		</header>
+
+		<section class="post-content">
+			<p>
+				Librarians offer instructional sessions on how to use the resources at the <b>Alvin Sherman Library</b>. There are three different types of instruction we offer. Please choose the option below that best fits your needs and fill out the corresponding request form. Thanks!
+			</p>
+
+			<ul>
+				<li><a href="http://systems.library.nova.edu/form/view.php?id=22" title="Individual Instruction">Individual Instruction</a></li>
+				<li><a href="http://systems.library.nova.edu/form/view.php?id=5" title="Faculty Instruction">Faculty</a></li>
+				<li><a href="http://systems.library.nova.edu/form/view.php?id=4" title="Groups">Middle / High School and Public Groups</a></li>
+			</ul>
+		</section>	
+	</article>
+</div>
+
+<!-- Sidebar
+======================
+--> <div class="threecol first">
+		{% include "sidebar" %}
+	</div>
+
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="bread-crumbs"> 
+		<ul class="breadbox">
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="http://nova.edu/library/main" itemprop="url">
+					<span itemprop="title">Alvin Sherman Library</span>
+				</a>
+				<span class="arrow"><span>&nbsp;</span></span>
+			</li>
+
+			
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="/library-instruction" title="Library Instruction">
+					<span itemprop="title">Library Instruction</span>
+				</a><span class="arrow"><span>&nbsp;</span></span>
+			</li>
+			
+		</ul><!--/.breadbox-->
+	</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+	(function() {
+		var instruction_type 	= $('a[href=#individual-instruction], a[href=#faculty], a[href=#school-public-groups]'),
+			instruction_forms 	= $('iframe#individual, iframe#groups, iframe#faculty'),
+			individual_form	 	= $('iframe#individual'),
+			groups_form			= $('iframe#groups'),
+			faculty_form		= $('iframe#faculty');
+
+			instruction_type.on('click', function( e ) {
+
+				instruction_forms.slideUp();
+
+				if (this.title == 'Individual Instruction') {
+
+					individual_form.slideDown();
+				
+				} 
+
+				if ( this.title == 'Groups') {
+
+					groups_form.slideDown();
+
+				} 
+
+				if ( this.title == 'faculty' ) {
+
+					faculty_form.slideDown();
+
+				}
+
+				$('footer, .bread-crumbs').removeClass('persistent');
+				$('.bread-crumbs').removeClass('persistent--fixed-footer');
+
+				e.preventDefault();
+			});
+
+	})();
+</script>
+{% endblock %}

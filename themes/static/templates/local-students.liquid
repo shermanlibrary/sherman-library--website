@@ -1,0 +1,105 @@
+{% block scopedCSS %}
+
+{{ "home" | asset_url | stylesheet_tag }}
+
+
+{% endblock %}
+
+{% block bodyClass %}<body class="page-template-default">{% endblock %}
+
+{% block content %}
+
+<div class="ninecol last">
+	<article class="page clearfix">
+		<header>
+			<h1>Resources for Local <abbr title="Nova Southeastern University">NSU</abbr> Students in Broward County</h1>
+		</header>
+
+		<div class="sixcol first">
+			<h2>The Basics</h2>
+			<ul>
+				<li><a href="http://www.nova.edu/resources/nsuidentity.html">Get your  Sharklink ID</a></li>                
+				<li><a href="http://www.nova.edu/nsucard">Get your NSU Card</a></li>
+				<li><a href="../help/techhelp.html">Technology checklist</a></li>
+				<li><a href="../serv/circulation/winlocalpub.html" onclick="winlocalpub(); return false;">Borrowing 
+				  privileges</a><a href="../serv/circulation"></a></li>
+				<li><a href="../about/reghours.html">Hours</a></li>
+				<li><a href="../about/mapdir.html"> How to get here</a></li>
+				<li>Renew your books <a href="https://novacat.nova.edu/patroninfo">online</a> or call (954)262-4601</li>
+				<li><a href="https://illiad.library.nova.edu/FNN/logon.html">Interlibrary Loan</a></li>
+				<li>Course Reserve: <a href="../serv/circulation/reserve.html">Print</a>- <a href="../ecr">Electronic</a></li>
+				<li><a href="../help/faqs.html#printcopy">Printing and Photocopying</a></li>
+			</ul>
+
+			<h2>Citation Tools</h2>
+				<small>*EndNote, Procite, Reference Manager)</small>
+				<p>
+					These products locate bibliographic data and create bibliographies for curricula vitae, manuscripts, grant proposals, term papers and other   publications. 
+				</p>
+				<ul>
+					<li><a href="/common-lib/ISI/">Thomson ResearchSoft</a> [Download page for EndNote, Procite, and Reference Manager]</li>
+					<li><a href="http://www.nova.edu/library/dils/tutorials/endnote">EndNote Tutorial</a></li>
+				</ul>
+
+
+		</div>
+
+		<div class="sixcol last">
+			<h2>Getting Help</h2>
+			<ul>
+				<li><a href="../help/libtraining.html">Let us show you</a> how to use our resources. </li>
+				<li><a href="http://nova.campusguides.com/index.php?gid=104">Find a Library Guide </a> to aid you in your research</li>
+				<li><a href="http://nova.campusguides.com/cat.php?cid=20747">NSU Course Guides</a></li>
+				<li>Technical difficulties with our online systems or databases? <a href="../help/techhelp.html">Here's  some guidance</a>... </li>                <li>Still stuck?<br>
+			</ul>	
+
+			<h2>Doing Research</h2>
+
+			<ul>
+				<li><a href="http://novacat.nova.edu/screens/opacmenu.html"> NovaCat</a> (NSU libraries' catalog)</li>
+				<li><a href="http://www.browardlibrary.org/remote.html">Broward County Libraries catalog</a></li>                
+				<li><a href="http://www.flelibrary.org/scripts/webscript.exe?fsgroup.scr&amp;db=FloridaCat">Florida
+				  Group Catalog</a> (100+ public and academic libraries in FL)
+				<li><a href="../eleclib/othercatalogs.html">Other Library Catalogs</a></li>
+				<li><a href="http://sherman.library.nova.edu/e-library/index.php?col=n" onclick="pageTracker._link('http://elib.nova.edu/db/n/nsearch2.cfm'); return false;">Databases</a> &raquo; to find  articles, dissertations, and more</li> 
+				<li><span class="note">Need help logging in?</span> <a href="http://www.nova.edu/library/help/video/login/newlogin.htm">Watch this quick video</a>!</li>
+				<li><a href="http://atoz.ebsco.com/Search.asp?id=nseu">Journal Finder</a> &raquo; to find full text journals</li>                                
+				<li><a href="http://sherman.library.nova.edu/doi">DOI (Digital Object Identifier) Tools</a></li>
+				<li><a href="../eleclib/eref.html">Quick e-reference</a> &raquo; free and useful look-up tools in all areas.</li>
+				<li><a href="http://0-chronicle.com.novacat.nova.edu/"> The Chronicle of Higher Education</a> (University Subscription for NSU community only)</li>
+				<li><a href="../dils/handbooks/" target="_blank">Library Handbook</a>
+			</ul>
+		</div>
+	</article>
+</div>
+
+<!-- Sidebar
+======================
+--> <div class="threecol first">
+		{% include "sidebar" %}
+	</div>
+
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="bread-crumbs"> 
+		<ul class="breadbox">
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="http://nova.edu/library/main" itemprop="url">
+					<span itemprop="title">Alvin Sherman Library</span>
+				</a>
+				<span class="arrow"><span>&nbsp;</span></span>
+			</li>
+
+			
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="/local-students" title="Local Student Portal">
+					<span itemprop="title"> Quick Resources for Local NSU Students</span>
+				</a><span class="arrow"><span>&nbsp;</span></span>
+			</li>
+			
+		</ul><!--/.breadbox-->
+	</div>
+{% endblock %}
+
+{% block scripts %}{% endblock %}

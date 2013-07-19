@@ -1,0 +1,109 @@
+{% block scopedCSS %}
+
+{{ "home" | asset_url | stylesheet_tag }}
+
+
+{% endblock %}
+
+{% block bodyClass %}<body class="page-template-default">{% endblock %}
+
+{% block content %}
+
+<div class="ninecol last">
+	<article class="page clearfix">
+		<header>
+			<h1>Resources for Distance Students</h1>
+		</header>
+
+		<div class="sixcol first">
+			<h2>Doing Research</h2>
+			<ul>
+				<li><a href="http://sherman.library.nova.edu/e-library/index.php?col=n">Databases</a> &raquo;
+				to find articles, dissertations, and more
+				<br /><a href="../help/video/login/newlogin.htm"><span class="smallfont red">Need help logging in?</span></a></li>			
+				<li><a href="http://atoz.ebsco.com/Search.asp?id=nseu">Journal   Finder</a> &raquo; to find full text journals</li>
+				<li><a href="http://novacat.nova.edu/screens/opacmenu.html">NovaCat</a> &raquo; to find books & media</li>
+				<li><a href="../eleclib/othercatalogs.html">Other Library Catalogs</a></li>	
+				<li><a href="http://sherman.library.nova.edu/doi">Digital Object Identifier (DOI) Tools</a>	</li>			
+				<li><a href="../eleclib/eref.html">Quick e-reference</a> &raquo; free and useful look-up tools in all areas.</li>
+				<li><a href="http://0-chronicle.com.novacat.nova.edu/"> The Chronicle of Higher Education</a> (University Subscription for NSU community only) </li>
+			</ul>
+
+			<h2>The Basics</h2>
+			<ul>
+				<li><a href="http://www.nova.edu/cwis/oit/nsuidentity.html">Get your Sharklink ID</a></li>
+
+				<li><a href="http://www.nova.edu/nsucard">Get your NSU Card</a></li>
+
+				<li><a href="https://www.nova.edu/sbin/account_request">Get an NSU email   account</a></li>
+
+				<li><a href="../help/techhelp.html">Technology checklist</a></li>
+
+				<li><a href="../serv/circulation/windist.html">Borrowing privileges</a><a href="../serv/circulation"></a></li>
+
+				<li><a href="../about/reghours.html">Library hours</a></li>   
+			</ul>
+		</div>
+
+		<div class="sixcol last">
+			<h2>Library Services</h2>
+			<ul>
+				<li><a href="https://illiad.library.nova.edu">Document Delivery/ILLiad</a></li>
+
+				<li><a href="../serv/reference">Reference</a></li>
+
+				<li>Course Reserves: <a href="../serv/circulation/reserve.html">Print</a> | <a href="../ecr">Electronic</a></li>
+
+				<li><a href="../help/faqs.html#printcopy">Printing and Photocopying</a> </li>
+			</ul>
+
+			<h2>Getting Help</h2>
+			<ul>
+				<li><a href="http://nova.campusguides.com/index.php?gid=104">Library Guides</a></li>
+
+				<li><a href="http://nova.campusguides.com/cat.php?cid=20747">NSU Course Guides</a></li>
+
+				<li><a href="../help/libtraining.html">Let us show you</a> how to use our resources.</li>
+			</ul>
+
+			<h2>Citation Tools</h2>
+			<ul>
+				<li><a href="http://www.nova.edu/common-lib/ISI/">Thomson ResearchSoft</a> [Download page for   EndNote, Procite, and Reference Manager]</li>
+
+				<li><a href="http://nova.campusguides.com/aecontent.php?pid=169936&sid=2116190">EndNote   Tutorial</a> </li>
+			</ul>
+		</div>
+
+	</article>
+</div>
+
+<!-- Sidebar
+======================
+--> <div class="threecol first">
+		{% include "sidebar" %}
+	</div>
+
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="bread-crumbs"> 
+		<ul class="breadbox">
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="http://nova.edu/library/main" itemprop="url">
+					<span itemprop="title">Alvin Sherman Library</span>
+				</a>
+				<span class="arrow"><span>&nbsp;</span></span>
+			</li>
+
+			
+			<li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a href="/distant-students" title="Distant Students Portal">
+					<span itemprop="title"> Quick Resources for Distance Students</span>
+				</a><span class="arrow"><span>&nbsp;</span></span>
+			</li>
+			
+		</ul><!--/.breadbox-->
+	</div>
+{% endblock %}
+
+{% block scripts %}{% endblock %}

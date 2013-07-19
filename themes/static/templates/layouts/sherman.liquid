@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<!-- Google Chrome Frame for IE -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<!--[if lt IE 7]><html dir="ltr" lang="en-US" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html dir="ltr" lang="en-US" class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html dir="ltr" lang="en-US" class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><html dir="ltr" lang="en-US" class="no-js ie"><![endif]-->
+
+<head>
+    
+    <meta charset=utf-8>    
+    <title>{% block title %}Alvin Sherman Library, Research, and Information Technology Center{% endblock %}</title>
+
+    <meta name="description" content="{% block description %}The Alvin Sherman Library strives to be the premier research, cultural, and lifelong loearning center for Nova Southeastern University and the community.{% endblock %}">
+
+    <meta name="keywords" content="{% block keywords %}alvin sherman library, sherman library, nsu library, nsu libraries, nova southeastern university library, nova southeastern university libraries{% endblock %}">
+
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>             
+
+    <!-- Stylesheets (CSS)
+    ======================
+    --> <link rel="stylesheet" type="text/css" href="http://sherman.library.nova.edu/cdn/styles/css/polar.css?ver=0.8.3" media="all">
+
+        <!--[if lt IE 9]> 
+            <link rel="stylesheet" type="text/css" href="http://sherman.library.nova.edu/cdn/styles/css/polar-ie.css?ver=0.8.3" media="all">
+        <![endif]-->
+
+        {% block scopedCSS %}{%endblock%}    
+
+        <link rel="stylesheet" type="text/css" href="public/styles/home.min.css">
+
+
+    <!-- Javascript
+    ======================
+    --> <script type="text/javascript" src="http://sherman.library.nova.edu/cdn/scripts/libs/modernizr.js"></script>
+
+    <!-- Google Analytics
+    ======================
+    --> <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+            </script>
+            <script type="text/javascript">
+            var pageTracker = _gat._getTracker("UA-4856563-2");
+            pageTracker._setDomainName("none");
+            pageTracker._setAllowLinker(true);
+            pageTracker._initData();
+            pageTracker._trackPageview();
+        </script>
+
+
+    </head>
+    {% block bodyClass %}
+    <body>
+    {% endblock %}
+
+    <!-- Heat Map
+    ======================
+    --><script type="text/javascript"> var WRInitTime=(new Date()).getTime(); </script>
+        
+        {% include "header" %}
+
+        <div id="content">
+            <div id="inner-content" class="wrap clearfix">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+
+        {% block breadcrumbs %}{% endblock %}
+        {% include "footer" %}            
+    
+    <!-- Javascript
+    ======================
+    --> <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script src="//sherman.library.nova.edu/cdn/scripts/scripts.js"></script>
+        {% block scripts %}{% endblock %}
+
+<!-- Heat Map
+======================
+--> <div id="ClickTaleDiv" style="display: none;"></div>
+
+    <script type="text/javascript">
+        window.ClickTaleScriptSource = 'http://cdn.clicktale.net/www/';
+        if(document.location.protocol != 'https:'){
+        document.write(unescape("%3Cscript%20src='" + window.ClickTaleScriptSource + "WRe2.js'%20type='text/javascript'%3E%3C/script%3E"));
+        }
+    </script>
+
+    <script type="text/javascript">
+        if(typeof ClickTale=='function')  ClickTale(16783, 0.0185, "www14");
+    </script>
+    </body>
+</html>

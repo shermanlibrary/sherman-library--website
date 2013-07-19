@@ -1,0 +1,108 @@
+{% block scopedCSS %}
+
+<link rel="stylesheet" type="text/css" href="http://staff.library.nova.edu/library/assets/css/ui.css" media="only screen and (min-width: 48em)">
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="http://staff.library.nova.edu/library/assets/css/ui.css">
+
+<style type="text/css">
+	.ui-widget-content {
+		font-size: 14px;
+	}
+</style>
+
+<![endif]-->
+
+<!--[if lt IE 8]>
+<style type="text/css">
+	.tinsley-gradient { background-color: #21348a;}
+</style>
+
+<![endif]-->
+
+{% endblock %}
+
+{% block bodyClass %}<body class="home">{% endblock %}
+
+{% block content %}
+<div id="main" class="ninecol first">
+
+<!-- Sidebar
+======================
+-->	<div class="fourcol first">
+		{% include "sidebar" %}
+	</div><!--/.fourcol-->
+
+<!-- Main, Six Column
+======================
+--> <div class="eightcol last">
+
+<!-- Old Search Widget
+======================
+-->	<section id="old-search-widget"></section>
+		 			
+
+<!-- Carousel
+======================
+--> <section id="carousel" class="portlet shadow"></section>
+
+</div><!--/.sixcol-->
+
+</div><!--/main-->
+
+<!-- Right Sidebar
+======================
+--> <div id="sidebar" class="threecol last">
+
+<!--
+// Note: the column classes for #sidebar are arbitrary for
+// screens larger than 73em.
+-->
+
+<!-- Patron Portals
+======================
+--> <section class="portlet">
+		<h2 class="icon-link"> Helpful Links</h3>
+		<ul class="wrap">
+			<li>
+				<a class="icon-user" href="/local-students.html"> Local</a> or <a href="/distance-students.html">Distance Students</a>
+			</li>
+
+			<li>
+				<a class="icon-user" href="/faculty-and-staff.html"> Faculty, Staff</a> and <a href="/alumni.html">Alumni</a>
+			</li>
+
+			<li>
+				<a class="icon-user" href="/public.html"> Broward County Patrons</a>
+			</li>
+
+		</ul>					
+	</section>
+
+	<section class="portlet">
+		<a class="lib-button-wide tinsley-gradient" href="http://www.nova.edu/library/newacq/" title="See What's Been Recently Added"><span class="icon-books" aria-hidden="true" style="position: absolute; left: 1em; margin-top: 2px;"></span> See What's New</a>
+	</section>
+
+	<section class="portlet widget">
+		<div class="events feed">					
+			<script type="text/javaScript" src="http://sherman.library.nova.edu/helios/js/e-sherman.php?s=3&amp;z=3&amp;t=1"></script>
+		</div>
+
+		<a class="icon-link" href="//sherman.library.nova.edu/helios" title="View the Calendar"> See More Events</a> 
+	</section>
+
+	<!--<section class="portlet shadow">
+		<header class="event">
+			<h2 class="h3">Poll: General Impressions </h2>
+			<span class="icon-stats" arial-hidden="true"></span>
+		</header>
+		<div class="wrap">
+		<iframe height="405" allowTransparency="true" frameborder="0" scrolling="no" style="width: 100%;border:none" src="http://systems.library.nova.edu/form/embed.php?id=43" title="Library Redesign"><a href="http://systems.library.nova.edu/form/view.php?id=43" title="Library Redesign">Library Redesign</a></iframe>
+		</div>
+	</section>	-->									
+
+</div><!--/#sidebar-->
+
+{% endblock %}
+
+{% block scripts %}{% endblock %}

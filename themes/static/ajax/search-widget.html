@@ -1,0 +1,46 @@
+<!-- Default Keyword Search
+======================
+-->	<form name="novacat_search" id="novacat_search" method="get" action="http://novacat.nova.edu/search/X">
+		<input id="keyword" name="searchtype" type="radio" value="0" data-placeholder="Try keywords, you know, like a Google search.">
+		<input id="author" name="searchtype" type="radio" value="a" data-placeholder="Last-name first, e.g., Rowling, J.K.">
+		<input id="title" name="searchtype" type="radio" value="t" data-placeholder="The Hobbit">
+		<input id="subject" name="searchtype" type="radio" value="d" data-placeholder="Medicine">
+		<input id="lcn" name="searchtype" type="radio" value="c" data-placeholder="PR6039.O32 H6 1995">
+		<input id="dcn" name="searchtype" type="radio" value="e" data-placeholder="J 398.2 Lamarche">
+		<input id="nlmcn" name="searchtype" type="radio" value="m" data-placeholder="GN 296 L892c 1997">
+		<input id="isn" name="searchtype" type="radio" value="i" data-placeholder="Example here.">
+
+		<input name="SEARCH" id="searcharg" placeholder="Try keywords, you know, like a Google search." type="text" required>
+
+		<div id="ebook-limit" class="limit">
+			<span class="icon-mobile">E-Books Only
+				<input type="hidden" name="m">
+			</span>
+		</div>
+
+		<input type="hidden" name="SORT" value="D">
+
+		<div class="keyword-search">
+		<!-- Note: Create this with Javascript
+		======================
+		--> <label class="active" for="keyword">Keyword</label>		
+			<label for="author">Author</label>			
+			<label for="title">Title</label>
+			<label for="subject">Subject</label>			
+			<label for="call-numbers">Call Number</label> 
+			<input type="checkbox" id="call-numbers">		
+			<div class="call-numbers">
+
+				<label for="lcn">LOC Call Number</label>
+
+				<label for="dcn">Dewey Call Number</label>
+
+				<label for="nlmcn">NLM Call Number</label>
+
+				<label for="isn">ISN</label>
+			
+			</div>
+
+		</div> <!--/.keyword-search-->
+
+	</form>
