@@ -1,41 +1,10 @@
-/* ====================== *
- * $VARIABLES
- * ====================== */
 /* ==================
- * $COLORS 
- */
+ * $Colors */
 
-$polaris-blue-dark:			#21348A;
-$polaris-blue-light:		#3366CC;
-$polaris-tropical-blue:		#1fbaf2;
-$blue-dark:					#006699; // Anchors and important text.
-$blue-light:				#50AFDF; // Gradients, backgrounds, and buttons.
-$blue-soft:					#91CDEB;
-$gray-light:				#EEEEEE; // Toolbars, menus, etc.
-$alert-yellow:            	lighten(#ebe16f, 15%);
-$alert-red:               	#fbe3e4;
-$alert-green:             	#e6efc2;
-$alert-blue:              	#213463;
-$blue-dark:					#006699; // Anchors and important text.
-$blue-light:				#50AFDF; // Gradients, backgrounds, and buttons.
-$coral:						#E2624F;
-$gray-dark:					#555555; // Borders, menu backgrounds, and so on.
-$gray:						#333333;
-$green:						#79C474;
-$green-light:				#87BFBD;
-$yellow:					#dda300;
-$yellow-soft:				#EBDA79;
-
-/* ==================
- * Typography
- */
-$sans-stack: 'Calibri', 'Myriad Pro', Myriad, Tahoma, 'DroidSansRegular', Geneva, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$ie-sans-stack: 'Calibri', Tahoma, 'DroidSansRegular', Geneva, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 /* ==================
  * $MEDIA-QUERY VARIABLES
- * Base font of 16px.
-  */
+ * Base font of 16px. */
 $handheld: 30.062em; // 481px
 $handheld-end: $handheld - .1em;
 $snapscreen: 37.375em; // 16 base
