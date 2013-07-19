@@ -1,0 +1,41 @@
+/* ==================
+ * $Header */
+
+.header {
+	background-color: $header-background;
+	border-bottom: 10px solid $dark-blue-base;
+	color: white;
+	margin: 0 auto;
+
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.pill-menu {
+		display: inline-block;
+
+		.primary > .label {
+			
+			background-color: $light-blue-object;
+			&:hover, &:active { 
+
+				background-color: lighten($light-blue-object, 5%); 
+				&:after { border-left-color: lighten($light-blue-object, 5%); }
+
+			}
+		} // .primary > .label
+
+		.secondary > .label {
+			
+			background-color: $dark-blue-base;
+			&:hover, &:active { background-color: lighten($dark-blue-base, 5%); }			
+
+		} // .secondary > .label
+	} // .pill-menu
+}
+
+	/* ==================
+	 * $Logo */	
+	.logo span { color: $dark-blue-base; }

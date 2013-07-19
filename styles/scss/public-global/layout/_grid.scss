@@ -1,6 +1,15 @@
 .wrap {
-    max-width: 1140px;
-}
+    margin: 0 auto;
+    width: 98%;
+
+    @include breakpoint(tablet) {
+        max-width: 1140px;
+        width: 90%;
+    }
+} 
+
+@media only screen and (min-width: $tablet) {
+
     .row {
         width: 100%;
         margin: 0 auto;
@@ -47,4 +56,5 @@
         margin: 0 auto;
     }
 
+}
 
