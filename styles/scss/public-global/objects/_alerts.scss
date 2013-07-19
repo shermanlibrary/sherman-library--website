@@ -1,0 +1,64 @@
+.alert { 
+	background: $alert-blue url('textures/noise.png');
+	border-radius: 4px;
+	box-shadow: inset 0 2px 2px 0 #222;
+	color: $gray-light;
+	padding: 0 .5em;
+	line-height: 1;
+	position: relative;
+	text-align: left;
+
+	p { 
+		margin: .5em auto; 
+
+		a {
+			color: $blue-light;
+
+			&:hover { color: lighten($blue-light, 9%); }
+		}
+
+	}
+}
+
+.alert--note div, .alert--note p {
+
+	color: #d6e0f5;           
+
+	&:before { 
+		color: $yellow-soft;
+		padding-right: .5em;
+		text-shadow: 0 1px 4px black;
+		top: 2px;
+	}	
+}
+
+.alert--notice {
+	//@include background-image(linear-gradient(top, $alert-yellow, lighten($alert-yellow, 9%)));
+	background: #ff7f7f;
+	//border-left: 6px solid lighten($alert-yellow, 15%);
+}
+.alert--fixed {
+	border-radius: 0;
+	margin-bottom: .5em;	
+	margin-top: -14px;
+	padding: .5em;
+	position: relative;
+	left: 0;
+	right: 0;
+
+	div, p {
+		margin: 0 auto;
+		width: 90%;
+	}
+}
+
+.lib-success {display: block;line-height:1.5em;margin: -0.5em 0 1.6em 0;padding: 1em 1.6em;background: #b2ff7f; border: 1px solid #8acc66;text-align: left;color: #444;}
+.lib-alert {display: block;line-height:1.5em;margin: -0.5em 0 1.6em 0;padding: 1em 1.6em;background: #ffff7f; border: 1px solid #cc6;text-align: left;color: #444;}
+.lib-error {display: block;line-height:1.5em;margin: -0.5em 0 1.6em 0;padding: 1em 1.6em;background: #ff7f7f;border: 1px solid #cc6666;text-align: left;color: #444;}
+.lib-error a {color:#841b1b;}
+.lib-note {display: block;line-height:1.5em;margin: -0.5em 0 1.6em 0;padding: 1em 1.6em;background: #7fc1ff;border: 1px solid #6694cc;text-align: left;color: #444;}
+.lib-error a {color:#154e96;}
+
+@media only screen and (min-width: 48em) {
+	.alert--fixed { text-align: center; }
+}

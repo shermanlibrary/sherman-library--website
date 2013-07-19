@@ -1,0 +1,195 @@
+/* ==================
+ * Alvin Sherman Library
+ * ================== */
+/* ==================
+ * CONTENTS
+ * ================== */
+/* ==================
+ * Utilities ........ Mixins, resets, and variables
+ * - Compass ........ Convenient and backward-compatible library
+ * - Normalize ...... for browser inconsistencies (normalize.css)
+ * - Mixins ......... Colors and convenient, homegrown utility classes (like "shadow")
+ * Modules .......... Modularized Styles, Objects
+ * - Typography
+ * - Brand
+ * - Header
+ * - Footer
+ * - Portlers
+ * - Carousel
+ * - Login
+ * - Ask a Librarian
+ * Objects .......... Specific components of the website, like "Tabs"
+ * - Icon Font
+ * - Alerts
+ * - Bread Crumbs
+ * - Forms
+ * - Infograph
+ */
+
+/* ==================
+ * $UTILITIES
+ * ================== */
+ @import "compass";
+ @import 'core/_normalize'; 
+ @import 'core/_variables';
+ @import 'mixins';
+ @import 'core/_gradients';
+ @import 'core/_code';
+
+/* ==================
+ * $MODULES
+ * ================== */
+@import 'modules/_typography';
+@import 'modules/_brand';
+@import 'modules/_header';
+@import 'modules/_footer';
+@import 'modules/_tinsleyfied-portlets'; // old
+@import 'modules/_tinsleyfied-carousel'; // old
+@import 'modules/_tinsleyfied-login'; // old
+
+@import 'modules/_ask-a-librarian';
+
+/* ==================
+ * $OBJECTS
+ * ================== */
+@import 'objects/_icon-font';
+@import 'objects/_menus';
+@import 'objects/_alerts';
+@import 'objects/_breadcrumbs';
+@import 'objects/_buttons';
+@import 'objects/_forms';
+@import 'objects/_infograph';
+
+/* ==================
+ * Foundation
+ * ================== */
+/* ==================
+ * Load here only the most basic styles.*/
+ @import 'base'; 
+
+/* ==================
+ * Larger Mobile Devices
+ * ================== */
+/* ==================
+ * If needed, from here we can tweak for
+ * phones or really small tablets. */
+@media only screen and (min-width: 30.062em) { 
+	@import '481up'; 
+}
+
+/* ==================
+ * Tablets and Small Laptops
+ * ================== */
+/* ==================
+ * From here on, these are really the more
+ * common viewing windows. We can begin to 
+ * work in more resource intensive styles */
+@media only screen and (min-width: 48em) { 
+	@import 'grid';
+	@import '768up'; 
+}
+
+/* ==================
+ * Small Monitors
+ * ================== */
+@media only screen and (min-width: 63.9375em) {
+	@import '1024up';
+	@import 'objects/_tooltips'; 
+}
+
+/* ==================
+ * Widescreen Monitors
+ * ================== */
+@media only screen and (min-width: 64.375em) { 
+	@import '1030up';
+}
+
+/* ==================
+ * Large Viewing Size
+ * ================== */
+@media only screen and (min-width: 77.5em) { 
+	@import '1240up'; 
+}
+
+/* ==================
+ * Retina, High PPI Screens
+ * ================== */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) { 
+       	//@import "2x"; 
+   }
+
+/* ==================
+ * Print Stylesheet
+ * ================== */
+@media print { 
+	* { 
+		background: transparent !important; 
+		color: black !important; 
+		text-shadow: none !important; 
+		filter:none !important; 
+		-ms-filter: none !important; 
+	} 
+	
+	a, a:visited { 
+		color: #444 !important; 
+		text-decoration: underline; 
+		
+		/* show links on printed pages */
+		&:after { 
+			content: " (" attr(href) ")"; 
+		}
+		
+		/* show title too */
+		abbr[title]:after { 
+			content: " (" attr(title) ")"; 
+		}
+	} 
+	
+	.ir a:after, 
+	a[href^="javascript:"]:after, 
+	a[href^="#"]:after { 
+		content: ""; 
+	} 
+	
+	pre, blockquote { 
+		border: 1px solid #999; 
+		page-break-inside: avoid; 
+	} 
+	
+	thead { 
+		display: table-header-group; 
+	} 
+	
+	tr, img { 
+		page-break-inside: avoid; 
+	} 
+	
+	img { 
+		max-width: 100% !important; 
+	}
+    
+    @page { 
+    	margin: 0.5cm;
+    } 
+    
+    p, h2, h3 { 
+    	orphans: 3; 
+    	widows: 3; 
+    } 
+    
+    h2, 
+    h3 { 
+    	page-break-after: avoid; 
+    }
+    
+    /* hide content people who print don't need to see */
+    .sidebar,
+    .page-navigation, 
+    .wp-prev-next,
+    .respond-form,
+    nav {
+    	display: none;
+    }
+}

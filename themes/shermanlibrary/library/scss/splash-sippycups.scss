@@ -1,0 +1,345 @@
+/******************************************************************
+Site Name: Concerts at the Alvin Sherman Library - the Sippy Cups
+Author: Michael Schofield
+
+Stylesheet: Splash
+******************************************************************/
+@import "compass";
+
+/* ==================
+ * Fonts */
+@font-face {
+	font-family: 'LondrinaSolidRegular';
+	src: url('fonts/LondrinaSolid-Regular-webfont.eot');
+	src: url('fonts/LondrinaSolid-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('fonts/LondrinaSolid-Regular-webfont.woff') format('woff'),
+	     url('fonts/LondrinaSolid-Regular-webfont.ttf') format('truetype'),
+	     url('fonts/LondrinaSolid-Regular-webfont.svg#LondrinaSolidRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* ==================
+ * Variables
+ * ================== */
+$sippy-pink: 		#ec4e98;
+$sippy-pink-light: 	lighten($sippy-pink, 9%);
+
+/* ==================
+ * Helpful Classes */
+.sippy-gradient { @include background-image(linear-gradient(top, $sippy-pink, $sippy-pink-light));}
+
+/* ==================
+ * Brand
+ * ================== */
+#logo {
+	background: transparent url('concerts/images/logo(small).png') no-repeat 0 0;
+	background-size: 300px 99px;
+	width: 300px;
+    height: 99px;
+    margin: 0 auto;
+}
+
+/* ==================
+ * Base, Mobile Styles
+ * ================== */
+body { 
+	background: #111 url('textures/noise.png'); 
+	color: white; 
+}
+small { color: $sippy-pink-light;}
+
+.announcement { display: none; }
+.description, .details { 
+	color: $sippy-pink-light; 
+	font-family: 'LondrinaSolidRegular', Georgia, serif;
+	font-weight: 200;
+
+	a, a:visited { 
+		color: $sippy-pink-light; 
+		
+-webkit-transition: all 1s ease;
+   -moz-transition: all 1s ease;
+     -o-transition: all 1s ease;
+        transition: all 1s ease;
+
+		&:hover, &:active, &:focus {
+			color: white;
+		}
+	}
+
+	audio { width: 75%; }
+
+	h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+		font-family: inherit;
+		line-height: 1;
+	}
+	small { color: white; }
+}
+.description { 
+	
+	a, a:visited { 
+		color: white; 
+		text-shadow: 1px 2px 2px #111;
+		
+		&:hover, &:active, &:focus {
+			text-shadow: 1px 2px 5px #111;
+		}
+	}
+
+
+	font-size: 1.5em;	
+	text-align: center;
+}
+.sample {
+	border: 1px solid white;
+	@include border-radius(3px);
+	margin: 0 auto 1em;
+	padding: 3px;
+
+	.h3 { line-height: 1.5;}
+}
+.header { height: auto; }
+.icon-redo {
+	@include transform(rotate(90deg));
+}
+
+
+
+/*
+LARGER MOBILE DEVICES
+This is for devices like the Galaxy Note or something that's 
+larger than an iPhone but smaller than a tablet. Let's call them
+tweeners.
+*/
+@media only screen and (min-width: 481px) {} // end of media query
+
+/*
+TABLET & SMALLER LAPTOPS
+This is the average viewing window. So Desktops, Laptops, and 
+in general anyone not viewing on a mobile device. Here's where
+you can add resource intensive styles.
+*/
+@media only screen and (min-width: 768px) {
+
+	#logo {
+		background: transparent url('concerts/images/logo.png') no-repeat 0 0;
+		background-size: 500px 166px;
+		width: 500px;
+	    height: 166px;
+	    margin: 14px auto auto 0;
+	}
+
+	.description {
+		position: absolute;
+		color: #111;
+
+		audio {}
+	}
+	/* ==================
+	 * Behold the dragon! */
+	.announcement {
+		height: 30px; 
+		display: block;
+
+		img { width: 75%; }
+
+		span { 
+			position: absolute;
+			right: -3em;
+			margin-top: -7px;
+	-webkit-transition: all 1s ease-out;
+	   -moz-transition: all 1s ease-out;
+	     -o-transition: all 1s ease-out;
+	        transition: all 1s ease-out;
+
+			&:hover, &:active, &:focus {
+				@include transform(rotate(15deg));
+			}
+		}
+	}
+	.sample .h3 { line-height: 1; }
+	
+	.fivecol { width: 100%; }
+
+} // end of media query
+
+@media only screen and (min-width: 1024px) {
+	.announcement {
+		img { width: 100%; }
+		span { right: 2em; }
+	}
+	.fivecol {
+		width: 40.055248616%;
+	}
+
+	.the-band {
+		position: fixed;
+		bottom: 0; right: 0;
+		background: transparent url('concerts/images/band.png') no-repeat bottom right;
+		background-size: 550px 429px;
+		height: 429px;
+		width: 550px;
+	}	
+}
+/*
+DESKTOP 
+This is the average viewing window. So Desktops, Laptops, and 
+in general anyone not viewing on a mobile device. Here's where
+you can add resource intensive styles.
+*/
+@media only screen and (min-width: 1030px) {
+	
+	#logo {
+		background: transparent url('concerts/images/logo.png') no-repeat 0 0;
+		background-size: 640px 211px;
+		width: 640px;
+	    height: 211px;
+	    margin: 0 auto auto 0;
+	}
+
+	.the-band {
+		position: fixed;
+		bottom: 0; right: 0;
+		background: transparent url('concerts/images/band.png') no-repeat bottom right;
+		height: 556px;
+		width: 684px;
+	}
+
+} // end of media query
+
+/*
+LARGE VIEWING SIZE 
+This is for the larger monitors and possibly full screen viewers.
+*/
+@media only screen and (min-width: 1240px) {
+	
+	#logo {
+		background: transparent url('concerts/images/logo.png') no-repeat 0 0;
+		background-size: 868px 286px;
+		width: 868px;
+	    height: 286px;
+	    margin: 0 auto auto 0;
+	}
+
+} // end of media query
+
+/*
+RETINA (2x RESOLUTION DEVICES)
+This applies to the retina iPhone (4s) and iPad (2,3) along with 
+other displays with a 2x resolution. You can also create a media
+query for retina AND a certain size if you want. Go Nuts.
+*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {
+	
+	// styles in 2x.scss
+	@import "2x"; 
+
+} // end of media query 
+
+/*
+PRINT STYLESHEET
+Feel free to customize this. Remember to add things that won't make
+sense to print at the bottom. Things like nav, ads, and forms should
+be set to display none.
+*/
+@media print { 
+	* { 
+		background: transparent !important; 
+		color: black !important; 
+		text-shadow: none !important; 
+		filter:none !important; 
+		-ms-filter: none !important; 
+	} 
+	
+	a, a:visited { 
+		color: #444 !important; 
+		text-decoration: underline; 
+		
+		// show links on printed pages
+		&:after { 
+			content: " (" attr(href) ")"; 
+		}
+		
+		// show title too
+		abbr[title]:after { 
+			content: " (" attr(title) ")"; 
+		}
+	} 
+	
+	.ir a:after, 
+	a[href^="javascript:"]:after, 
+	a[href^="#"]:after { 
+		content: ""; 
+	} 
+	
+	pre, blockquote { 
+		border: 1px solid #999; 
+		page-break-inside: avoid; 
+	} 
+	
+	thead { 
+		display: table-header-group; 
+	} 
+	
+	tr, img { 
+		page-break-inside: avoid; 
+	} 
+	
+	img { 
+		max-width: 100% !important; 
+	}
+    
+    @page { 
+    	margin: 0.5cm;
+    } 
+    
+    p, h2, h3 { 
+    	orphans: 3; 
+    	widows: 3; 
+    } 
+    
+    h2, 
+    h3 { 
+    	page-break-after: avoid; 
+    }
+    
+    // hide content people who print don't need to see
+    .sidebar,
+    .page-navigation, 
+    .wp-prev-next,
+    .respond-form,
+    nav {
+    	display: none;
+    }
+}
+
+/* ==================
+ * CSS3 Fixes
+ * ================== */
+
+.lt-ie8 { 
+	.announcement {
+		span {display: none;}
+	}
+}
+.lt-ie9 { .sample { display: none; } }
+
+.no-cssgradients {
+	.sippy-gradient {
+		background: $sippy-pink url('concerts/images/sippy-gradient.jpg') repeat-x;
+	}
+}
+
+.no-backgroundsize {
+
+	#logo {
+		background: transparent url('concerts/images/logo(no-bg-size).png') no-repeat 0 0;
+	}
+
+	.the-band {
+		background: transparent url('concerts/images/band(no-bg-size).png') no-repeat bottom right;
+	}
+}

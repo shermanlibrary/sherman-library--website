@@ -1,0 +1,191 @@
+/* ==================
+ * Typography
+ * ================== */
+$serif: Georgia, serif;
+
+body { 
+    font-size: 18px;
+}
+
+
+/* ==================
+ * Heading Styles */
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 { 
+    font-family: Georgia, sans-serif; 
+    text-rendering : optimizelegibility;
+    font-weight: 500; 
+    /* 
+    if you're going to use webfonts, be sure to check your weights 
+    http://css-tricks.com/watch-your-font-weight/
+    */
+    
+    /* removing text decoration from all headline links */
+    a {
+        text-decoration: none;
+    }
+}
+
+h1, .h1 { 
+    font-size: 2.5em; 
+    line-height: 1.333em; 
+}
+
+h2, .h2 { 
+    font-size: 1.75em; 
+    line-height: 1.4em; 
+    margin-bottom: 0.375em; 
+}
+
+h3, .h3 { 
+    font-size: 1.125em; 
+}
+
+h4, .h4 { 
+    font-size: 1.1em; 
+    font-weight: 700; 
+}
+
+h5, .h5 { 
+    font-size: 0.846em; 
+    line-height: 2.09em; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+}
+
+/* ==================
+ * Icon Font
+ * ================== */
+@font-face {
+    font-family: 'icomoon';
+    src:url('fonts/icons/icomoon.eot');
+    src:url('fonts/icons/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('fonts/icons/icomoon.woff') format('woff'),
+        url('fonts/icons/icomoon.svg#icomoon') format('svg'),
+        url('fonts/icons/icomoon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    font-family: 'icomoon';
+    font-style: normal;
+    speak: none;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    line-height: 0;
+    position: relative;
+}
+
+.icon-book:before { content: "+"; }
+.icon-books:before { content: ","; }
+.icon-bubbles:before { content: "7"; }
+.icon-calendar:before { content: "P"; }
+.icon-clock:before { content: "M"; }
+.icon-feed:before { content: "|";}
+.icon-film:before { content: "\'"; }
+.icon-help:before { content: "i"; }
+.icon-help-2:before { content: "{i}"; }
+.icon-home:before { content: "\21"; }
+.icon-info:before { content: "j"; }
+.icon-keyboard:before { content: "4"; }
+.icon-library:before { content: "-";}
+.icon-mail:before { content: "J"; }
+.icon-map:before { content: "3"; }
+.icon-office:before { content: "\""; }
+.icon-play:before { content: "&"; }
+.icon-plus:before { content: "o"; }
+.icon-rocket:before { content: "_"; }
+.icon-search:before { content: "X"; }
+.icon-stats:before { content: ">"; }
+.icon-user:before { content: "←";}
+.icon-users:before { content: "\3b"; }
+.icon-wifi:before { content: "*";}
+
+.icon-pencil:before { content: "\72"; }
+.icon-phone:before { content: "I"; }
+.icon-location:before { content: "\25"; }
+.icon-compass:before { content: "\26"; }
+.icon-cart:before { content: "\28"; }
+.icon-broadcast:before { content: "\29"; }
+.icon-mobile:before { content: "Q"; }
+.icon-undo:before { content: "\2c"; }
+.icon-redo:before { content: "\2d"; }
+.icon-forward:before { content: "\2e"; }
+.icon-reply:before { content: "\2f"; }
+.icon-comments:before { content: "V"; }
+.icon-comments-2:before { content: "\31"; }
+.icon-key:before { content: "\33"; }
+.icon-unlocked:before { content: "\34"; }
+.icon-locked:before { content: "\35"; }
+.icon-key-2:before { content: "\36";  }
+.icon-cog:before { content: "\37"; }
+.icon-coffee:before { content: "\38"; }
+//.icon-rocket:before { content: "\39"; }
+.icon-fire:before { content: "\3a"; }
+.icon-lab:before { content: "\3b"; }
+.icon-target:before { content: "\3c"; }
+.icon-grid-view:before { content: "c"; }
+.icon-heart:before { content: "\3e"; }
+.icon-star:before { content: "\3f"; }
+.icon-thumbs-up:before { content: "\40"; }
+.icon-happy:before { content: "\41"; }
+.icon-smiley:before { content: "\42"; }
+.icon-neutral:before { content: "\43"; }
+.icon-thumbs-down:before { content: "\44"; }
+.icon-minus:before { content: "\46"; }
+//.icon-help:before { content: "\47"; }
+.icon-help-2:before { content: "\48"; } 
+
+.icon-cancel:before { content: "\4a"; }
+.icon-cancel-2:before { content: "\4b"; }
+.icon-checkmark:before { content: "\4c"; }
+.icon-minus-2:before { content: "\4d"; }
+.icon-plus-2:before { content: "\4e"; }
+.icon-arrow-up:before { content: "\4f"; }
+.icon-arrow-down:before { content: "\50"; }
+.icon-arrow-left:before { content: "\51"; }
+.icon-arrow-right:before { content: "\52"; }
+.icon-arrow-up-2:before { content: "\53"; }
+.icon-arrow-right-2:before { content: "\54"; }
+.icon-arrow-down-2:before { content: "\55"; }
+.icon-arrow-left-2:before { content: "\56"; }
+.icon-arrow-up-3:before { content: "\57"; }
+.icon-arrow-right-3:before { content: "\58"; }
+.icon-arrow-left-3:before { content: "\59"; }
+.icon-arrow-down-3:before { content: "\5a"; }
+.icon-mail-2:before { content: "\5b"; }
+.icon-google-plus:before { content: "\5c"; }
+.icon-facebook:before { content: "\5d"; }
+.icon-google-plus-2:before { content: "\5e"; }
+.icon-facebook-2:before { content: "\5f"; }
+.icon-twitter:before { content: "\60"; }
+.icon-twitter-2:before { content: "\61"; }
+.icon-flickr:before { content: "\64"; }
+.icon-flickr-2:before { content: "\65"; }
+.icon-github:before { content: "\66"; }
+.icon-tumblr:before { content: "\67"; }
+.icon-tumblr-2:before { content: "\74"; }
+.icon-pinterest:before { content: "\69"; }
+.icon-pinterest-2:before { content: "\6a"; }
+.icon-html5:before { content: "\6b"; }
+//.icon-user:before { content: "\73"; }
+
+ /* ==================
+ * Larger Mobile Devices
+ * ================== */
+//@media only screen and (min-width: 30.062em) { body {} }
+
+ /* ==================
+  * Tablets and Small Laptops
+  * ================== */
+@media only screen and (min-width: 48em) { body { font-size: 14px; } }
+
+/* ==================
+ * Widescreen Monitors
+ * ================== */
+//@media only screen and (min-width: 64.375em) { body { font-size: 14px; } }
+
+/* ==================
+ * Large Viewing Size
+ * ================== */
+//@media only screen and (min-width: 77.5em) {}

@@ -1,0 +1,80 @@
+/* ==================
+ * $BRAND
+ * ================== */
+/* ==================
+ * Logo
+ * Logo - Backward Compatibility
+ */
+
+/* ==================
+ * $LOGO
+ * ================== */
+header[role="banner"] {
+
+	/* ==================
+	 * ASLRITC */
+	#logo {
+
+		@include breakpoint(snapscreen-end) {
+		    background: transparent url('brand/logo(phone).png') no-repeat;
+		    background-size: 100%;
+		    height: 64px;            
+		    margin-top: -20px;
+		    //width: 98%;		
+		}
+
+		@include breakpoint(snapscreen) {
+	        background: transparent url('brand/logo.png') no-repeat -112px -58px;
+	        background-size: 500px 101px;
+	        width: 388px;
+	        height: 50px;
+	        margin: 71px auto auto 112px;
+		}
+
+	} //#logo
+
+	/* ==================
+	 * HPD */
+	#logo.health-professions {
+		@include breakpoint(tablet) {
+	        background: transparent url('brand/logo(hpd).png') no-repeat -112px -58px;
+	        background-size: 500px 101px;		
+		}
+	}	 //#logo.hpd
+
+	/* ==================
+	 * Shepard Broad Law Center
+	 */ #logo.law {
+	 	@include breakpoint(tablet) {
+	 		background: transparent url('brand/logo(law).png') no-repeat -112px -58px;
+	 		background-size: 500px 101px;
+	 	}
+	 }
+
+	/* ==================
+	 * NSU */
+	.nsu {
+		@include breakpoint(snapscreen) {
+	        position: absolute;
+	        background: transparent url('brand/logo.png') no-repeat 0 0;
+	        background-size: 500px 101px;
+	        width: 105px;
+	        height: 99px;
+	        margin-top: 13px;			
+		}
+	} // .nsu
+}
+
+/* ==================
+ * $LOGO - Backward Compatibility
+ * ================== */
+/* ==================
+ * Requires Modernizr */
+.no-backgroundsize {
+	header[role="banner"] #logo {
+        background: transparent url('brand/logo(small).png') 50% 50% no-repeat; 
+        width: 500px;
+        height: 118px;
+        margin: 0 auto auto 0;		
+	}
+} 

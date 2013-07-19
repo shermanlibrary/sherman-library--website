@@ -1,0 +1,91 @@
+.login {
+  color: white;
+  margin: 1em auto;
+  padding: 0.5em;
+  box-shadow: 0 2px 2px 0 $gray-dark;
+
+  a.icon-help {
+    color: white;
+    font-size: 1.1428em;
+    text-decoration: none;
+    text-shadow: 0 2px 2px rgba($gray-dark, 0.5);
+  } 
+
+  h4 { 
+    color: white;
+    font-size: 1em;
+    line-height: 1;
+    text-shadow: 0 2px 2px rgba($gray-dark, 0.5);
+  }
+
+  input[type="text"], input[type="password"] {
+    display: block;
+    width: 100%;
+  }
+
+  input[type=submit] {
+    background: transparent url('textures/noise.png');
+    border: none;
+    box-shadow: 1px 1px 2px 0 $gray-dark;
+    color: white;
+    font-size: 1.5em;
+    margin-right: 2px;
+    margin-top: 1em;
+  }
+
+  .shark-logo {
+    background: transparent url('brand/shark-logo(2x).png') no-repeat;
+  }
+}
+
+.js p#login-error {
+  display: none;
+}
+
+
+/* ==================
+ * Each login form on the "quad-screen" has
+ * a certain color scheme. Instead of drafting
+ * a totally custom class, let's make a reusable
+ * gradient. The form markup might look like this:
+
+ <div id="browardform" class="login public-gradient"; */
+
+/* ==================
+ * Tinsley Gradient
+ * Commented out because it's already
+ * included in _mixins.scss */
+
+  //.tinsley-gradient { @include background-image(linear-gradient(top, $blue-dark, $blue-light)); }
+
+ /* ==================
+  * Public (Broward) Gradient */
+  .public-gradient {
+  	@include background-image(linear-gradient(top, #336d46, lighten(#336d46, 9%)));
+  }
+
+  /* ==================
+   * HPD Gradient */
+   .HPD-gradient {
+	   	@include background-image(linear-gradient(top, #74a3ff, lighten(#74a3ff, 9%)));
+   }   
+
+  /* ==================
+   * UNS Gradient */
+   .UNS-gradient {
+   		@include background-image(linear-gradient(top, #f5ab27, lighten(#f5ab27, 9%)));
+   }
+
+/* ==================
+ * Backward Compatibility
+ * ================== */
+
+.no-cssgradients {
+
+  .public-gradient { background: #336d46 url('sprites/public-sprite.png') repeat-x left 100%; }
+
+  .HPD-gradient { background: #74a3ff url('sprites/alum-sprite.png') repeat-x left 100%; }   
+
+  .UNS-gradient { background: #f5ab27 url('sprites/uns-sprite.png') repeat-x left 100%; }
+
+}

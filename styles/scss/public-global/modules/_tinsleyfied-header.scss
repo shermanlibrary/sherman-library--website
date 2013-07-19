@@ -1,0 +1,495 @@
+/* ==================
+ * Header
+ * ================== */
+ header[role="banner"] {
+
+    .title {
+        color: white;
+        line-height: 0;
+        margin-top: -20px;
+        padding: 0 .5em;
+        text-decoration: none;
+
+        &:hover, &:active, &:focus { color: white; }
+    }
+ }
+
+ /* ==================
+ * Navigation
+ * ================== */
+.menu {
+    background: white;
+    @include box-shadow(0 0 4px -2px #222);
+    color: $gray-dark;
+    font-size: 1.2857em; // 18px / 14px
+    line-height: 2;
+    margin-bottom: 1em;
+    border-bottom: 1px solid $blue-light;
+
+    .menu-link {
+        color: white;
+        display: block;
+        padding: 0 1em;
+        text-align: right;
+        text-decoration: none;
+    }
+
+    input[type='submit'] {
+        background: none;
+        border: none;
+        color: white;
+
+        &:hover, &:focus, &:active { color: $coral; }
+    }
+
+    ul { 
+        max-width: 1140px; 
+        margin: 0 auto;
+        width: 90%; 
+    }
+
+    /* ==================
+     * Menu Icons */
+    [class^="icon-"]:before, [class*=" icon-"]:before {
+        color: rgba($gray-dark, .7);
+        position: relative;
+        //text-shadow: 1px 2px 6px $gray-dark, 0 0 0 #000, 1px 2px 6px $gray-dark;
+
+    }
+
+    .icon-calendar:before { margin-right: -.8em; top: 1px; }
+    .icon-code:before, 
+        .icon-grid-view:before,
+        .icon-help:before,
+        .icon-info:before,
+        .icon-pencil:before,
+        .icon-keyboard:before,
+        .icon-marker:before, 
+        .icon-user:before,
+        .icon-wifi:before,
+        .icon-info:before,
+        .icon-library:before,
+        .icon-rocket:before,
+        .icon-mobile:before { margin-right: -1em; }
+
+    .icon-keyboard:before,
+        .icon-code:before,
+        .icon-help:before,
+        .icon-home:before,
+        .icon-grid-view:before,
+        .icon-user:before,
+        .icon-wifi:before,
+        .icon-info:before,
+        .icon-library:before,
+        .icon-rocket:before,
+        .icon-pencil:before { top: 1px; }
+
+    .icon-home:before, .icon-library { margin-right: -.8em; }
+
+    
+    /* ==================
+     * Top Level Menu Items */
+    li {
+        cursor: pointer;
+        display: block;
+        position: relative;
+        //z-index: 2;
+        @include css-transition(all, .2s, ease-out);
+
+        &:before { @include css-transition(all, .2s, ease-out); }
+
+        &:hover, &:focus, &:active {
+            color: $blue-light;
+            &:before { color: $blue-light; }
+            &:first-child {border-left: none;} 
+        }
+
+        &:first-child {
+            border-left: none; 
+        }
+                
+        a {
+            color: $gray-dark; 
+            text-decoration: none;
+            padding: 0 1em;
+            @include css-transition(all, .2s, ease-out);
+            /*
+            you can use hover styles here even though this size
+            has the possibility of being a mobile device.
+            */
+            &:hover, &:focus, &:active { color: $blue-light;}
+        }
+
+        &:first-child { margin-left: 0; }
+        &:last-child { margin-right: 0; border-right: none;  border-bottom: none;}
+
+        /* ==================
+         * First Sub Menu */
+        ul.sub-menu {
+            display: none;
+            z-index: 1;
+                        
+            li {                
+                //background: $blue-light url(textures/noise.png);
+                background: white;
+                border-bottom: 2px solid $gray-dark;
+                text-align: left;
+                
+
+                a {
+                    border-left: 6px solid lighten($blue-light, 15%);
+                    color: $gray-dark;
+                    display: block;
+                    font-weight: normal;
+                    margin: 0 auto;
+                    padding: 0 .5em;
+
+                    &:hover, &:focus, &:active, &.active {
+                        border-left: 6px solid $blue-light;
+                        color: $blue-light;
+                    }
+        
+                    &:link {}
+                }
+        
+                &:first-child {}
+    
+                &:last-child {
+        
+                    a {
+                        border-bottom: 0;
+                    }
+                }
+                        
+                /*
+                if you need to go deeper, go nuts
+                just remember deeper menus suck
+                for usability. k, bai.
+                */
+                ul { }
+
+            }
+                    
+            /* highlight sub-menu current page */
+            li.current-menu-item, 
+            li.current_page_item,
+            li.current-page-ancestor {
+                a {}
+            }
+
+            small {}
+
+        }
+                
+        /* showing sub-menus */
+        //&:active >  ul { // change this to active
+        //  top: auto;
+        //  display: block;
+        //}
+                
+    } /* end .menu ul li */
+
+    li.active > ul {
+        top: auto;
+        display: block; 
+    }
+
+    li.has-subnav {
+
+        .icon-arrow-right { float: right; margin-right: 1em; }
+
+        ul.children {
+            z-index:1; 
+            display:none;
+
+            li:first-child { border-top: 1px solid $gray-dark; }
+        }
+
+        ul.children.active {
+            display: block;
+        }
+
+    }
+
+
+    /* highlight current page */
+    li.current-menu-item, 
+    li.current_page_item,
+    li.current-page-ancestor {
+       // @include box-shadow(inset 0 0 2px 0 $gray-dark);;
+        &:before { color: $blue-light; }
+        a { color: $blue-light; }
+    }  /* end current highlighters */
+    
+} /* end .menu */
+
+
+.persistent {
+    position: fixed; 
+    left: 0;
+    right: 0;
+    top: 0; 
+    z-index: 2;
+}
+
+/* ==================
+ * Mobile Menu Toggle */
+.no-js .menu-link { display: none; }
+.js .menu ul { display: none; }
+.no-js .menu ul { display: block; }
+
+/* ==================
+ * Form
+ * ================== */
+.search { display: none; }
+
+ /* ==================
+ * Larger Mobile Devices
+ * ================== */
+@media only screen and (min-width: 30.062em) {}
+
+ /* ==================
+  * Tablets and Small Laptops
+  * ================== */
+@media only screen and (min-width: 48em) {
+
+    #logo {
+        background: transparent url('brand/logo.png') no-repeat -112px -58px;
+        background-size: 500px 101px;
+        width: 388px;
+        height: 50px;
+        margin: 71px auto auto 112px;
+    }
+
+    .nsu {
+        position: absolute;
+        background: transparent url('brand/logo.png') no-repeat 0 0;
+        background-size: 500px 101px;
+        width: 105px;
+        height: 99px;
+        margin-top: 13px;
+    }
+
+/* ==================
+ * Navigation
+ * ================== */
+
+/* ==================
+ * Mobile Menu Toggle */
+.js .menu ul { display: block; }
+
+.menu {
+    font-size: 16px;
+
+    .menu-link { display: none; }
+
+    /* ==================
+     * Top Level Menu Items */
+    li {
+        position: relative;
+        display: inline-block;
+
+        /* ==================
+         * First Sub Menu */
+        ul.sub-menu {
+            position: absolute;
+                        
+            li {               
+                text-indent: 0;
+                min-width: 15em; // magic number
+
+      
+                &:first-child {}
+    
+                &:last-child {
+                    
+                }
+                        
+                /*
+                if you need to go deeper, go nuts
+                just remember deeper menus suck
+                for usability. k, bai.
+                */
+                ul { }
+
+            }
+                    
+            /* highlight sub-menu current page */
+            li.current-menu-item, 
+            li.current_page_item,
+            li.current-page-ancestor {
+                a {}
+            }
+
+            small {}
+
+        }
+                
+        /* showing sub-menus */
+        //&:active >  ul { // change this to active
+        //  top: auto;
+        //  display: block;
+        //}
+                
+    } /* end .menu ul li */
+
+    li.active > ul {
+        top: auto;
+        display: block; 
+    }
+
+    .last > li .sub-menu li { 
+        min-width: 7em;
+    }
+
+    li.has-subnav {
+
+        a[href="#parent"]:after {
+            font-family: icomoon;
+            color: #91CDEB;
+            content: "o";
+            float: right;
+            //text-shadow: 1px 2px 6px $gray-dark, 0 0 0 #000, 1px 2px 6px $gray-dark;
+        }
+
+        ul.children {
+            z-index:1; 
+            display:none;
+            width: auto;
+
+            a {
+                border-left: 6px solid lighten(#91CDEB, 9%);
+            }
+
+            li:first-child { border-top: 1px solid $gray-dark; }
+            li:last-child {
+                border-bottom: none;
+            }
+        }
+
+        ul.children.active {
+            display: block;
+        }
+
+
+
+    }
+
+
+    /* highlight current page */
+    li.current-menu-item, 
+    li.current_page_item,
+    li.current-page-ancestor {
+        a {}
+    }  /* end current highlighters */
+    
+} /* end .menu */
+.menu > ul > li {
+    border-left: 3px solid rgba($blue-light, .2);
+    padding: 0 0.5em;
+    &:hover, &:active, &:focus {
+      //  background: rgba($blue-light, .1);
+        border-left: 3px solid $blue-light;
+    }
+}
+
+.search {
+
+    display: block;
+    float: right;
+    line-height: 1;
+    margin-top: -2.6em;
+
+    input {
+        background-color: $gray-light;
+        border: none;
+        color: $gray-dark;
+        width: 100%;
+        @include box-shadow(0 0 2 0 $gray-dark);
+    }
+
+    span, .icon-search:before {
+        text-shadow: none;
+        color: $gray-dark;
+    }
+
+    .icon-search:before {
+        position: relative;
+        font-size: 25px;
+        margin-right: -6px;
+        top: 10px;
+    }
+
+}
+
+.no-js .search > span { display: none; }
+.js .search > span {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    @include opacity(0.2);
+    @include css-transition(all, .2s, ease-out);
+
+    &:hover, &:active, &:focus {
+        @include opacity(1.0);
+    }
+}
+
+.js .search > span.active { @include opacity(1); }
+
+.no-js .options { display: none; }
+.js .options { 
+    display: none; 
+    color: $gray-dark;
+    width: 100%; 
+
+    ul li { 
+        text-align: right; cursor: pointer;
+        @include opacity(0.4);
+        @include css-transition(all, .2s, ease-out);
+
+        &:hover, &:active, &:focus {
+            @include opacity(1);
+        }
+     }
+    ul ul { margin-right: 10px; }
+    .h3 { font-weight: bold; }
+}
+.options > ul { float: right; margin-top: 2.5em; }
+.options ul li.active { @include opacity(1); }
+.options li.has-subnav > ul { display: none; }
+
+}
+
+.no-js .menu li:hover > ul { display: block; }
+.no-js .menu ul.children:hover { display: block; }
+
+/* ==================
+ * Widescreen Monitors
+ * ================== */
+@media only screen and (min-width: 77.5em) {}
+
+/* ==================
+ * Retina, High PPI Screens
+ * ================== */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {}
+
+/* ==================
+ * Backward Compatibility
+ * ================== */
+/* ==================
+ * Modernizr-dependent fixes */
+.no-backgroundsize { 
+    #logo { 
+        background: transparent url('brand/logo(small).png') 50% 50% no-repeat; 
+        width: 500px;
+        height: 118px;
+        margin: 0 auto auto 0;
+    } 
+}
+
+.no-cssgradients {
+    .tinsley-gradient { background: #006699 url('sprites/sprites.gif') repeat-x left 100%; }
+}

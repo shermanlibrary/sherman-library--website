@@ -1,0 +1,49 @@
+/* ==================
+ * The "Infograph" is called such for lack of a better name.
+ * Basically, this is a <ul> where the list items are connected
+ * by right or left facing arrows. Kind of like an infographic
+ * where interaction is guided by an arrow. */
+
+.infograph {
+	margin-top: -.5em;
+
+	li:before,
+	li:after { 
+		color: $polaris-tropical-blue;
+		font-family: 'icomoon';
+	}
+
+	li:last-child {
+		position: relative;
+		top: .65em;
+	}
+
+	li a {
+		color: $polaris-tropical-blue;
+
+		&:hover, &:active, &:focus {
+			color: lighten($polaris-tropical-blue, 9%);
+		}
+	}
+	
+}
+
+.infograph--left {
+	border-left: 3px solid $polaris-tropical-blue;
+
+	li:before {
+		content: "q";
+	}
+}
+
+.infograph--right {
+	border-right: 3px solid $polaris-tropical-blue;
+}
+
+.infograph--dark-blue {
+	border-left: 3px solid $polaris-blue-dark;
+
+	li a, li:after {
+		color: $polaris-blue-dark;
+	}
+}

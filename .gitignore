@@ -219,6 +219,9 @@ pip-log.txt
 ################
 .sass-cache
 *.psd
+*.css
+*.svg
+*.png
 */library/css
 */library/scss
 */splash-*

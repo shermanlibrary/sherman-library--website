@@ -1,0 +1,691 @@
+@import "compass";
+
+/* ==================
+ * $TYPOGRAPHY
+ * ================== */
+$sans-stack: 'Myriad Pro', Myriad, 'Calibri', Tahoma, 'DroidSansRegular', Geneva, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$ie-sans-stack: 'Calibri', Tahoma, 'DroidSansRegular', Geneva, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$serif: Georgia, serif;
+
+/* ==================
+ * $POLARIS
+ * ================== */
+$polaris-blue-dark:         #21348A;
+$polaris-blue-light:        #3366CC;
+$polaris-tropical-blue:     #1fbaf2;
+
+/* ==================
+ * $TINSLEY
+ * ================== */
+$blue-dark:                 #006699; // Anchors and important text.
+$blue-light:                #50AFDF; // Gradients, backgrounds, and buttons.
+$blue-soft:                 #91CDEB;
+$gray-light:                #EEEEEE; // Toolbars, menus, etc.
+
+/* ==================
+ * $SHERMAN
+ * ================== */
+$alert-yellow:              lighten(#ebe16f, 15%);
+$alert-red:                 #fbe3e4;
+$alert-green:               #e6efc2;
+$alert-blue:                #478cb8;
+$blue-dark:                 #006699; // Anchors and important text.
+$blue-light:                #50AFDF; // Gradients, backgrounds, and buttons.
+$coral:                     #E2624F;
+$gray-dark:                 #555555; // Borders, menu backgrounds, and so on.
+$gray:                      #333333;
+$green:                     #79C474;
+$green-light:               #87BFBD;
+$yellow:                    #dda300;
+
+.tinsley-gradient { 
+    background: #21348a; /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzIxMzQ4YSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQyJSIgc3RvcC1jb2xvcj0iIzMzNjZjYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMzMzY2Y2MiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(left,  #21348a 0%, #3366cc 42%, #3366cc 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#21348a), color-stop(42%,#3366cc), color-stop(100%,#3366cc)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  #21348a 0%,#3366cc 42%,#3366cc 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  #21348a 0%,#3366cc 42%,#3366cc 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  #21348a 0%,#3366cc 42%,#3366cc 100%); /* IE10+ */
+    background: linear-gradient(to right,  #21348a 0%,#3366cc 42%,#3366cc 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21348a', endColorstr='#3366cc',GradientType=1 ); /* IE6-8 */
+}
+
+.schedule .icon-key:before, 
+.schedule .icon-cancel:before,
+.schedule .icon-locked:before,
+.schedule .icon-unlocked:before {
+    top: 10px;
+}
+
+.icon-redo:before { content: "-"; }
+.icon-undo:before { content: ","; }
+.icon-reply:before { content: "U"; }
+
+
+/* ==================
+ * CSS Transitions
+ * ================== */
+/* @include transition(all,2s,ease-out); */
+@mixin css-transition($what: all, $time: 0.2s, $how: ease-out) {
+    -webkit-transition: $what $time $how;
+       -moz-transition: $what $time $how;
+         -o-transition: $what $time $how;
+            transition: $what $time $how;
+}
+
+
+form { display: inline; }
+/* ==================
+ * Header
+ * ================== */
+.menu ul input[type="submit"] { color: lighten(#3366CC, 40%);; }
+.badge {
+    color: white;
+    margin-left: -1em; 
+
+    &:before {
+        content: attr(data-badge);
+        background: $coral url('../textures/noise.png');
+        border-radius: 10px;
+        padding: 0 6px;
+    }
+}
+/* ==================
+ * Controls
+ * ================== */
+.datebar {
+    font-family: $serif;
+    background: white;
+    box-shadow: inset 0 1px 3px 0 #333;
+}
+
+a.cal_link{
+    float:left;
+    text-decoration: none;
+    color: white;
+
+    .calendar-date {
+        border-right: 1px solid lighten($coral, 9%);
+        float: left; 
+        height: 100%;
+        margin-right: 0.3em;
+        text-shadow: rgba($gray-dark, 0.5) 2px 2px 4px;
+        width: 2.5em;
+    }
+
+    .date {
+        font-size: 1.5em;
+        line-height: 0.6;
+    }
+
+    .day { 
+        font-size: 1.1em;
+        line-height: 2.7;
+    }
+
+    .month {
+        font-size: 1em;
+        line-height: 2;
+        position: relative;
+        top: -0.5em;
+    }
+}
+
+.today a, .tomorrow a, .later a, .form-heading {
+    font-family: $serif;
+    font-size: 1.7em;
+    height: 31px;
+    padding: 0 0.2em;
+    text-align: center;    
+    @include css-transition(all,.5s,ease-out);
+
+    &:hover, &:active, &:focus { 
+        border-left: 3px solid lighten($coral, 9%);
+        color: white; 
+    }
+}
+
+/* ==================
+ * Today */
+.today a { 
+    background: $polaris-blue-light url('../textures/noise.png');
+    border-left: 3px solid rgba(lighten(#3899C9, 9%), 1.0);
+    border-top-left-radius: 4px;
+
+    &:hover, &:active, &:focus { background: lighten($polaris-blue-light, 9%) url('../textures/noise.png'); }
+}
+
+.today.active a { 
+    background: $polaris-blue-dark url('../textures/noise.png');
+    border-left: 3px solid lighten($polaris-blue-light, 9%); 
+}
+
+/* ==================
+ * Tomorrow */
+
+.tomorrow a {
+    background: $green-light url('../textures/noise.png');
+    border-left: 3px solid rgba(lighten(#87BFBD, 9%), 1.0);
+    border-top-right-radius: 4px;
+
+
+    &:hover, &:active, &:focus { background: lighten($green-light, 9%) url('../textures/noise.png'); }
+}
+
+.tomorrow.active a {
+    background: lighten($green-light, 9%) url('../textures/noise.png');   
+    border-left: 3px solid lighten($green-light, 20%);
+}
+
+/* ==================
+ * Calendar Button */
+.later a { 
+    color: #444;
+    cursor: pointer;
+    font-size: 2em;
+    margin-top: -3px;
+    text-shadow: rgba($gray-dark, 0.5) 1px 1px 2px; 
+    @include css-transition(all,.2s,ease-out);
+
+    &:hover, &:active, &:focus, &.active { 
+        border-left: none;
+        color: $coral; 
+    }
+}
+
+/* ==================
+ * Filter / Browse */
+.form-heading { 
+    background: lighten($gray-dark, 9%) url('../textures/noise.png');
+    border-left: 3px solid $blue-light;
+    color: white;
+    float: left; 
+    position: relative;
+}
+.filter {
+    color: $gray-dark;    
+
+    .icon-morning, .icon-afternoon, .icon-evening {
+        font-size: 42px;
+        text-shadow: rgba($gray-dark, 0.5) 1px 1px 2px;
+    }
+
+    input[type="radio"] {
+        position: absolute;
+        @include opacity(0);
+    }
+
+    label {
+        font-size: 21px;
+        line-height: 0;
+        @include css-transition(all,.2s,ease-out);
+
+        &:hover, &:active, &:focus, .active { color: $blue-light; }
+    }
+
+}
+
+.js .two-week-calendar { display: none; }
+.js .two-week-calendar[data-view="is-later"] { 
+    display: block; 
+}
+
+input[id="see-reservations"] {
+    position: absolute;
+    @include opacity(0);
+}
+input[id="see-reservations"] + label {
+    color: $coral;
+    cursor: pointer;
+    line-height: 1;
+    position: absolute;
+}
+
+.two-week-calendar a { 
+    //background: #87BFBD url('../textures/noise.png'); 
+    color: $gray-dark;
+    height: 3em;
+    margin: 1px auto;
+    padding: 5px;
+    width: 100%;
+    @include css-transition(all,0.2s,ease-out);
+
+    &:hover, &:focus, &:active {
+        color: #3899C9;
+    }
+}
+.two-week-calendar a.active {
+    color: #3899C9;
+}
+
+.page-label { 
+    color: $gray-dark;
+    position: relative;
+    bottom: -7px;
+    font-size: 1.7em;
+    text-align: center;
+    line-height: 1.6;
+    height: 38px;
+    
+    .cancel { padding: 0 5px; color: white; background: #CE3828 url('../textures/noise.png'); margin-left: -6px; }
+    .group { padding: 0 5px; color: white; background: #E2624F url('../textures/noise.png'); margin-left: -6px; }
+    .room { padding: 0 5px; color: white; background: rgba(#87BFBD, 1.0) url('../textures/noise.png'); }
+}
+
+/* ==================
+ * Content
+ * ================== */
+#content {}
+
+img { 
+    margin: 0 auto; 
+    max-width: 100%; 
+}
+
+video, object { 
+    max-width: 100%; 
+}
+
+/* ==================
+ * Schedule Globals
+ * ================== */
+.schedule-header {
+    background: $gray-dark url('../textures/gray-noise.png');
+    margin: 0 auto 1em;
+    height: 2.5em;
+    box-shadow: 0 2px 10px 0 $gray-dark;
+    color: white;
+    padding: 0 1px;
+
+    h2 { margin: 0 0.2em; }
+    small { float: right; }
+    span { margin-right: 1em; }
+    .legend.red {  background: #E2624F url('../textures/noise.png'); width:1em; height: 1em; margin-top: 0.4em; display: inline-block; }
+    .legend.green { background: #87BFBD url('../textures/noise.png'); width: 1em; height: 1em; margin-top: 0.4em; display: inline-block; }
+}
+
+.schedule_cell {
+    font-family: $serif;
+    background: white url('../textures/noise.png');
+    border: 2px solid $gray-dark; 
+    box-shadow: 0 2px 10px 0 $gray-dark;
+    padding: 1px;
+    text-align: center;
+}
+
+.schedule a, .reserved, .cancel_link, .cancel_hover { 
+    float: right;
+    width: 96%;
+    color: white;
+    margin: 0 auto 5px;
+    padding: 5px;
+    text-decoration:none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-shadow: 0 2px 2px 0 $gray-dark;
+
+    [class^="icon-"]:before, [class*=" icon-"]:before {
+        float: left;
+    }
+ }
+
+/* ==================
+ * Room Labels
+ * ================== */
+.room_label { 
+    float: left; 
+    //color: rgba($gray-light, 0.4);
+    color: $gray-dark;
+    font-size: 2em;
+    line-height: 1; 
+    font-weight: bold;
+    //text-shadow: 1px 4px 6px $gray-light, 0 0 0 $gray-dark, 1px 4px 6px $gray-light;
+}
+.capacity {
+    float:right;
+    //color: rgba($blue-dark, 0.4);
+    color: $gray-dark;
+    //text-shadow: 1px 4px 6px $gray-light, 0 0 0 $gray-dark, 1px 4px 6px $gray-light;
+    font-size: 1.5em;
+}
+
+/* ==================
+ * Public, Unreserved */
+a.unlog_schedule_link, a.schedule_link {
+    background: #3899C9 url('../textures/noise.png');
+    @include css-transition(background, 0.2s, ease-out);
+
+    &:hover, &:active, &:focus { color: white; background-color: lighten(#3899C9, 9%); }
+}
+
+/* ==================
+ * Public, Reserved */
+.reserved { 
+    background: #555 url('../textures/noise.png'); //6DA5A3
+    box-shadow: 0 0 3px 1px #222 inset;
+} 
+
+/* ==================
+ * Logged, Cancel */
+ .cancel_link { 
+    background: #E2624F url('../textures/noise.png');
+    @include css-transition(all, 0.2s, ease-out);
+
+    .icon-cancel {
+        color: rgba(#E2624F, 0.6);
+        text-shadow: 1px 4px 6px #E2624F, 0 0 0 $gray-dark, 1px 4px 6px #E2624F;
+    }
+
+    &:after { content: "Your reservation."; }
+
+    &:hover, &:active, &:focus { 
+
+        .icon-cancel { 
+            color: rgba(white, 1.0);
+            text-shadow: none;
+        }
+
+        background: #CE3828 url('../textures/noise.png'); 
+
+        &:before { 
+            content: "Delete";
+            font-weight:bold;
+            line-height: 1.5;
+            position: absolute;
+            text-shadow: 1px 2px 4px $gray-dark;            
+        }
+
+        &:after { 
+            content: "your reservation?"; 
+            margin-left: 3.6em;
+        }
+    }
+
+}
+.cancel_link.inactive {
+    
+    cursor: default;
+    box-shadow: inset 0 0 3px 1px $gray-dark;
+
+    &:hover, &:active, &:focus {
+        color: white;
+        text-shadow: 1px 4px 6px #E2624F, 0 0 0 $gray-dark, 1px 4px 6px #E2624F;
+
+        &:after { content: "Your reservation."; margin-left: 0; }
+        &:before { content: "";}
+
+        .icon-cancel {
+            color: rgba(#E2624F, 0.6);
+            text-shadow: 1px 4px 6px #E2624F, 0 0 0 $gray-dark, 1px 4px 6px #E2624F;
+        }
+    }
+
+    background: #E2624F url('../textures/noise.png');
+}
+
+.cancel_link:hover .icon_cancel {
+    color: rgba(255, 255, 255, 1.0);
+    text-shadow: none;
+}
+
+/* ==================
+ * Staff View */
+.reserved_patron {
+    background: /*#6DA5A3*/ $gray-dark url('../textures/noise.png');
+    @include css-transition(all, 0.2s, ease-out);
+
+    .icon-cancel {
+        color: rgba(/*#6DA5A3*/white, 1.0);
+        //text-shadow: 1px 4px 6px #6DA5A3, 0 0 0 $gray-dark, 1px 4px 6px #6DA5A3;
+    }
+
+    &:hover, &:active, &:focus {
+
+        .icon-cancel { 
+            color: rgba(white, 1.0);
+            text-shadow: none;
+        }
+
+        background: #CE3828 url('../textures/noise.png');
+    }
+}
+
+/* ==================
+ * Acknowledgment / Terms of Service
+ * ================== */
+.acknowledgment {
+    margin: 1em auto;
+}
+
+.acknowledgment table { font-size: 1.1428em; margin-bottom: 0.5em; }
+.acknowledgment tr.inactive { 
+    @include opacity(0.5);
+}
+.acknowledgment input[type=submit] { @include opacity(0); font-size: 0; position: absolute; }
+.acknowledgment input[type=submit] + label {
+    background: $gray-dark url('../textures/gray-noise.png');
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 2em; 
+    padding: 0.2em;
+    margin-right: 1px;
+
+    &:hover, &:active, &:focus { background: lighten($gray-dark, 9%) url('../textures/noise.png'); }
+}
+
+.acknowledgment table input[type=submit] + label {
+    background: none;
+    color: $gray-dark;
+    cursor: pointer;
+    font-size: 1em;
+    @include css-transition(all,.2s,ease-out);
+
+    &:hover, &:active, &:focus { background: none; color: $coral; }
+}
+.acknowledgment input[type=submit] + label.cancel {
+    background: #CE3828 url('../textures/noise.png');
+   
+    &:hover, &:active, &:focus { background: lighten(#CE3828, 9%) url('../textures/noise.png'); }
+    span { font-size: 24px;}
+}
+
+.acknowledgment input[type='checkbox'],
+.acknowledgment input[type='radio'] {
+    @include opacity(0); float: right;
+}
+
+.acknowledgment input[type='checkbox'] + label,
+.acknowledgment input[type='radio'] + label {
+    background: #E2624F url('../textures/noise.png');
+    color: white;
+    cursor: pointer;
+    font-size: 2em;
+    padding: 0.2em;
+    @include css-transition(all, .5s, ease-out);
+
+    &:hover, &:active, &:focus { background: lighten(#E2624F, 9%) url('../textures/noise.png');}
+    &:before {
+        font-family: 'icomoon';
+        content: "f ";
+    }
+    &:after {
+        font-family: $serif;
+        content: "Click to Agree";
+    }
+}
+
+.acknowledgment input[type='checkbox']:checked + label,
+.acknowledgment input[type='radio']:checked + label {
+    background: #87BFBD url('../textures/noise.png');
+
+    &:before { content: "e "; }
+    &:after { content: "Great! Thanks";}
+}
+
+.acknowledgment input#post_start + label {
+    background: none;
+    color: $gray-dark;
+    font-size: 2em;
+    float: right;
+    width: 195px;
+    
+    &:before { content: ""; }
+    &:after { content: ""; }    
+}
+
+.acknowledgment .agree {
+    height: 2em; width: 2em;
+    background: #CE3828 url('../textures/noise.png');
+}
+
+/* ==================
+ * Ordered Lists
+ * ================== */
+ol {list-style-type: decimal;
+    margin-left: 2.5em; padding-left: 0;
+    }
+ol.a {
+    list-style-type: lower-latin;
+    margin-left: 3.5em; padding-left: 0;
+}
+
+/* ==================
+ * Autosuggest
+ * ================== */
+ #result, #result1 {
+    height:20px;
+    font-size:16px;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#333;
+    padding:5px;
+    margin-bottom:10px;
+    background-color:#FFFF99;
+}
+#name,#name1{
+    padding:3px;
+    border:1px #CCC solid;
+    font-size:15px;
+}
+.suggestionsBox {   
+    padding: 0px;
+    border: 1px solid black;
+    width: 25%;
+    background-color: white;
+    overflow: hidden;
+    z-index: 99999;
+    display:none;
+    
+}
+
+.hide{display: none; }
+
+.suggestionList {
+    margin: 0px;
+    padding: 0px;
+}
+
+.suggestionList {
+    background-color: #eee;
+    width: 25%;
+}
+
+.suggestionList{
+    background-color: #0A246A;
+    color: white;
+}
+.suggestionList ul li {
+    margin: 0px;
+    padding: 2px 2px;
+    cursor: default;
+    display: block;
+    /* 
+    if width will be 100% horizontal scrollbar will apear 
+    when scroll mode will be used
+    */
+    /*width: 100%;*/
+    font: menu;
+    font-size: 12px;
+    /* 
+    it is very important, if line-height not setted or setted 
+    in relative units scroll will be broken in firefox
+    */
+    line-height: 16px;
+    overflow: hidden;
+}
+.suggestionList ul li:hover {
+    background-color: #FC3;
+    color:#000;
+    
+}
+
+
+.load{
+background-image:url(loader.gif);
+background-position:right;
+background-repeat:no-repeat;
+}
+
+#suggest {
+    position:relative;
+}
+
+@media only screen and (min-width: 48em) { 
+    
+    .schedule > .row { margin: 0 auto 1em; }
+    
+    #inner-content {
+        min-height: 46em; // Push the footer to the bottom
+    }
+}
+
+@media only screen and (min-width: 64.375em) {
+    a.cal_link{
+
+        .date {
+            font-size: 2em;
+        }
+
+        .day { 
+            font-size: 1.2em; // 23px/14px
+            line-height: 1.7;
+        }
+
+        .month {
+            font-size: 1.2857em; // 18px/14px
+        }
+    }
+}
+
+/* ==================
+ * Large Viewing Size
+ * ================== */
+@media only screen and (min-width: 77.5em) { 
+    
+    a.cal_link{
+
+        .day { 
+            font-size: 1.6em;
+        }
+    } 
+
+}
+
+/* ==================
+ * Backward Compatibility
+ * ================== */
+/* ==================
+ * Modernizr-dependent fixes */
+.no-textshadow {
+    .schedule-cell [class^="icon-"]:before,  .schedule-cell [class*=" icon-"]:before {
+        color: white;
+    }
+}
+
+.lt-ie9 {
+    .schedule > .row {
+        margin-bottom: 14px;
+    }
+}

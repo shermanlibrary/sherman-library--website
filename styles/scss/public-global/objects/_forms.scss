@@ -1,0 +1,543 @@
+/* ==================
+ * $FORMS
+ * ================== */
+/* ==================
+ * Search
+ * Quick Links
+ */
+
+/* ==================
+ * $SEARCH
+ * ================== */
+.search-container {
+
+    overflow: hidden;
+
+      a[type="submit"] {
+        display: none;
+      }
+
+    @include breakpoint(tablet) {    
+        display: inline-block;
+        width: 20em;
+        background: #21348a;
+        border-radius: 5px 2em 2em 5px;
+        height: 2.5em;
+
+        a[type="submit"] { display: block; }           
+    }     
+
+    .button, input {
+        display: inline-block;
+    }
+
+    @include breakpoint(squarescreen) {
+      position: relative;
+      top: .75em;
+    }
+
+    input {
+        -webkit-appearance: none;
+           -moz-appearance: none;
+                appearance: none;
+        background: white;
+        border: 0;
+        border-radius: 4px;
+        height: 2em;
+        margin: .5em auto 0;
+        width: 100%;
+        padding: .5em;
+        
+        @include breakpoint(tablet) {
+            width: 16.75em;
+            float: left;
+            padding: .5em;
+            margin: .25em;
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 -1px 1px rgba(white, .25), 0 1px 5px rgba(black, .15);
+        }
+    }
+
+    .button {
+        box-shadow: inset 0 0 3px 0 #21348a;
+        cursor: pointer;
+        float: right;
+        width: 2.5em;
+        height: 2.5em;
+        margin: .4em;
+        text-align: center;
+        border-radius: 50%;
+        transition: all .25s ease-out;
+        overflow: hidden;
+
+        &:hover { 
+            box-shadow: inset 0 0 5px 0 #21348a;
+        }
+
+        span {
+            color: white;
+            font-size: .5em;
+            position: relative;
+            margin-left: 3px;
+            top: 1px;
+
+            &:active {
+                border: 0 !important;
+                text-shadow: 0 0 0; 
+            }
+        }
+
+    }
+
+}
+
+.lt-ie9 {
+    .utilities {
+        float: right;
+        margin-bottom: auto;
+        margin-top: -3em; // magic number
+
+        & > ul, & > ul > li {
+            display: inline;
+        }
+    }
+
+    .search-container {
+        box-shadow: 0 0 5px #666;
+        display: inline-block;
+        margin-top: -4px; // magic number
+        width: 20em;
+
+        input {
+            width: 16.75em;
+        }
+    }
+}
+
+/* ==================
+ * $QUICK LINKS
+ * ================== */
+.utilities {
+    margin-bottom: .25em;
+
+    .lib-button-small a {
+      color: white;
+      color: rgba(white, .9);
+
+      &:hover, &:active, &:focus { color: white;}
+    }
+    
+    form {
+      ol li, ul li {
+        background: inherit;
+        border-left: none;
+        border-bottom: none;
+
+        &:hover { border-left: none;}
+      }
+    }
+    @include breakpoint(squarescreen) {
+      float: right;
+      margin-top: -4em;
+    }
+
+    .lib-button-small {
+      display: block;
+      line-height: auto;
+      margin: .25em auto;
+      padding: .5em;
+
+      @include breakpoint(tablet) {
+        display: inline-block;
+        line-height: 1.3125em;
+        padding: .25em .75em;
+        //padding: .5em 1em;
+        position: relative;
+        top: -.9em;
+      }
+
+      @include breakpoint(squarescreen) {
+        top: -.25em;
+      }
+  
+    }
+
+    & > ul, & > ul > li {
+        display: none;
+
+        @include breakpoint(tablet) { 
+            display: inline;
+        }
+    }
+}
+
+.utilities > .lib-button-small {
+
+  transition: all .2s ease-out;
+  -webkit-transition: all .2s ease-out;
+  -moz-transition: all .2s ease-out;
+
+  .sub-menu { 
+    
+    li {
+      padding: .25em 0;
+
+      ul { margin: 0; }
+       form ol li { border-bottom: none; border-top: none; }
+    }
+
+    @include breakpoint(tablet) {
+      background: inherit;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px $gray-dark; 
+      padding: .5em; 
+      position: absolute;
+      right: 0;
+      top: 1.75em;
+      width: 20em;
+      z-index: 1;
+
+      &:before {
+        border-left: 1em solid transparent;
+        border-right: 1em solid transparent;        
+        border-bottom: 1em solid;
+        content: "";
+        position: absolute;
+        height: 0; 
+        right: .5em;
+        top: -.5em;
+        width: 0; 
+      }
+    }
+  }
+
+  &.active {
+    box-shadow: none;
+  }
+
+  &.active .sub-menu { display: block; }
+
+  &.gradient--coral .sub-menu:before { border-bottom: 1em solid #E2624F !important; }
+  &.gradient--orange .sub-menu:before { border-bottom: 1em solid #ffae3d !important; }
+  
+  @include breakpoint(tablet) {
+    &.gradient--vertical {
+      .sub-menu {
+        background: white;
+        
+        li { color: $gray-dark; }
+
+        li a { color: $polaris-blue-dark;  border-bottom: 1px solid $gray-dark; &:hover, &:active, &:focus { color: $blue-light;}}
+
+      }
+    }
+  }
+}
+
+.js .utilities > .lib-button-small {
+    
+    .sub-menu { display: none;}
+    &.active .sub-menu { display: block;}
+}
+
+.js .utilities > .lib-button-small .sub-menu form {
+  .hidden { 
+    font-size: 0; 
+    line-height: 0;
+    visibility: hidden;
+  }
+}
+
+
+
+
+form .header, fieldset header {
+  background: $gray-dark;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  color: white;
+  padding: .5em;
+
+  .h3 { margin: 0; }
+}
+
+fieldset{
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+form header button[type="submit"], fieldset header button[type="submit"] { float: right; margin-top: -1.75em; }
+.form--elib button[type="submit"] { float: right; margin-top: -1.75em; }
+
+
+/**
+ * Text inputs
+ *
+ * Instead of a `[type]` selector for each kind of form input, we just use a
+ * class to target any/every one, e.g.:
+   <input type=text class=text-input>
+   <input type=email class=text-input>
+   <input type=password class=text-input>
+ *
+ */
+
+
+/**
+ * Group sets of form fields in a list, e.g.:
+ *
+   <ul class=form-fields>
+       <li>
+           <label />
+           <input />
+       </li>
+       <li>
+           <label />
+           <select />
+       </li>
+       <li>
+           <label />
+           <input />
+       </li>
+   </ul>
+
+.form-fields {
+    list-style:none;
+    margin:0;
+}
+    .form-fields > li{
+   //     @extend %sass-margin-bottom;
+    }
+    .form-fields > li:last-child{
+        margin-bottom:0;
+    }
+ *
+ */
+
+form ol, form ul { 
+  margin: 0;
+
+  li {
+    background: white;
+    border-left: 6px solid rgba(81,175,223,.2);
+    border-top: 1px solid #EEE;
+    padding: .5em;
+    -webkit-transition: all .2s ease-out;
+      transition: all .2s ease-out;
+
+      &:hover, &.active {
+        border-left: 6px solid rgba(81,175,223,.5);
+      }
+
+      &.active {
+        background: rgba(81,175,223,.5);
+      }
+
+      &:first-child { border-top: none; }
+      &:last-child { border-bottom: none; }
+
+      &.error {
+        background: #f77f74;
+        border-left: 6px solid #e82b21;        
+      }
+
+      ol li, ol li:hover, ul li, ul li:hover { border: none; }
+      ol li label, ul li label { font-weight: normal; display: inline; cursor: pointer; }    
+      &.singleline label { font-weight: normal; display: inline;}
+
+      label, .grouphead {
+        display: block;
+        font-size: 1.125em;
+      }
+
+      input { width: auto; display: inline; }
+
+      input, textarea, select {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        display: block;
+        margin: 0 auto; 
+        outline: none;
+        padding: .5em;
+        width: 100%;
+      }
+
+      
+      input[type="checkbox"] {
+        width: auto;
+        display: inline-block;
+        float: left;
+        margin: .4em 1em auto auto;
+      }
+
+      input[type="radio"] {
+        display: inline;
+        width: auto;
+      }
+  }
+
+  &.columns {
+    width: 100%;
+  -webkit-column-count: 2;
+     -moz-column-count: 2;
+      column-count: 2;    
+  }
+}
+
+.twitter-typeahead { width: 100%; }
+
+form.hidden {display: none; }
+form textarea { height: 75px; }
+
+form li.section-header {
+  border-left: none;
+  font-size: 1.175em;
+  padding: 0 .5em;
+  text-align: center;
+
+  &:hover { border-left: none; }
+}
+
+/**
+ * Labels
+ *
+ * Define a `.label` class as well as a `label` element. This means we can apply
+ * label-like styling to meta-labels for groups of options where a `label`
+ * element is not suitable, e.g.:
+ *
+   <li>
+       <span class=label>Select an option below:</span>
+       <ul class="multi-list  four-cols">
+           <li>
+               <input /> <label />
+           </li>
+           <li>
+               <input /> <label />
+           </li>
+           <li>
+               <input /> <label />
+           </li>
+           <li>
+               <input /> <label />
+           </li>
+       </ul>
+   </li>
+ *
+ */
+label,
+.label{
+    display:block;
+}
+    /**
+     * Extra help text in `label`s, e.g.:
+     *
+       <label>Card number <small class=additional>No spaces</small></label>
+     *
+     */
+    .additional{
+        display:block;
+        font-weight:normal;
+    }
+
+
+/*
+ * Groups of checkboxes and radios, e.g.:
+ *
+   <li>
+       <ul class=check-list>
+           <li>
+               <input /> <label />
+           </li>
+           <li>
+               <input /> <label />
+           </li>
+       </ul>
+   </li>
+ *
+ */
+.check-list{
+    list-style:none;
+    margin:0;
+}
+    /*
+     * Labels in check-lists
+     */
+    .check-label,
+    .check-list label,
+    .check-list .label{
+        display:inline-block;
+    }
+
+
+/**
+ * Spoken forms are for forms that read like spoken word, e.g.:
+ *
+   <li class=spoken-form>
+       Hello, my <label for=spoken-name>name</label> is
+       <input type=text class=text-input id=spoken-name>. My home
+       <label for=country>country</label> is
+       <select id=country>
+           <option>UK</option>
+           <option>US</option>
+           <option>Other</option>
+       </select>
+   </li>
+ *
+ */
+.spoken-form label{
+    display:inline-block;
+    font:inherit;
+}
+
+
+/**
+ * Extra help text displayed after a field when that field is in focus, e.g.:
+ *
+   <label for=email>Email:</label>
+   <input type=email class=text-input id=email>
+   <small class=extra-help>.edu emails only</small>
+ *
+ * We leave the help text in the document flow and merely set it to
+ * `visibility:hidden;`. This means that it won’t interfere with anything once
+ * it reappears.
+ *
+ */
+/*small*/.extra-help{
+    display:inline-block;
+    visibility:hidden;
+}
+.text-input:active + .extra-help,
+.text-input:focus + .extra-help{
+    visibility:visible;
+} 
+
+.form--in-menu {
+	margin: .1em auto;
+}
+
+ /* ==================
+ * Polls
+ * ================== */
+.form--poll {
+
+  .hint {
+    cursor: pointer; 
+  }
+
+  h2, h3 {
+
+    &:before { color: #3986ac; }
+    &:hover { color: #3986ac; }
+  }
+
+  iframe.hidden {
+    height: 0; 
+    opacity: 0;
+    position: absolute;
+  }
+}
+
+.form-elib legend { display: none; }

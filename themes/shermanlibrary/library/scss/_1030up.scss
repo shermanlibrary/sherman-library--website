@@ -1,0 +1,31 @@
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Desktop Stylsheet
+
+This is the desktop size. It's larger than an iPad so it will only
+be seen on the Desktop. 
+
+******************************************************************/
+body:after {
+	content: "squarescreen";
+}
+
+/* ====================== *
+ * Layout
+ * ====================== */
+ #main {
+ 	margin-left: 0; // first
+ 	width: 74.30939226%; // ninecol
+ }
+
+ #sidebar {
+ 	float: right; // last
+ 	width: 22.928176794%; // threecol
+ }
+
+ #sidebar > .fourcol {
+ 	width: 100%;
+ 	margin-left: auto;
+ }

@@ -1,0 +1,370 @@
+.portlet { 
+
+    background: white; 
+    margin-bottom: 1em;
+
+    //.wrap { margin: 1em auto; padding-bottom: 1em; }
+
+    /* ==================
+     * Portlet Header
+     * ================== */
+    header {
+
+        background: $gray-dark url('textures/noise.png');
+        border-bottom: 2px solid $blue-light;
+        border-left: 4px solid lighten($gray-dark, 9%);
+        color: white;
+        padding: 0 1em;
+
+        a {
+            color: white;
+        }
+
+        a:hover, a:active, a:focus {}
+
+        [class^="icon-"]:before, [class*=" icon-"]:before { 
+            color: rgba($gray-dark, 0.2); 
+            float: right;
+            line-height: 1.5;
+            text-shadow: 1px 2px 6px $gray-dark, 0 0 0 #000, 1px 2px 6px $gray-dark;            
+        }
+        .icon-mail:before {
+            margin-top: 2px;
+        }
+    }
+
+    .h2, .h3, .h4, .h5, .h6 { display: inline; }
+
+    .featured-image {
+        float: left;
+        margin: 1em 1em 1em 0;
+        padding: .2em .2em 0;
+
+    }
+
+    .icon-help { 
+        float: right;
+        
+        &:before { 
+            @include css-transition(all, .4s, ease-out); 
+        }
+        &:hover, &:focus, &:active { &:before {color: white;} }
+    }
+
+
+    /* ==================
+     * Content Type: Information */
+    .information {
+        background: $green-light url('textures/noise.png');
+        border-left: 6px solid lighten($green-light, 15%);
+
+        [class^="icon-"]:before, [class*=" icon-"]:before {
+            color: rgba($green-light, 0.2);
+            text-shadow: 1px 2px 6px $green-light, 0 0 0 #000, 1px 2px 6px $green-light;
+        }
+    }
+
+    .post-content .featured-image { background: $gray-dark url('textures/noise.png'); }
+
+    /* ==================
+     * Content Type: Article / Blog / Main */
+    .article, .default {
+        background: $blue-light url('textures/noise.png');
+        border-left: 6px solid lighten($blue-light, 15%);
+
+        [class^="icon-"]:before, [class*=" icon-"]:before {
+            color: rgba($blue-light, 0.2);
+            text-shadow: 1px 2px 6px $blue-light, 0 0 0 #000, 1px 2px 6px $blue-light;
+        }
+
+        .icon-help { &:hover, &:focus, &:active { &:before {color: white;} } }
+    }
+
+    .post-content.article {
+        background: none;
+
+        .featured-image {
+            background: $blue-light url('textures/noise.png');
+        }
+    }
+
+
+
+    /* ==================
+     * Content Type: Event */
+    .event {
+        background: $coral url('textures/noise.png');
+        
+
+        [class^="icon-"]:before, [class*=" icon-"]:before {
+            color: rgba($coral, 0.2);
+            text-shadow: 1px 2px 6px $coral, 0 0 0 #000, 1px 2px 6px $coral;
+        }
+
+        .icon-help { &:hover, &:focus, &:active { &:before {color: white;} } }
+    }
+
+    header.event {
+        border-bottom: 2px solid $gray-dark;
+        border-left: 6px solid lighten($coral, 9%);
+    }
+
+    /* ==================
+     * Content Type: Resource */
+    .resource {
+        background: $green-light url('textures/noise.png');
+
+        [class^="icon-"]:before, [class*=" icon-"]:before {
+            color: rgba($green-light, 0.2);
+            text-shadow: 1px 2px 6px $green-light, 0 0 0 #000, 1px 2px 6px $green-light;
+        }
+
+        .icon-help { &:hover, &:focus, &:active { &:before {color: white;} } }
+    }
+
+    .post-content.resource {
+        background: none;
+
+        .featured-image {
+            background: $green-light url('textures/noise.png');
+        }
+    }
+
+    .post-content.event {
+        background: none;
+
+        .featured-image {
+            background: $coral url('textures/noise.png');
+        }
+    }
+
+}
+
+.portlet > article {
+    h3 { 
+        line-height: 1;
+        margin: .5em auto;
+    }
+
+    .excerpt {
+       margin: 0;  
+    }
+}
+
+.js .help {
+    display: none;
+    margin-top: -.5em;
+    opacity: 0;
+    padding-bottom: 1.5em;
+
+    .icon-info {
+        color: $gray-dark;
+        content: "I";
+        font-family: icomoon;
+        font-size: 2em;
+        line-height: 1.5;
+   }
+
+   p {
+        float: right;
+        margin: 0 0; 
+        width: 85%;
+   }
+
+}
+
+.portlet.standout {
+    //background: #444 url('textures/noise.png');
+    background: white;
+    color: white;
+
+    .icon-help {
+        color: rgba($gray-dark, .7);
+        cursor: pointer;
+        font-size: 1em;
+        margin-top: 2px;
+        padding-right: .5em;
+        @include css-transition(all, .5s, ease-out);
+
+        &:hover, &:active, &:focus { 
+            &:before { color: $blue-light; }
+        }
+   }
+
+    header { 
+        border-left: 6px solid lighten($blue-light, 15%);
+        border-bottom: none; 
+    }
+
+    .wrap {
+        color: white;
+        margin-top: -.8em;
+        width: 98%;
+    }
+
+    li {
+        
+        border-bottom: 2px solid #666;
+        font-size: 1.125em;
+        @include css-transition(all, .2s, ease-out);
+
+        &:hover, &:active, &:focus {
+        }
+    }
+
+    li:last-child {
+        border-bottom: none;
+    }
+
+    li a {
+        border-left: 3px solid rgba($blue-light, .2);
+        color: $gray-dark;
+        padding: 0 .5em;
+        @include css-transition(all, .2s, ease-out);
+
+        &:hover, &:active, &:focus {
+            border-left: 3px solid $blue-light;
+            color: $blue-light;
+        }
+    }
+}
+
+.community {
+    padding-bottom: 1.7em;
+    //margin-bottom: 4em;
+}
+.community a.academic, .community a.public {
+    background: #5CACD3 url('textures/noise.png');
+    color: white;
+    font-size: 1.125em;
+    width: 50%;
+    text-align: center;
+
+    &:hover {
+        background: lighten(#5CACD3, 9%);
+        color: white;
+    }
+
+    &:active, &:focus { color: white; }
+}
+.community > .academic { 
+    float: left; 
+    margin-left: 0;
+}
+
+/*.community {
+
+    &:after {
+        background: url('sprites/channels.png') no-repeat -4px -2px;
+        content: "";
+        height:44px;
+        left: 0;
+        position: absolute;
+        width:268px;
+        margin-top: 2em;
+    }
+
+}
+
+.community.research {
+    &:after {
+        background: url('sprites/channels.png') no-repeat -294px -3px;
+        width:223px;
+        height: 51px;
+    }
+}
+
+.community.recreation {
+    &:after {
+        background: url('sprites/channels.png') no-repeat -536px -2px;
+        width: 252px;
+        height: 44px;
+        position: absolute;
+        content: "";
+        left: auto;
+        right: 0;
+    }
+}
+.community > .public.active ~ .community > .academic:after {
+    background: none;
+
+}*/
+.public { float: right; }
+.community a.active { background: lighten(#5CACD3, 9%); }
+.community > .icon-library {
+    color: white;
+    left: 45%;
+    font-size: 1.5em;
+    position: absolute;
+    margin-top: -2px;
+}
+
+
+
+
+.no-js .icon-help[data-info]:hover:after, 
+.no-js .icon-help[data-info]:active:after, 
+.no-js .icon-help[data-info]:focus:after {
+
+    content: attr(data-info);
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+
+}
+
+/* ==================
+ * Portlet Sub Menu
+ * ================== */
+ .js .portlet.widget_nav_menu header {
+    cursor: pointer;
+ }
+.js .portlet .menu.active {
+    display: block;
+}
+
+.js .portlet .menu.inactive {
+    display: none;
+}
+
+
+ /* ==================
+ * Larger Mobile Devices
+ * ================== */
+//@media only screen and (min-width: 481px) {}
+
+ /* ==================
+  * Tablets and Small Laptops
+  * ================== */
+//@media only screen and (min-width: 768px) {}
+/* ==================
+ * Widescreen Monitors
+ * ================== */
+//@media only screen and (min-width: 1030px) {}
+
+/* ==================
+ * Large Viewing Size
+ * ================== */
+//@media only screen and (min-width: 1240px) {}
+
+/* ==================
+ * Retina, High PPI Screens
+ * ================== 
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min--moz-device-pixel-ratio: 1.5),
+       only screen and (min-device-pixel-ratio: 1.5) {}
+*/
+/* ==================
+ * Backward Compatibility
+ * ================== */
+/* ==================
+ * Modernizr Dependent */
+
+ .no-textshadow {
+    
+    .portlet [class^="icon-"]:before,  .schedule [class*=" icon-"]:before {
+        color: white;
+    }
+
+}

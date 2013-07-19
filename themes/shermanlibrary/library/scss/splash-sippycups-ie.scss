@@ -1,0 +1,94 @@
+@import "compass";
+
+/* ==================
+ * Fonts */
+@font-face {
+	font-family: 'LondrinaSolidRegular';
+	src: url('fonts/LondrinaSolid-Regular-webfont.eot');
+	src: url('fonts/LondrinaSolid-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('fonts/LondrinaSolid-Regular-webfont.woff') format('woff'),
+	     url('fonts/LondrinaSolid-Regular-webfont.ttf') format('truetype'),
+	     url('fonts/LondrinaSolid-Regular-webfont.svg#LondrinaSolidRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* ==================
+ * Variables
+ * ================== */
+$sippy-pink: 		#ec4e98;
+$sippy-pink-light: 	lighten($sippy-pink, 9%);
+
+#logo {
+	background: transparent url('concerts/images/logo.png') no-repeat 0 0;
+	background-size: 500px 166px;
+	width: 500px;
+    height: 166px;
+    margin: 14px auto auto 0;
+}
+
+.description {
+	position: absolute;
+	color: #111;
+
+	audio {}
+}
+/* ==================
+ * Behold the dragon! */
+.announcement {
+	height: 30px; 
+	display: block;
+
+	img { width: 75%; }
+
+	span { 
+		position: absolute;
+		right: -3em;
+		margin-top: -7px;
+-webkit-transition: all 1s ease-out;
+   -moz-transition: all 1s ease-out;
+     -o-transition: all 1s ease-out;
+        transition: all 1s ease-out;
+
+		&:hover, &:active, &:focus {
+			@include transform(rotate(15deg));
+		}
+	}
+}
+.sample .h3 { line-height: 1; }
+
+.fivecol { width: 100%; }
+
+.announcement {
+	img { width: 100%; }
+	span { right: 2em; }
+}
+.fivecol {
+	width: 40.055248616%;
+}
+
+.the-band {
+	position: fixed;
+	bottom: 0; right: 0;
+	background: transparent url('concerts/images/band.png') no-repeat bottom right;
+	background-size: 550px 429px;
+	height: 429px;
+	width: 550px;
+}	
+
+#logo {
+	background: transparent url('concerts/images/logo.png') no-repeat 0 0;
+	background-size: 640px 211px;
+	width: 640px;
+    height: 211px;
+    margin: 0 auto auto 0;
+}
+
+.the-band {
+	position: fixed;
+	bottom: 0; right: 0;
+	background: transparent url('concerts/images/band.png') no-repeat bottom right;
+	height: 556px;
+	width: 684px;
+}
+

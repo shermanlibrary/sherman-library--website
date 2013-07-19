@@ -1,0 +1,21 @@
+/******************************************************************
+Site Name: 
+Author: 
+
+Stylesheet: Square Monitor Stylsheet
+
+This is a small desktop size. It will be seen on tablets with 1024px resolution.
+
+******************************************************************/
+/* ====================== *
+ * Layout
+ * ====================== */
+ #main {
+ 	margin-left: 0; // first
+ 	width: 74.30939226%; // ninecol
+ }
+
+ #sidebar {
+ 	float: right; // last
+ 	width: 22.928176794%; // threecol
+ }
