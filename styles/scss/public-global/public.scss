@@ -45,7 +45,7 @@
  * phones or really small tablets. */
 @media only screen and (min-width: 30.062em) {  
 	//@import '481up'; 
-}
+} 
 
 /* ==================
  * Tablets and Small Laptops
@@ -55,7 +55,7 @@
  * common viewing windows. We can begin to 
  * work in more resource intensive styles */
 @media only screen and (min-width: 48em) { 
-	//@import 'grid';
+	@import 'core/_grid';
 	//@import '768up'; 
 }
 

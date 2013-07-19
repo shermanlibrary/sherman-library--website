@@ -109,10 +109,10 @@ function bones_scripts_and_styles() {
     //wp_register_script( 'sherman-waypoints', 'http://sherman.library.nova.edu/sites/wp-content/themes/shermanlibrary/library/js/libs/waypoints.min.js', array(), '1.1.7', false );
  
     // register main stylesheet
-    wp_register_style( 'pls-stylesheet', 'http://sherman.library.nova.edu/cdn/styles/css/public.css', array(), '0.0.1', 'all' );
+    wp_register_style( 'pls-stylesheet', 'http://systems.library.nova.edu/cdn/styles/css/public-global/public.css', array(), '0.0.1', 'all' );
 
     // ie-only style sheet
-    wp_register_style( 'pls-ie-only', 'http://sherman.library.nova.edu/cdn/styles/css/public-ie.css', array(), '0.0.1' );
+    wp_register_style( 'pls-ie-only', 'http://systems.library.nova.edu/cdn/styles/css/public-global/public-ie.css', array(), '0.0.1' );
     
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
