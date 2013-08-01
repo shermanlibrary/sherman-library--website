@@ -1,12 +1,4 @@
 <?php
-/*
-Author: Eddie Machado
-URL: htp://themble.com/bones/
-
-This is where you can drop your custom functions or
-just edit things like thumbnail sizes, header images, 
-sidebars, comments, ect.
-*/
 
 /************* INCLUDE NEEDED FILES ***************/
 
@@ -30,7 +22,7 @@ require_once('library/bones.php'); // if you remove this, bones will break
     - example custom taxonomy (like categories)
     - example custom taxonomy (like tags)
 */
-//require_once('library/custom-post-type.php'); // you can disable this if you like
+require_once('library/academy-video-type.php'); // you can disable this if you like
 /*
 3. library/admin.php
     - removing some default WordPress dashboard widgets
@@ -70,202 +62,31 @@ You can change the names and dimensions to whatever
 you like. Enjoy!
 */
 
-/************* ACTIVE SIDEBARS ********************/
+/* ==================
+ * $MENU Functions
+ * ================== */
+/* ==================
+ * Note: there is most certainly a better way to generate
+ * this menu dynamically using wp_nav_menu(), but based 
+ * on the deadline at the time of this excuse I figured I'd
+ * hard code it. Sorry!!! - Michael Schofield
+ */ require_once('library/menu.php');
 
+/* ==================
+ * $SIDEBARS
+ * ================== */
 // Sidebars & Widgetizes Areas
 function bones_register_sidebars() {
     register_sidebar(array(
-    	'id' => 'sidebar1',
-    	'name' => 'Public Sidebar',
-    	'description' => 'The first (primary) sidebar.',
-    	'before_widget' => '<div id="%1$s" class="portlet %2$s">',
+    	'id' => 'home',
+    	'name' => 'Front Page Sidebar',
+    	'description' => 'This sidebar appears specifically on the front page. Use wisely.',
+    	'before_widget' => '<div id="%1$s">',
     	'after_widget' => '</div>',
-    	'before_title' => '
-            <header>
-            <span class="h3">
-
-        ',
-    	'after_title' => '</span> </header>',
-    ));
-    
-    register_sidebar(array(
-        'id' => 'sidebar-staff',
-        'name' => 'Staff Only Sidebar',
-        'description' => 'A sidebar only visible to logged-in administrators and editors',
-        'before_widget' => '<div id="%1$s" class="portlet %2$s">',
-        'after_widget' => '</div>',
-        'before_title' => '
-            <header>
-            <span class="h3">
-
-        ',
-        'after_title' => '</span> </header>',
-    ));
-    /* 
-    to add more sidebars or widgetized areas, just copy
-    and edit the above sidebar code. In order to call 
-    your new sidebar just use the following code:
-    
-    Just change the name to whatever your new
-    sidebar's id is, for example:
-    
-    register_sidebar(array(
-    	'id' => 'sidebar2',
-    	'name' => 'Sidebar 2',
-    	'description' => 'The second (secondary) sidebar.',
-    	'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    	'after_widget' => '</div>',
-    	'before_title' => '<h4 class="widgettitle">',
-    	'after_title' => '</h4>',
-    ));
-    
-    To call the sidebar in your template, you can just copy
-    the sidebar.php file and rename it to your sidebar's name.
-    So using the above example, it would be:
-    sidebar-sidebar2.php
-    
-    */
+    	'before_title' => '',
+    	'after_title' => '',
+    ));   
 } // don't remove this bracket!
-
-
-/* ==================
- * Helpful Sherman Library Widgets
- * ================== */
-/* ==================
- * Contact Information
- */
-class sherman__contact_info extends WP_Widget {
-
-    function sherman__contact_info() {
-        parent::WP_Widget(
-            false,
-            $name = 'ASL Contact Information'
-        );
-    }
-
-    function widget($args, $instance) {
-        extract( $args ); 
-        $text = apply_filters('widget_text', $instance['text'], $instance );
-        ?>
-            <div class="widget_nav_menu widget_advanced_menu menu--contact_information">
-                <header>
-                    <h2 class="h3 widgettitle">Contact Us</h3>
-                </header>
-                <ul>
-                    <?php echo $text; ?>                    
-                </ul>
-            </div>
-        <?php 
-    }
-
-    function update($new_instance, $old_instance) {
-        $instance = $old_instance;
-        $instance['text'] = $new_instance['text'];
-        return $instance;
-    }
-
-    function form($instance) {
-        $instance = wp_parse_args( (array) $instance, array( 'text' => '') );
-        $text = format_to_edit($instance['text']);
-        ?>
-        <textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
-
-        <?php 
-    }
-} /* end sherman__contact_info */
-add_action('widgets_init', create_function('', 'return register_widget("sherman__contact_info");'));
-
-
-/* ==================
- * Helios RSS Event Widget */
-
-class sherman_helios_events extends WP_Widget { 
- 
-    /** constructor -- name this the same as the class above */
-    function sherman_helios_events() {
-        parent::WP_Widget(
-            false, 
-            $name = 'Helios RSS Event Feed');    
-    }
- 
-    /** @see WP_Widget::widget -- do not rename this */
-    function widget($args, $instance) { 
-        extract( $args );
-            $helios_feed    = $instance['rss_link'];
-            $helios_quanity = $instance['quantity'];
-        ?>
-
-        <?php 
-            include_once(ABSPATH.WPINC.'/feed.php');
-            $feed = fetch_feed($helios_feed);
-
-            $limit = $feed->get_item_quantity( $helios_quantity ); // specify number of items
-            $items = $feed->get_items(0, $limit); // create an array of items
-
-            if ( $limit == 0 ) echo 'The feed is either empty or unavailable.';
-
-            else foreach ( $items as $item ) : ?>
-
-                <aside class="portlet shadow">
-                    <header class="event">
-                        <span class="icon-calendar" aria-hidden="true"></span>
-                        <h4 class="h3">
-                            <a href="<?php echo $item->get_permalink(); ?>" title="<?php echo $item->get_date('j F Y @ g:i a'); ?>">
-                                <?php 
-                                $title_length = strlen($item->get_title());
-
-                                if ( $title_length > 37 ) {
-                                    echo substr($item->get_title(), 0, 37) . ' ...';
-                                }
-
-                                else {
-                                    echo $item->get_title();
-                                }
-                                 
-                                ?>
-                            </a>
-                        </h4>
-                        <span class="icon-help" aria-hidden="true"></span>
-                    </header>
-
-                    <p class="wrap">
-                        <?php echo strip_tags(substr($item->get_description(), 0, 400)); ?>
-                    </p>
-                </aside>
-            <?php endforeach; ?>
-
-        <?php
-    }
- 
-    /** @see WP_Widget::update -- do not rename this */
-    function update($new_instance, $old_instance) {     
-        $instance = $old_instance;
-        $instance['rss_link'] = strip_tags($new_instance['rss_link']);
-        $instance['quantity'] = strip_tags($new_instance['quantity']);
-        return $instance;
-    }
- 
-    /** @see WP_Widget::form -- do not rename this */
-    function form($instance) {  
- 
-        $helios_feed      = esc_attr($instance['rss_link']);
-        $helios_quantity   = esc_attr($instance['quantity']);
-        ?>
-         <p>
-
-          <label for="<?php echo $this->get_field_id('rss_link'); ?>"><?php _e('Helios RSS Feed:'); ?></label> 
-          <input class="widefat" id="<?php echo $this->get_field_id('rss_link'); ?>" name="<?php echo $this->get_field_name('rss_link'); ?>" type="url" value="<?php echo $helios_feed; ?>" />
-        </p>
-        <p>
-          <label for="<?php echo $this->get_field_id('quantity'); ?>"><?php _e('Number of Events to Show'); ?></label> 
-          <input class="widefat" id="<?php echo $this->get_field_id('quantity'); ?>" name="<?php echo $this->get_field_name('quantity'); ?>" type="number" max="10" value="<?php echo $helios_quantity; ?>" />
-        </p>
-        <?php 
-    }
- 
- 
-} // end class sherman_helios_events
-add_action('widgets_init', create_function('', 'return register_widget("sherman_helios_events");'));
 
 
 /************* COMMENT LAYOUT *********************/
