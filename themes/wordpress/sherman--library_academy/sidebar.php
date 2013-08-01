@@ -1,4 +1,4 @@
-				<div id="sidebar1" class="sidebar threecol first clearfix" role="complementary">
+				<div id="front" class="sidebar threecol last clearfix" role="complementary">
 
 				<!-- Ask a Librarian
 				======================

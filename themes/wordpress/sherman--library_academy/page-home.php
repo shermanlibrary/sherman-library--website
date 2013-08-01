@@ -1,12 +1,18 @@
+<?php
+/*
+Template Name: Homepage
+*/
+?>
 <?php get_header(); ?>
 			
+<?php include('feature-series.php'); ?>
 <!-- Content!
 ======================
 -->	<div id="content">
 	
 		<div id="inner-content" class="wrap clearfix">
 	
-		    <div id="main" class="ninecol first clearfix" role="main">
+		    <div id="main" class="eightcol first clearfix" role="main">
 
 			    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 				
