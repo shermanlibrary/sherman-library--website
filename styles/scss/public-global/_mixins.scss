@@ -18,6 +18,12 @@
 
 .align-center { text-align: center; }
 
+.checkbox-toggle {
+	opacity: 0;
+	position: absolute;
+	visibility: hidden;
+}
+
 /* ==================
  * Clearfix */
 .clearfix { 

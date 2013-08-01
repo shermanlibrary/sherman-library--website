@@ -1,0 +1,96 @@
+.media {
+	img { width: 100%; }
+} // universal rules that apply to all media
+
+/* ==================
+ * $Images - Thumbnails
+ */
+.thumbnail {
+	border-radius: 4px;
+	margin: 0;
+	position: relative;
+
+	img { vertical-align: bottom;} // Fixes gap below image.
+}
+
+.thumbnail--browser-frame {
+
+	a {
+		display: block;
+		padding: 43px 8px 10px;
+		position: relative;
+		z-index: 1;
+
+		&:before { // URL Bar
+			border-radius: 2px;
+			content: attr(data-title);
+			display: block;
+			height: 22px;
+			left: 66px; 
+			padding-left: .5em;
+			position: absolute;
+			right: 8px;
+			top: 10px;
+		}
+
+		&:after { // Caption
+			content: attr(data-caption);
+			position: absolute;
+			margin-top: -1em;
+			opacity: 1;
+			transition: all .2s ease-out;
+			-webkit-transition: all .2s ease-out;
+			z-index: -1;
+		}
+	}
+	
+	&:before, &:after { // The circles
+		content: "";
+		border-radius: 50%;
+		display: block;
+		height: 15px;
+		left: 8px;
+		position: absolute;
+		top: 12px;
+		width: 15px;
+	}
+
+	&:after { left: 32px; }
+
+	&:hover {
+		background-color: darken(white, 3%);
+
+		&:before, &:after {
+			border-color: darken($border-color-light, 3%);
+		}
+
+		a:after { // Caption
+			margin-top: .75em; // magic number
+			opacity: 1;
+		}
+	}
+}
+
+.contrast-against-dark {
+
+	&.thumbnail {
+		background-color: white;
+		border: 1px solid $border-color-light;
+	}
+
+	&.thumbnail--browser-frame:before, 
+	&.thumbnail--browser-frame:after { // The circles
+		background-color: white;
+		border: 1px solid $border-color-light;
+	} 
+	&.thumbnail--browser-frame a:before { // URL Bar
+		background-color: white;
+		border: 1px solid $border-color-light;
+		color: #ddd;
+	}
+	&.thumbnail--browser-frame a:after { // Caption
+		color: white;
+	}
+
+}
+.contrast-against-white {}

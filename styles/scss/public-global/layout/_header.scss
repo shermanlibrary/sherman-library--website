@@ -3,7 +3,7 @@
 
 .header {
 	background-color: $header-background;
-	border-bottom: 10px solid $dark-blue-base;
+	border-bottom: 10px solid $dark-blue-tinsley;
 	color: white;
 	margin: 0 auto;
 
@@ -15,6 +15,12 @@
 
 	.pill-menu {
 		display: inline-block;
+
+		& > ul { 
+			margin-bottom: 0;
+			position: relative;
+			top: -.25em;
+		}
 
 		.primary > .label {
 			
@@ -29,8 +35,8 @@
 
 		.secondary > .label {
 			
-			background-color: $dark-blue-base;
-			&:hover, &:active { background-color: lighten($dark-blue-base, 5%); }			
+			background-color: $dark-blue-tinsley;
+			&:hover, &:active { background-color: lighten($dark-blue-tinsley, 5%); }			
 
 		} // .secondary > .label
 	} // .pill-menu
@@ -38,4 +44,4 @@
 
 	/* ==================
 	 * $Logo */	
-	.logo span { color: $dark-blue-base; }
+	.logo span { color: $dark-blue-tinsley; }

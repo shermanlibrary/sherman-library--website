@@ -4,21 +4,22 @@
     list-style-type: none; 
   }
 
-  &.inline ul > li { 
-    display: inline-block; 
-  }
-
 }
 
 /* ==================
  * Sub-Menu */
-.menu .has-subnav > ul {
+.menu .has-subnav > .sub-menu {
   position: absolute;
+}
+
+.js .has-subnav > .sub-menu {
+  display: none;
 }
 
 
 .pill-menu {
 
+  & > ul > li { display: inline-block; }
   .primary > .label,
   .secondary > .label {
     @include css-transition(all, .2s, ease-out);    
@@ -30,6 +31,7 @@
   .primary > .label {
     border-radius: 5px 0 0 5px;
   }
+
 
   .primary > .label:after {          
       border-top: 18px solid transparent;
@@ -65,4 +67,10 @@
         width: 0;  
         z-index: 0;
   }
+
+  input[id="primary-menu"]:checked ~ .sub-menu,
+  input[id="secondary-menu"]:checked ~ .sub-menu {
+    display: block;
+  }
+
 }
