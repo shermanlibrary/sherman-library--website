@@ -65,39 +65,45 @@
 					</a>
 
 					<nav class="menu pill-menu inline" role="navigation">
-						
-						<ul>
-						
-						<!-- Subject 
-						======================
-						--> <li class="has-subnav primary">
+
+					<!-- Major Category
+					======================
+					--> <ul>
+
+							<li class="has-subnav primary">
 								
-								<span class="label">
+								<input type="checkbox" id="primary-menu" class="checkbox-toggle"/>
+								<label class="label" for="primary-menu">										
+									<?php if ( !is_home() ) : ?>
+
+										<?php echo library_academy_menu('primary', 'label'); ?>
+									
+									<?php else : ?>
 									Choose a Subject
-								</span>
-
-								<ul>
-									<li>One</li>
-									<li>Two</li>
-									<li>Three</li>
-								</ul>
-
-							</li>
-
-						<!-- Sub-Topic
-						======================
-						--> <li class="has-subnav secondary">
+									<?php endif //is_home() ?>
+								</label>							
 								
-								<span class="label">
-									Sub-Topic
-								</span>
-
-								<ul>
-									<li>One</li>
-								</ul>
+								<?php echo library_academy_menu('primary', 'menu'); ?>																			
+								
 							</li>
+					
+					<!-- Empty Sub-Topic
+					======================
+					--> <li class="has-subnav secondary">
+							<input type="checkbox" id="secondary-menu" class="checkbox-toggle" />
+							<label class="label" for="secondary-menu">
+								<?php if ( !is_home() ) : ?>
+									<?php echo library_academy_menu('secondary', 'label'); ?>
+								<?php endif; ?>
+
+							</label>
+
+							<?php echo library_academy_menu('secondary', 'menu'); ?>
+
+						</li>
 
 						</ul>
+
 					</nav>
 
 
