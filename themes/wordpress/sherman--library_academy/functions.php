@@ -29,12 +29,18 @@ require_once('library/academy-video-type.php'); // you can disable this if you l
     - an example custom dashboard widget
     - adding custom login css
     - changing text in footer of admin
+    - prevent users from disabling core plugins
 */
-// require_once('library/admin.php'); // this comes turned off by default
+require_once('library/admin.php'); // this comes turned off by default
 /*
 4. library/translation/translation.php
     - adding support for other languages
 */
+/*
+5. library/bundles/something.php
+    - bundles crucial plugins.
+*/
+require_once('library/bundles/series/orgSeries.php');
 // require_once('library/translation/translation.php'); // this comes turned off by default
 
 /************* THUMBNAIL SIZE OPTIONS *************/

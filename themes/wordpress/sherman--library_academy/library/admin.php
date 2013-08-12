@@ -5,32 +5,57 @@ You can use this file to make changes to the
 dashboard. Updates to this page are coming soon.
 It's turned off by default, but you can call it
 via the functions file.
+*/ //http://speckyboy.com/2011/04/27/20-snippets-and-hacks-to-make-wordpress-user-friendly-for-your-clients/
 
-Developed by: Eddie Machado
-URL: http://themble.com/bones/
+/* ==================
+ * Core Plugins
+ */ // This disables the admin deactivation of certain core-to-the-experience plugins
+// from http://sltaylor.co.uk/blog/disabling-wordpress-plugin-deactivation-theme-changing/
+function lock_plugins( $actions, $plugin_file, $plugin_data, $context ) {
+    
+    // Remove edit link for all
+    if ( array_key_exists( 'edit', $actions ) )
+        unset( $actions['edit'] );
+    // Remove deactivate link for crucial plugins
+    if ( array_key_exists( 'deactivate', $actions ) && in_array( $plugin_file, array(
+        'advanced-custom-fields/acf.php'
+    )))
+        unset( $actions['deactivate'] );
+    return $actions;
+} 
 
-Special Thanks for code & inspiration to:
-@jackmcconnell - http://www.voltronik.co.uk/
-Digging into WP - http://digwp.com/2010/10/customize-wordpress-dashboard/
+add_filter( 'plugin_action_links', 'lock_plugins', 10, 4 );
 
-*/
+/* ==================
+ * Disable Top-Level Admin Panel Menus
+ */ // This removes admin panel options
+function remove_menus() {
+global $menu;
+    $restricted = array(__('Posts'), __('Media'), __('Pages'), __('Users'), __('Settings'), __('Comments'), __('Plugins'), __('Tools'));
+    end ($menu);
+    while (prev($menu)){
+        $value = explode(' ',$menu[key($menu)][0]);
+        if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){unset($menu[key($menu)]);}
+    }
+}
+//add_action('admin_menu', 'remove_menus');
 
-/************* DASHBOARD WIDGETS *****************/
-
-// disable default dashboard widgets
+/* ==================
+ * The Dashboard
+ */ // Controls appearance of dashboard widgets, refer to http://codex.wordpress.org/Dashboard_Widgets_API
 function disable_default_dashboard_widgets() {
-	// remove_meta_box('dashboard_right_now', 'dashboard', 'core');    // Right Now Widget
+	//remove_meta_box('dashboard_right_now', 'dashboard', 'core');    // Right Now Widget
 	remove_meta_box('dashboard_recent_comments', 'dashboard', 'core'); // Comments Widget
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');  // Incoming Links Widget
 	remove_meta_box('dashboard_plugins', 'dashboard', 'core');         // Plugins Widget
 
-	// remove_meta_box('dashboard_quick_press', 'dashboard', 'core');  // Quick Press Widget
-	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');   // Recent Drafts Widget
+	 remove_meta_box('dashboard_quick_press', 'dashboard', 'core');  // Quick Press Widget
+	//remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');   // Recent Drafts Widget
 	remove_meta_box('dashboard_primary', 'dashboard', 'core');         //
 	remove_meta_box('dashboard_secondary', 'dashboard', 'core');       //
 
 	// removing plugin dashboard boxes
-	remove_meta_box('yoast_db_widget', 'dashboard', 'normal');         // Yoast's SEO Plugin Widget
+	//remove_meta_box('yoast_db_widget', 'dashboard', 'normal');         // Yoast's SEO Plugin Widget
 
 	/*
 	have more plugin widgets you'd like to remove?
@@ -75,7 +100,7 @@ function bones_rss_dashboard_widget() {
 
 // calling all custom dashboard widgets
 function bones_custom_dashboard_widgets() {
-	wp_add_dashboard_widget('bones_rss_dashboard_widget', 'Recently on Themble (Customize on admin.php)', 'bones_rss_dashboard_widget');
+	//wp_add_dashboard_widget('bones_rss_dashboard_widget', 'Recently on Themble (Customize on admin.php)', 'bones_rss_dashboard_widget');
 	/*
 	Be sure to drop any other created Dashboard Widgets
 	in this function and they will all load.
@@ -87,6 +112,7 @@ function bones_custom_dashboard_widgets() {
 add_action('admin_menu', 'disable_default_dashboard_widgets');
 // adding any custom widgets
 add_action('wp_dashboard_setup', 'bones_custom_dashboard_widgets');
+
 
 
 /************* CUSTOM LOGIN PAGE *****************/
@@ -120,7 +146,7 @@ you like.
 
 // Custom Backend Footer
 function bones_custom_admin_footer() {
-	echo '<span id="footer-thankyou">Developed by <a href="http://yoursite.com" target="_blank">Your Site Name</a></span>. Built using <a href="http://themble.com/bones" target="_blank">Bones</a>.';
+	echo '<span id="footer-thankyou">Developed by <a href="http://sherman.library.nova.edu/" target="_blank">Alvin Sherman Library, Research, and Information Technology Center</a></span>.';
 }
 
 // adding it to the admin area
