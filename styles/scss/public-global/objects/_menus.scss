@@ -16,7 +16,6 @@
   display: none;
 }
 
-
 .pill-menu {
 
   & > ul > li { display: inline-block; }
@@ -37,21 +36,18 @@
       border-top: 18px solid transparent;
       border-bottom: 18px solid transparent;
       border-left: 18px solid $light-blue-object; // TODO: Abstract This  
-      content: "";        
-      height: 0; 
+      content: "";    
       right: -1em;
       top: 0;
-      position: absolute;        
-      width: 0;
+      position: absolute;  
       z-index: 1;
   }
 
-  .secondary { 
-    margin-left: -.4em; // Magic Number
-  }
+  .secondary {}
 
   .secondary > .label {
     border-radius: 0 5px 5px 0;
+    margin-left: -.5em;
     padding-left: 25px;
   }
 
@@ -73,4 +69,38 @@
     display: block;
   }
 
+}
+
+@-moz-document url-prefix() {
+  .pill-menu .primary > .label:after {
+    right: -.7em;
+  }
+  .pill-menu .secondary > .label {
+    margin-left: 0;
+  }
+}
+
+
+/* ==================
+ * Browse List 
+ */ // Presumes wp_list_categories() without title LI;
+
+.browse-subjects {
+  padding: 0;
+
+  li { list-style-type: none; }
+
+  & > .cat-item { margin-bottom: 1em; }
+  & > .cat-item > a { font-size: 1.3333em; }
+
+  .cat-item {
+
+    a { text-decoration: none; }
+    
+    .children { padding: 0; }
+    .children li {
+      display: inline-block;
+      width: 32%;
+    }
+  }
 }

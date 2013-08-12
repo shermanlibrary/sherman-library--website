@@ -1,5 +1,7 @@
+@import '_media--mejs';
+
 .media {
-	img { width: 100%; }
+	img, video { width: 100%; }
 } // universal rules that apply to all media
 
 /* ==================
