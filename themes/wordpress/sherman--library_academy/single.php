@@ -1,49 +1,4 @@
 <?php get_header(); ?>
-			
-	<div id="feature" class="feature video">
-
-		<div id="inner-feature" class="wrap clearfix">
-
-			<div class="media">
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-			<?php
-
-			// 1. Get the format of the tutorial
-			$academy_video_format = get_post_meta( get_the_ID(), 'academy_video_format', true); 
-
-			/* ==================
-			 * From here, some logic!
-			 */ // If the tutorial video requires anything but the standalone files
-				// --it was produced through Adobe Captivate, for instance--then we need 
-				// to adjust the display accordingly.
-				if ( $academy_video_format != 'standard' ) :
-				else :
-
-				$video_root = 'http://www.nova.edu/library/video/' . get_post_meta( get_the_ID(), 'academy_video_file', true);
-
-			?>
-			
-			<video controls poster="<?php echo $video_root ?>.jpg">
-	   
-		   	<!-- Format: .mp4
-            ======================
-            -->	<source type="video/mp4" src="<?php echo $video_root ?>.mp4">
-
-            <!-- Format: .webm
-            ======================
-	        --> <source type="video/webm" src="<?php echo $video_root ?>.webm">
-
-	        <!-- Captions: .srt / .vtt
-	        ======================
-	        --> <track kind="subtitles" src="<?php echo $video_root ?>.srt" srclang="en" label="English">
-
-			</video>
-
-			<?php endif; ?>
-			</div><!--/.media-->
-		</div><!--/.wrap-->
-	</div><!--/.feature-->
 			<div id="content">
 
 				<div id="inner-content" class="wrap clearfix">

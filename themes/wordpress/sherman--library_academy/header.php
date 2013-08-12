@@ -61,7 +61,7 @@
 				<div id="inner-header" class="wrap clearfix">
 
 					<a class="gamma logo" id="logo" href="<?php bloginfo('url');?>" title="<?php bloginfo('title'); ?>">
-						library<span>academy</span>
+						library<span>learn</span>
 					</a>
 
 					<nav class="menu pill-menu inline" role="navigation">
@@ -106,6 +106,9 @@
 
 					</nav>
 
+					<div class="search">
+						<?php echo sherman_wpsearch(); ?>
+					</div>
 
 				</div><!--/.inner-header-->
 			

@@ -33,7 +33,7 @@ function bones_ahoy() {
     // adding sidebars to Wordpress (these are created in functions.php)
     add_action( 'widgets_init', 'bones_register_sidebars' );
     // adding the bones search form (created in functions.php)
-    add_filter( 'get_search_form', 'bones_wpsearch' );
+    add_filter( 'get_search_form', 'sherman_wpsearch' );
     
     // cleaning up random code around images
     add_filter('the_content', 'bones_filter_ptags_on_images');
@@ -105,8 +105,7 @@ function bones_scripts_and_styles() {
   if (!is_admin()) {
   
     // modernizr (without media query polyfill)
-    wp_register_script( 'bones-modernizr', 'http://sherman.library.nova.edu/sites/wp-content/themes/shermanlibrary/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
-    //wp_register_script( 'sherman-waypoints', 'http://sherman.library.nova.edu/sites/wp-content/themes/shermanlibrary/library/js/libs/waypoints.min.js', array(), '1.1.7', false );
+    wp_register_script( 'bones-modernizr', get_template_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
  
     // register main stylesheet
     wp_register_style( 'pls-stylesheet', 'http://systems.library.nova.edu/cdn/styles/css/public-global/public.css', array(), '0.0.1', 'all' );
@@ -116,11 +115,16 @@ function bones_scripts_and_styles() {
     
     // comment reply script for threaded comments
     if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
-      wp_enqueue_script( 'comment-reply' );
+    	wp_enqueue_script( 'comment-reply' );
     }
     
+    //  load mediaelement.js (and styles) for the instructional video post-type.
+    if ( is_singular( 'academy_video' ) ) {
+    	wp_enqueue_style( 'wp-mediaelement' );
+    	wp_enqueue_script( 'wp-mediaelement' );
+    }
     //adding scripts file in the footer
-    wp_register_script( 'pls-js', 'http://sherman.library.nova.edu/sites/wp-content/themes/shermanlibrary/library/js/scripts.js', array( 'jquery' ), '', true );
+    wp_register_script( 'pls-js', get_template_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
     
     // enqueue styles and scripts
     wp_enqueue_script( 'bones-modernizr' ); 
@@ -132,7 +136,6 @@ function bones_scripts_and_styles() {
     and your site will load faster.
     */
     wp_enqueue_script( 'jquery' ); 
-    //wp_enqueue_script( 'sherman-waypoints' );
     wp_enqueue_script( 'pls-js' ); 
     
   }
