@@ -5,11 +5,16 @@
 	<div id="inner-feature" class="wrap clearfix">
 
 			<div class="media contrast-against-dark">
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+			<?php if (have_posts()) : while (have_posts()) : the_post(); setPostViews(get_the_ID());?>
+			
+			<h1 class="single-title gamma" itemprop="headline"><?php the_title(); ?></h1>
+			<p class="meta">
+				<time class="icon-calendar" datetime="<?php echo the_time('Y-m-j'); ?>" pubdate> 
+					<?php the_time('F jS, Y'); ?>
+				</time> 
 
-			<h1 class="single-title beta" itemprop="headline"><?php the_title(); ?></h1>
-			<p class="meta"><?php _e("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php _e("filed under", "bonestheme"); ?> <?php the_category(', '); ?>.</p>			
-							<?php the_tags('<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>'); ?>
+				<span class="icon-mobile"> <?php echo getPostViews(get_the_ID()); ?> views</span>
+			</p>			
 
 			<?php
 
@@ -55,52 +60,64 @@
 
 				<div id="main" class="eightcol first clearfix" role="main">
 					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
-				
-						<header class="article-header">
-
-							<h1 class="single-title" itemprop="headline"><?php the_title(); ?></h1>
-					
-						</header> <!-- end article header -->
-			
+							
 						<section class="post-content" itemprop="articleBody">
 							<?php the_content(); ?>
 						</section> <!-- end article section -->
 				
-						<footer class="article-footer">
-
-							<p class="meta"><?php _e("Posted", "bonestheme"); ?> <time datetime="<?php echo the_time('Y-m-j'); ?>" pubdate><?php the_time('F jS, Y'); ?></time> <?php _e("by", "bonestheme"); ?> <?php the_author_posts_link(); ?> <span class="amp">&</span> <?php _e("filed under", "bonestheme"); ?> <?php the_category(', '); ?>.</p>			
-							<?php the_tags('<p class="tags"><span class="tags-title">Tags:</span> ', ', ', '</p>'); ?>
-					
-						</footer> <!-- end article footer -->
-			
-						<?php comments_template();// comments should go inside the article element ?>
+						<?php //comments_template();// comments should go inside the article element ?>
 			
 					</article> <!-- end article -->
 			
-				<?php endwhile; ?>			
-			
-				<?php else : ?>
-			
-					<article id="post-not-found" class="hentry clearfix">
-			    		<header class="article-header">
-			    			<h1><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h1>
-			    		</header>
-			    		<section class="post-content">
-			    			<p><?php _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
-			    		</section>
-			    		<footer class="article-footer">
-			    		    <p><?php _e("This is the error message in the single.php template.", "bonestheme"); ?></p>
-			    		</footer>
-					</article>
-			
-				<?php endif; ?>
-
 				</div> <!-- end #main -->
+
+				<div class="fourcol last">
+					<aside class="contrast-against-dark">
+						<section>
+							<header>
+								<h3 class="section-title">About</h3>
+							</header>
+							<p><?php echo get_the_excerpt(); ?></p>						
+						</section>
+
+						<section class="stack-blocks">
+							<header>
+								<h3 class="section-title">Download</h3>
+							</header>
+							<p class="icon-podcast">
+								<a href="<?php echo $video_root; ?>.mp4" title="Download the MP4">MP4</a> | 
+								<a href="<?php echo $video_root; ?>.srt">Transcript</a>
+							</p>
+						</section>
+
+						<section class="media stack-blocks">
+							<?php library_related_videos(); ?>
+						</section>	
+					</aside>
+				</div>
 
 			<?php // get_sidebar(); // sidebar 1 ?>
 
 		</div> <!-- end #inner-content -->
 
 	</div> <!-- end #content -->
+
+	<?php endwhile; ?>			
+
+	<?php else : ?>
+
+		<article id="post-not-found" class="hentry clearfix">
+    		<header class="article-header">
+    			<h1><?php _e("Oops, Post Not Found!", "bonestheme"); ?></h1>
+    		</header>
+    		<section class="post-content">
+    			<p><?php _e("Uh Oh. Something is missing. Try double checking things.", "bonestheme"); ?></p>
+    		</section>
+    		<footer class="article-footer">
+    		    <p><?php _e("This is the error message in the single.php template.", "bonestheme"); ?></p>
+    		</footer>
+		</article>
+
+	<?php endif; ?>
 
 <?php get_footer(); ?>

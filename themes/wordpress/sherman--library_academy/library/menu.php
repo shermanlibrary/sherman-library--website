@@ -34,11 +34,11 @@ function library_academy_menu( $menu, $element ) {
         if ( $element == 'label' ) {
 
             if ( has_category('getting-started') ) {
-                if ( is_category('articles') ) { $element = 'Articles'; }
-                elseif ( is_category('books') ) { $element = 'Books'; }
-                elseif ( is_category('login') ) { $element = 'Log In'; }
-                elseif ( is_category('sharkprint') ) { $element = 'SharkPrint'; }
-                elseif ( is_category('alumni') ) { $element = 'Alumni'; }
+                if ( has_category('articles') ) { $element = 'Articles'; }
+                elseif ( has_category('books') ) { $element = 'Books'; }
+                elseif ( has_category('login') ) { $element = 'Log In'; }
+                elseif ( has_category('sharkprint') ) { $element = 'SharkPrint'; }
+                elseif ( has_category('alumni') ) { $element = 'Alumni'; }
                 else { $element = 'All'; }
             }
 

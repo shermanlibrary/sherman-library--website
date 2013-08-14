@@ -261,7 +261,7 @@ RELATED POSTS FUNCTION
 *********************/	
 	
 // Related Posts Function (call using bones_related_posts(); )
-function bones_related_posts() {
+function library_related_videos() {
 	echo '<ul id="bones-related-posts">';
 	global $post;
 	$tags = wp_get_post_tags($post->ID);
@@ -270,12 +270,15 @@ function bones_related_posts() {
         $args = array(
         	'tag' => $tag_arr,
         	'numberposts' => 5, /* you can change this to show more */
-        	'post__not_in' => array($post->ID)
+        	'post__not_in' => array($post->ID),
+        	'post_type' => 'academy_video'
      	);
         $related_posts = get_posts($args);
+
         if($related_posts) {
         	foreach ($related_posts as $post) : setup_postdata($post); ?>
-	           	<li class="related_post"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></li>
+        	<?php $thumbnail = 'http://www.nova.edu/library/video/' . get_post_meta( get_the_ID(), 'academy_video_file', true ) . '.jpg'; ?>
+        		<li class="related_post"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a><img src="<?php echo $thumbnail ?>"></li>
 	        <?php endforeach; } 
 	    else { ?>
             <?php echo '<li class="no_related_post">No Related Posts Yet!</li>'; ?>
