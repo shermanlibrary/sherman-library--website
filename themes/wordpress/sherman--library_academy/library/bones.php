@@ -29,7 +29,7 @@ function bones_ahoy() {
     add_filter( 'style_loader_tag', 'bones_ie_conditional', 10, 2 );
     
     // launching this stuff after theme setup
-    add_action('after_setup_theme', 'bones_theme_support');	
+    //add_action('after_setup_theme', 'bones_theme_support');	
     // adding sidebars to Wordpress (these are created in functions.php)
     add_action( 'widgets_init', 'bones_register_sidebars' );
     // adding the bones search form (created in functions.php)
@@ -108,7 +108,7 @@ function bones_scripts_and_styles() {
     wp_register_script( 'bones-modernizr', get_template_directory_uri() . '/library/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
  
     // register main stylesheet
-    wp_register_style( 'pls-stylesheet', 'http://systems.library.nova.edu/cdn/styles/css/public-global/public.css', array(), '0.0.1', 'all' );
+    wp_register_style( 'pls-stylesheet', 'http://sherman.library.nova.edu/cdn/styles/css/public-global/public.css', array(), '0.0.1', 'all' );
 
     // ie-only style sheet
     wp_register_style( 'pls-ie-only', 'http://systems.library.nova.edu/cdn/styles/css/public-global/public-ie.css', array(), '0.0.1' );
@@ -119,12 +119,12 @@ function bones_scripts_and_styles() {
     }
     
     //  load mediaelement.js (and styles) for the instructional video post-type.
-    if ( is_singular( 'academy_video' ) ) {
+    if ( is_singular( 'academy_video' ) || is_front_page() ) {
     	wp_enqueue_style( 'wp-mediaelement' );
     	wp_enqueue_script( 'wp-mediaelement' );
     }
     //adding scripts file in the footer
-    wp_register_script( 'pls-js', get_template_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
+    wp_register_script( 'pls-js', get_template_directory_uri() . '/library/js/scripts.min.js', array( 'jquery' ), '', true );
     
     // enqueue styles and scripts
     wp_enqueue_script( 'bones-modernizr' ); 
@@ -149,84 +149,11 @@ function bones_ie_conditional( $tag, $handle ) {
 	return $tag;
 } // MS Note: This was lte IE 9. I changed this because it appears IE9 is now up to snuff.
 
-/*********************
-THEME SUPPORT
-*********************/
-	
-// Adding WP 3+ Functions & Theme Support
-function bones_theme_support() {
-	
-	// wp thumbnails (sizes handled in functions.php)
-	add_theme_support('post-thumbnails');   
-	
-	// default thumb size   
-	set_post_thumbnail_size(125, 125, true);   
-	
-	// wp custom background (thx to @bransonwerner for update)
-	add_theme_support( 'custom-background',
-	    array( 
-	    'default-image' => '',  // background image default
-	    'default-color' => '', // background color default (dont add the #)
-	    'wp-head-callback' => '_custom_background_cb',
-	    'admin-head-callback' => '',
-	    'admin-preview-callback' => ''
-	    )
-	);      
-	
-	// rss thingy           
-	add_theme_support('automatic-feed-links'); 
-	
-	// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
-	
-	// adding post format support
-	add_theme_support( 'post-formats',  
-		array( 
-			'aside',             // title less blurb
-			'gallery',           // gallery of images
-			'link',              // quick link to other site
-			'image',             // an image
-			'quote',             // a quick quote
-			'status',            // a Facebook like status update
-			'video',             // video 
-			'audio',             // audio
-			'chat'               // chat transcript 
-		)
-	);	
-	
-	// wp menus
-	add_theme_support( 'menus' );  
-	
-	// registering wp3+ menus          
-	register_nav_menus(                      
-		array( 
-			'main-nav' => __( 'The Main Menu', 'bonestheme' ),   // main nav in header
-			'footer-links' => __( 'Footer Links', 'bonestheme' ) // secondary nav in footer
-		)
-	);
-} /* end bones theme support */
 
 
 /*********************
 MENUS & NAVIGATION
 *********************/	
- 
-// the main menu 
-function bones_main_nav() {
-	// display the wp3 menu if available
-    wp_nav_menu(array( 
-    	'container' => false,                           // remove nav container
-    	'container_class' => 'menu clearfix',           // class of container (should you choose to use it)
-    	'menu' => 'The Main Menu',                           // nav name
-    	'menu_class' => 'nav top-nav clearfix',         // adding custom nav class
-    	'theme_location' => 'main-nav',                 // where it's located in the theme
-    	'before' => '',                                 // before the menu
-        'after' => '',                                  // after the menu
-        'link_before' => '',                            // before each link
-        'link_after' => '',                             // after each link
-        'depth' => 0,                                   // limit the depth of the nav
-    	'fallback_cb' => 'bones_main_nav_fallback'      // fallback function
-	));
-} /* end bones main nav */
 
 // the footer menu (should you choose to use one)
 function bones_footer_links() { 
@@ -256,20 +183,43 @@ function bones_footer_links_fallback() {
 	/* you can put a default here if you like */ 
 }
 
+
+/* ==================
+ * Return Library Learn Video Thumbnail
+ */ // Call *only* within the loop.
+function library_video_thumbnail( $size ) {
+	if ( has_post_thumbnail() ) {
+		return the_post_thumbnail( $size );
+	}
+
+	else {
+		if ( get_post_meta( get_the_ID(), 'academy_video_file', true) != '' ) {
+
+			$academy_video_file = get_post_meta( get_the_ID(), 'academy_video_file', true);
+
+			return '<img src=http://www.nova.edu/library/video/' . $academy_video_file . '.jpg />';
+		}	
+
+		else {
+			return false;
+		}
+	}
+}
+
 /*********************
 RELATED POSTS FUNCTION
 *********************/	
 	
 // Related Posts Function (call using bones_related_posts(); )
 function library_related_videos() {
-	echo '<ul id="bones-related-posts">';
+	echo '<ul>';
 	global $post;
 	$tags = wp_get_post_tags($post->ID);
 	if($tags) {
 		foreach($tags as $tag) { $tag_arr .= $tag->slug . ','; }
         $args = array(
         	'tag' => $tag_arr,
-        	'numberposts' => 5, /* you can change this to show more */
+        	'numberposts' => 3, /* you can change this to show more */
         	'post__not_in' => array($post->ID),
         	'post_type' => 'academy_video'
      	);
@@ -277,8 +227,18 @@ function library_related_videos() {
 
         if($related_posts) {
         	foreach ($related_posts as $post) : setup_postdata($post); ?>
-        	<?php $thumbnail = 'http://www.nova.edu/library/video/' . get_post_meta( get_the_ID(), 'academy_video_file', true ) . '.jpg'; ?>
-        		<li class="related_post"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a><img src="<?php echo $thumbnail ?>"></li>
+        	
+        	<?php if ( has_post_thumbnail() || ( get_post_meta( get_the_ID(), 'academy_video_file', true) != '' ) ) : ?>
+        		
+        		<li class="related_post thumbnail thumbnail--gallery">
+        			<a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
+        				
+        				<?php echo library_video_thumbnail('video-small'); ?>
+        				
+        				<span class="caption"><?php the_title(); ?></span>
+        			</a>
+        		</li>
+	        <?php endif; ?>
 	        <?php endforeach; } 
 	    else { ?>
             <?php echo '<li class="no_related_post">No Related Posts Yet!</li>'; ?>
@@ -287,6 +247,34 @@ function library_related_videos() {
 	wp_reset_query();
 	echo '</ul>';
 } /* end bones related posts function */
+
+// Recent videos function
+function library_recent_videos() { // Don't use this yet. It's ugly.
+	
+	global $post;
+	$args = array(
+		'numberposts'	=> 2,
+		'orderby'		=> 'post_date',
+		'post_type'		=> 'academy_video'
+	);	
+
+	$recent_videos = get_posts($args);
+
+	if ( $recent_videos ) {
+		$i = 0;
+		foreach ( $recent_videos as $post ) : setup_postdata( $post ); $i++?>
+		<?php $thumbnail = 'http://www.nova.edu/library/video/' . get_post_meta( get_the_ID(), 'academy_video_file', true ) . '.jpg'; ?>
+			<div class="recent-video threecol media thumbnail--gallery <?php if ( $i == 1 ) { echo 'first'; } elseif ( $i == 3 ) { echo 'last'; } ?>">				
+				<a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>">
+					<img src="<?php echo $thumbnail ?>">
+					<span class="caption"> <?php the_title(); ?> </span>
+				</a>
+			</div>
+		<?php	endforeach;	
+	} else {}
+	wp_reset_query();
+
+}
 
 /*********************
 PAGE NAVI

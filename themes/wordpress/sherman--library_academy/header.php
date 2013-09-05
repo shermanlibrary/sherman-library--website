@@ -53,16 +53,23 @@
 	   </script>	-->
 	
 		<div id="container">
-		
+			
+			<?php //get_template_part('navigation--institutional-nav'); ?>
+
 		<!-- Header
 		======================
 		-->	<header class="header" role="banner">
 			
 				<div id="inner-header" class="wrap clearfix">
 
-					<a class="gamma logo" id="logo" href="<?php bloginfo('url');?>" title="<?php bloginfo('title'); ?>">
+					<a class="logo" id="logo" href="<?php bloginfo('url');?>" title="<?php bloginfo('title'); ?>">
 						library<span>learn</span>
+
 					</a>
+
+					<div class="search">
+						<?php echo sherman_wpsearch(); ?>
+					</div>
 
 					<nav class="menu pill-menu inline" role="navigation">
 
@@ -73,15 +80,7 @@
 							<li class="has-subnav primary">
 								
 								<input type="checkbox" id="primary-menu" class="checkbox-toggle"/>
-								<label class="label" for="primary-menu">										
-									<?php if ( !is_home() ) : ?>
-
-										<?php echo library_academy_menu('primary', 'label'); ?>
-									
-									<?php else : ?>
-									Choose a Subject
-									<?php endif //is_home() ?>
-								</label>							
+								<label class="label" for="primary-menu"><?php if ( !is_home() ) : ?><?php echo library_academy_menu('primary', 'label'); ?><?php else : ?>Choose a Subject<?php endif //is_home() ?></label>
 								
 								<?php echo library_academy_menu('primary', 'menu'); ?>																			
 								
@@ -91,12 +90,7 @@
 					======================
 					--> <li class="has-subnav secondary">
 							<input type="checkbox" id="secondary-menu" class="checkbox-toggle" />
-							<label class="label" for="secondary-menu">
-								<?php if ( !is_home() ) : ?>
-									<?php echo library_academy_menu('secondary', 'label'); ?>
-								<?php endif; ?>
-
-							</label>
+							<label class="label" for="secondary-menu"><?php if ( !is_front_page() ) : ?><?php echo library_academy_menu('secondary', 'label'); ?><?php else : ?>&nbsp;<?php endif; ?></label>
 
 							<?php echo library_academy_menu('secondary', 'menu'); ?>
 
@@ -105,10 +99,6 @@
 						</ul>
 
 					</nav>
-
-					<div class="search">
-						<?php echo sherman_wpsearch(); ?>
-					</div>
 
 				</div><!--/.inner-header-->
 			

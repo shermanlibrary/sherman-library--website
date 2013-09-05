@@ -68,54 +68,104 @@
 					<!-- if you'd like to use the site description you can un-comment it below -->
 					<?php // bloginfo('description'); ?>
 
-					<div class="utilities">
+				<div class="utilities">
+				<form action="http://sharksearch.nova.edu/search" class="search-container" id="aslritc-search" method="get">
 
-						<form action="http://sharksearch.nova.edu/search" class="search-container" id="aslritc-search" method="get">
+					<input id="searchbox" name="q" type="text" placeholder="Search the Library's Website" x-webkit-speech speech/>
+					<input type="hidden" name="client" value="main" />
+					<input type="hidden" name="proxystylesheet" value="main" />
+					<input type="hidden" name="output" value="xml_no_dtd" />
+					<input type="hidden" name="access" value="p" />
+					<input type="hidden" name="ie" value="UTF-8" />
+					<input type="hidden" name="oe" value="UTF-8" />
+					<input type="hidden" name="site" value="aslritc" id="sopswap" />
 
-							<input id="searchbox" name="q" type="text" placeholder="Search the Library's Website" x-webkit-speech speech/>
-							<input type="hidden" name="client" value="main" />
-							<input type="hidden" name="proxystylesheet" value="main" />
-							<input type="hidden" name="output" value="xml_no_dtd" />
-							<input type="hidden" name="access" value="p" />
-							<input type="hidden" name="ie" value="UTF-8" />
-							<input type="hidden" name="oe" value="UTF-8" />
-							<input type="hidden" name="site" value="aslritc" id="sopswap" />
+					<a class="gradient--vertical button" onclick="document.getElementById('aslritc-search').submit();" type="submit">
+						<span class="icon-search" aria-hidden="true"></span>
+					</a>
+				</form>
 
-							<a class="gradient--vertical button" onclick="document.getElementById('aslritc-search').submit();" type="submit">
-								<span class="icon-search" aria-hidden="true"></span>
-							</a>
-						</form>
+				<div class="lib-button-small gradient--vertical"> 
+					<a class="has-subnav icon-link" href="http://novacat.nova.edu/patroninfo" title="My Library Account"></a>
+					<ul class="sub-menu">
+						<li><span class="h3">Quick Links</span></li>
+						<li class="icon-link">
+							<a class="link" href="http://sharklink.nova.edu/" target="new">Blackboard</a>
+						</li>
+						<li class="icon-link">
+							<a class="link" href="http://www.nova.edu/emergency/" target="new">Emergency Alerts</a>
+						</li>
+						<li class="icon-link">
+							<a class="link" href="http://sharklink.nova.edu/" target="new">SharkLink</a>
+						</li>
+						<li class="icon-link">
+							<a class="link" href="http://webstar.nova.edu/" target="new">WebSTAR</a>
+						</li>
+					</ul>
+				</div> 
 
-						<ul class="utility-menu">
-							<li> 
-								<a class="lib-button-small gradient--vertical" title="Convenient Links"> 
-									<span class="icon-link" aria-hidden="true"></span>
-								</a> 
-								<ul class="sub-menu">
-									<li>
-										<a class="link" href="http://sharklink.nova.edu/" target="new">Blackboard</a>
+				<div class="lib-button-small gradient--orange" title="Contact Us">
+					<a class="has-subnav icon-bubbles" href="http://www.nova.edu/library/main/feedback.html" title="Give in Touch">
+						Contact Us
+					</a>					
+					<ul class="sub-menu">
+
+					<!-- Feedback Form
+					======================
+					-->	<li>
+							<form action="http://systems.library.nova.edu/form/embed.php?#main_body" id="form_49" method="post">
+								<ol>
+									
+								<!-- Comment
+								======================
+								-->	<li>										
+										<textarea id="element_3" name="element_3" placeholder="It would be great if ..." required></textarea>
 									</li>
-									<li>
-										<a class="link" href="http://www.nova.edu/emergency/" target="new">Emergency Alerts</a>
-									</li>
-									<li>
-										<a class="link" href="http://sharklink.nova.edu/" target="new">SharkLink</a>
-									</li>
-									<li>
-										<a class="link" href="http://webstar.nova.edu/" target="new">WebSTAR</a>
-									</li>
-								</ul>
-							</li>
 
-							<li>
-								<a class="lib-button-small gradient--vertical" href="http://nova.edu/library/main/feedback.html" title="Give Feedback">
-									<span class="icon-bubbles" aria-hidden="true"></span> Feedback
-								</a>
-							</li>	
-						</ul>
-						
+								<!-- Information
+								======================
+								-->	<li>
+										<label for="element_1">Your Name</label>
+										<input type="text" id="element_1"name="element_1" placeholder="Jane Doe" required>
+									</li>
 
-					</div><!--/.utility-belt-->
+								<!-- Email
+								======================
+								-->	<li>
+										<label for="element_2">Email</label>
+										<input type="email" id="element_2" name="element_2" required>
+									</li>
+									
+									<li>
+										<input type="hidden" name="form_id" value="49">
+										<input type="hidden" name="submit" value="1">
+										<input id="saveForm" name="submit" onclick="" type="submit">
+									</li>
+								</ol>
+							</form>
+						</li>
+
+					<!-- Call
+					======================
+					-->	<li><span class="h3 icon-mobile"> Phone Numbers</span>
+							<ul>								
+								<li class="icon-library">
+									<b>General Info:</b> <a href="tel:19542624600" title="Call for general information">(954) 262-4613</a>
+								</li>
+								
+								<li class="icon-help">
+									<b>Reference:</b> <a href="tel:19542624613" title="Call the reference desk.">(954) 262-4613</a>
+								</li>
+
+								<li class="icon-book">
+									<b>Public Desk:</b> <a href="tel:19542625477" title="Call the public desk.">(954) 262-5477</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				
+			</div><!--/.utilities-->
 
 				</div><!--/.inner-header-->
 			
@@ -153,11 +203,8 @@
 					<li class="has-subnav"> 
 						<a href="#parent" rel="nofollow">Databases</a> 
 						<ul class="children">
-							<a class="hint--right hint--rounded hint--info" data-hint="The databases you have access to are determined by your patron type." href="http://www.nova.edu/library/eleclib/databases.html"> 
-								Databases Gateway	
-							</a>
-							<a href="http://elib.nova.edu/db/n/nsearch2.cfm" class="link"> Databases by Subject</a>
-							<a href="http://elib.nova.edu/db/n/nsublist2.cfm?sortorder=s&subj_id=zzz" class="link"> Complete A-Z List </a>
+							<a href="http://sherman.library.nova.edu/e-library/index.php" class="link" title="E-Library Resources by Subject">Databases by Subject</a>
+							<a href="http://sherman.library.nova.edu/e-library/index.php?action=all&col=n" class="link" title="A Complete Alphabetical List of Databases"> Complete A-Z List </a>
 						</ul>
 					</li>
 					<li> <a href="http://atoz.ebsco.com/Search.asp?id=nseu" class="link">Journal Finder</a> </li>
@@ -174,7 +221,7 @@
 				<ul class="sub-menu">
 					<li> <a href="http://sherman.library.nova.edu/sites/services/circulation/" class="link">Borrowing &amp; Circulation</a> </li>
 					<li> <a href="http://sherman.library.nova.edu/sites/services/collection-development/" class="link">Collection Development</a> </li>
-					<li> <a href="http://sherman.library.nova.edu/sites/services/dils/" class="link">Distance &amp; Instructional</a> </li>
+					<li> <a href="http://sherman.library.nova.edu/sites/dils/" class="link" title="Distance and Instructional Library Services">Distance &amp; Instructional Library Services</a> </li>
 					<li> <a href="http://sherman.library.nova.edu/sites/services/docdel/" class="link">Interlibrary Loan</a> </li>
 					<li> <a href="http://sherman.library.nova.edu/sites/services/electronic-course-reserves-ecr/" class="link">Electronic Course Reserves</a> </li>
 					<li> <a href="http://sherman.library.nova.edu/sites/services/public-library-services/" class="link">Public Library Services</a> </li>

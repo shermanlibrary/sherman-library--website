@@ -27,27 +27,23 @@
 				// --it was produced through Adobe Captivate, for instance--then we need 
 				// to adjust the display accordingly.
 				if ( $academy_video_format != 'standard' ) :
+
+					$adobe_captivate_url = get_post_meta( get_the_ID(), 'captivate_url', true);
+				 ?>
+
+				 <div class="fluid-embed-wrapper">
+				 	<iframe frameborder="0" src="<?php echo $adobe_captivate_url ?>"></iframe>
+			 	</div>
+
+
+				<?php
 				else :
+				 ?>
 
-				$video_root = 'http://www.nova.edu/library/video/' . get_post_meta( get_the_ID(), 'academy_video_file', true);
+				<?php get_template_part('template-standard_video_format'); ?>
+				<?php $video_root = 'http://www.nova.edu/library/video/' . get_post_meta( get_the_ID(), 'academy_video_file', true); ?>
 
-			?>
-			
-			<video controls poster="<?php echo $video_root ?>.jpg">
-	   
-		   	<!-- Format: .mp4
-            ======================
-            -->	<source type="video/mp4" src="<?php echo $video_root ?>.mp4">
 
-            <!-- Format: .webm
-            ======================
-	        --> <source type="video/webm" src="<?php echo $video_root ?>.webm">
-
-	        <!-- Captions: .srt / .vtt
-	        ======================
-	        <track kind="subtitles" src="<?php echo $video_root ?>.srt" srclang="en" label="English">--> 
-
-			</video>
 
 			<?php endif; ?>
 			</div><!--/.media-->
@@ -62,6 +58,12 @@
 					<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 							
 						<section class="post-content" itemprop="articleBody">
+							<h3>About</h3>
+							<p>
+								<?php echo get_the_excerpt(); ?>
+							</p>
+
+							<h4>Resources</h4>
 							<?php the_content(); ?>
 						</section> <!-- end article section -->
 				
@@ -73,13 +75,8 @@
 
 				<div class="fourcol last">
 					<aside class="contrast-against-dark">
-						<section>
-							<header>
-								<h3 class="section-title">About</h3>
-							</header>
-							<p><?php echo get_the_excerpt(); ?></p>						
-						</section>
-
+						
+						<?php if ( $academy_video_format == 'standard' ) : ?>
 						<section class="stack-blocks">
 							<header>
 								<h3 class="section-title">Download</h3>
@@ -89,14 +86,20 @@
 								<a href="<?php echo $video_root; ?>.srt">Transcript</a>
 							</p>
 						</section>
+						<?php endif; ?>
+						
+						<?php get_sidebar( 'video' );  ?>
 
-						<section class="media stack-blocks">
+						<section class="media stack-blocks ">
+							<header>
+								<h3 class="section-title">Related Videos</h3>
+							</header>
 							<?php library_related_videos(); ?>
 						</section>	
 					</aside>
 				</div>
 
-			<?php // get_sidebar(); // sidebar 1 ?>
+			
 
 		</div> <!-- end #inner-content -->
 

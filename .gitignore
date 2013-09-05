@@ -225,3 +225,13 @@ pip-log.txt
 */library/css
 */library/scss
 */splash-*
+congif.rb
+
+################
+## Themes
+################
+themes/wordpress/*/library/Detector
+themes/wordpress/*/library/translation
+themes/wordpress/*/library/scss
+themes/wordpress/*/library/css
+themes/wordpress/*/library/images

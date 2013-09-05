@@ -1,13 +1,4 @@
 <?php
-/*
-Author: Eddie Machado
-URL: htp://themble.com/bones/
-
-This is where you can drop your custom functions or
-just edit things like thumbnail sizes, header images, 
-sidebars, comments, ect.
-*/
-
 /************* INCLUDE NEEDED FILES ***************/
 
 /*
@@ -22,28 +13,72 @@ sidebars, comments, ect.
 	- customizing the post excerpt
 	- custom google+ integration
 	- adding custom fields to user profiles
-*/
-require_once('library/bones.php'); // if you remove this, bones will break
+*/ require_once('library/bones.php'); // if you remove this, bones will break
+    // wp thumbnails (sizes handled in functions.php)
+    add_theme_support('post-thumbnails');   
+    
+    // default thumb size   
+    set_post_thumbnail_size(125, 125, true);   
+    
+    // wp custom background (thx to @bransonwerner for update)
+    add_theme_support( 'custom-background',
+        array( 
+        'default-image' => '',  // background image default
+        'default-color' => '', // background color default (dont add the #)
+        'wp-head-callback' => '_custom_background_cb',
+        'admin-head-callback' => '',
+        'admin-preview-callback' => ''
+        )
+    );      
+    
+    // rss thingy           
+    add_theme_support('automatic-feed-links'); 
+    
+    // to add header image support go here: http://themble.com/support/adding-header-background-image-support/
+    
+    // adding post format support
+    add_theme_support( 'post-formats',  
+        array( 
+            'aside',             // title less blurb
+            'gallery',           // gallery of images
+            'link',              // quick link to other site
+            'image',             // an image
+            'quote',             // a quick quote
+            'status',            // a Facebook like status update
+            'video',             // video 
+            'audio',             // audio
+            'chat'               // chat transcript 
+        )
+    );  
+    
+    // wp menus
+    add_theme_support( 'menus' );  
+    
+   /* 
+   Every so often theme support for post thumbnails falters, even 
+   when I have no plugins enabled. I can force the issue with this,
+   but since I'm already doing that in bones.php it's ugly. 
+   */
 /*
+
 2. library/custom-post-type.php
     - an example custom post type
     - example custom taxonomy (like categories)
     - example custom taxonomy (like tags)
-*/
-//require_once('library/custom-post-type.php'); // you can disable this if you like
+*/ //require_once('library/custom-post-type.php'); // you can disable this if you like
+
 /*
 3. library/admin.php
     - removing some default WordPress dashboard widgets
     - an example custom dashboard widget
     - adding custom login css
     - changing text in footer of admin
-*/
-// require_once('library/admin.php'); // this comes turned off by default
+*/ // require_once('library/admin.php'); // this comes turned off by default
 /*
+
 4. library/translation/translation.php
     - adding support for other languages
-*/
-// require_once('library/translation/translation.php'); // this comes turned off by default
+*/ // require_once('library/translation/translation.php'); // this comes turned off by default
 
 /************* THUMBNAIL SIZE OPTIONS *************/
 
@@ -78,28 +113,28 @@ function bones_register_sidebars() {
     	'id' => 'sidebar1',
     	'name' => 'Public Sidebar',
     	'description' => 'The first (primary) sidebar.',
-    	'before_widget' => '<div id="%1$s" class="widget portlet %2$s">',
+    	'before_widget' => '<div id="%1$s" class="portlet %2$s">',
     	'after_widget' => '</div>',
     	'before_title' => '
             <header>
-            <h2 class="h3 widgettitle">
+            <span class="h3">
 
         ',
-    	'after_title' => '</h2> </header>',
+    	'after_title' => '</span> </header>',
     ));
     
     register_sidebar(array(
         'id' => 'sidebar-staff',
         'name' => 'Staff Only Sidebar',
         'description' => 'A sidebar only visible to logged-in administrators and editors',
-        'before_widget' => '<div id="%1$s" class="widget portlet %2$s">',
+        'before_widget' => '<div id="%1$s" class="portlet %2$s">',
         'after_widget' => '</div>',
         'before_title' => '
             <header>
-            <h4 class="h3 widgettitle">
+            <span class="h3">
 
         ',
-        'after_title' => '</h4> </header>',
+        'after_title' => '</span> </header>',
     ));
     /* 
     to add more sidebars or widgetized areas, just copy
@@ -177,6 +212,15 @@ add_action('widgets_init', create_function('', 'return register_widget("sherman_
 
 
 /* ==================
+ * Remove "Private" and "Protected" from those posts
+ */
+function title_format($content) {
+    return '%s';
+}
+add_filter('private_title_format', 'title_format');
+add_filter('protected_title_format', 'title_format');
+
+/* ==================
  * Helios RSS Event Widget */
 
 class sherman_helios_events extends WP_Widget { 
@@ -191,48 +235,46 @@ class sherman_helios_events extends WP_Widget {
     /** @see WP_Widget::widget -- do not rename this */
     function widget($args, $instance) { 
         extract( $args );
+            $helios_title   = $instance['title'];
             $helios_feed    = $instance['rss_link'];
-            $helios_quanity = $instance['quantity'];
+            $helios_quantity = $instance['quantity'];
         ?>
 
         <?php 
             include_once(ABSPATH.WPINC.'/feed.php');
             $feed = fetch_feed($helios_feed);
+            $feed->enable_order_by_date(false);
 
             $limit = $feed->get_item_quantity( $helios_quantity ); // specify number of items
             $items = $feed->get_items(0, $limit); // create an array of items
 
             if ( $limit == 0 ) echo 'The feed is either empty or unavailable.';
 
-            else foreach ( $items as $item ) : ?>
+            else { ?>
 
-                <aside class="portlet shadow">
-                    <header class="event">
+
+                <ul class="vertical-menu">
+                    <header class="gradient--rtl">
                         <span class="icon-calendar" aria-hidden="true"></span>
-                        <h4 class="h3">
+                        <span class="h3"><?php echo $helios_title; ?></span>
+                    </header>
+
+                   <?php foreach ( $items as $item ) : ?>
+                        <li>
                             <a href="<?php echo $item->get_permalink(); ?>" title="<?php echo $item->get_date('j F Y @ g:i a'); ?>">
                                 <?php 
                                 $title_length = strlen($item->get_title());
 
-                                if ( $title_length > 37 ) {
-                                    echo substr($item->get_title(), 0, 37) . ' ...';
-                                }
-
-                                else {
-                                    echo $item->get_title();
-                                }
+                                echo $item->get_title();
                                  
                                 ?>
                             </a>
-                        </h4>
-                        <span class="icon-help" aria-hidden="true"></span>
-                    </header>
+                        </li>
+                        <?php //echo strip_tags(substr($item->get_description(), 0, 400)); ?>
+                <?php endforeach; ?>
 
-                    <p class="wrap">
-                        <?php echo strip_tags(substr($item->get_description(), 0, 400)); ?>
-                    </p>
-                </aside>
-            <?php endforeach; ?>
+                </ul>
+        <?php }; ?>
 
         <?php
     }
@@ -240,6 +282,7 @@ class sherman_helios_events extends WP_Widget {
     /** @see WP_Widget::update -- do not rename this */
     function update($new_instance, $old_instance) {     
         $instance = $old_instance;
+        $instance['title'] = strip_tags($new_instance['title']);
         $instance['rss_link'] = strip_tags($new_instance['rss_link']);
         $instance['quantity'] = strip_tags($new_instance['quantity']);
         return $instance;
@@ -248,9 +291,14 @@ class sherman_helios_events extends WP_Widget {
     /** @see WP_Widget::form -- do not rename this */
     function form($instance) {  
  
+        $helios_title      = esc_attr($instance['title']);
         $helios_feed      = esc_attr($instance['rss_link']);
         $helios_quantity   = esc_attr($instance['quantity']);
         ?>
+        <p>
+          <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title the Box :)'); ?></label> 
+          <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="url" value="<?php echo $helios_title; ?>" />            
+        </p> 
          <p>
 
           <label for="<?php echo $this->get_field_id('rss_link'); ?>"><?php _e('Helios RSS Feed:'); ?></label> 
@@ -313,4 +361,3 @@ function bones_wpsearch($form) {
     </form>';
     return $form;
 } // don't remove this bracket!
-

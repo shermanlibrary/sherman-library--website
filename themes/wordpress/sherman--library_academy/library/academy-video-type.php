@@ -6,7 +6,7 @@ function library_academy_video() {
 	register_post_type( 'academy_video', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 	 	// let's now add all the options for this post type
 		array('labels' => array(
-			'name' => __('Tutorial Videos', 'bonestheme'), /* This is the Title of the Group */
+			'name' => __('LibraryLearn', 'bonestheme'), /* This is the Title of the Group */
 			'singular_name' => __('Video', 'bonestheme'), /* This is the individual type */
 			'all_items' => __('Instructional Videos', 'bonestheme'), /* the all items menu item */
 			'add_new' => __('Make another!', 'bonestheme'), /* The add new menu item */
@@ -33,7 +33,7 @@ function library_academy_video() {
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
-			'supports' => array( 'title', 'editor', 'excerpt')
+			'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail')
 	 	) /* end of options */
 	); /* end of register post type */
 	

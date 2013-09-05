@@ -28,6 +28,12 @@ if (!window.getComputedStyle) {
 // as the page loads, call these scripts
 jQuery(document).ready(function($) {
 
+    /* ==================
+     * $FitText
+     */ // You know, for glorious branding ...
+     //(function($){$.fn.fitText=function(kompressor,options){var compressor=kompressor||1,settings=$.extend({"minFontSize":Number.NEGATIVE_INFINITY,"maxFontSize":Number.POSITIVE_INFINITY},options);return this.each(function(){var $this=$(this);var resizer=function(){$this.css("font-size",Math.max(Math.min($this.width()/(compressor*10),parseFloat(settings.maxFontSize)),parseFloat(settings.minFontSize)))};resizer();$(window).on("resize.fittext orientationchange.fittext",resizer)})}})(jQuery);
+     //$('.fit-text').fitText({maxFontSize: '117px'})
+
     /*
     Responsive jQuery is a tricky thing.
     There's a bunch of different ways to handle
@@ -40,20 +46,19 @@ jQuery(document).ready(function($) {
 
 /* ==================
  * Fire-up mejs for academy videos
- */ if ( $('body').hasClass('single-academy_video') ) {
+ */ if ( $('body').hasClass('single-academy_video') || $('body').hasClass('home')) {
       $('video').mediaelementplayer({
         
-        // Fluid Video
-        defaultVideoWidth: 100 + '%',
-        defaultVideoHeight: 100 + '%',
-
-        features: ['playpause','progress','current','duration','tracks','volume','fullscreen'],
-        alwaysShowControls: true,
+        features: ['playpause','progress','current','duration','tracks','volume','fullscreen']
 
       });
     }
 
-
+    if ( $('html').hasClass('lt-ie9') ) {
+      $('nav.pill-menu .label').on('click', function( e ) {
+        $(this).next('.sub-menu').toggle();
+      });
+    }
 
   /* if is above or equal to 768px */
   if (responsive_viewport >= 768) {

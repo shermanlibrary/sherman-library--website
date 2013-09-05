@@ -1,5 +1,7 @@
 <?php
 
+//require_once('library/Detector/Detector.php');
+
 /************* INCLUDE NEEDED FILES ***************/
 
 /*
@@ -16,6 +18,57 @@
 	- adding custom fields to user profiles
 */
 require_once('library/bones.php'); // if you remove this, bones will break
+
+
+/*********************
+THEME SUPPORT
+*********************/
+add_theme_support('post-thumbnails');   
+
+// default thumb size   
+set_post_thumbnail_size(125, 125, true);   
+
+// wp custom background (thx to @bransonwerner for update)
+add_theme_support( 'custom-background',
+    array( 
+    'default-image' => '',  // background image default
+    'default-color' => '', // background color default (dont add the #)
+    'wp-head-callback' => '_custom_background_cb',
+    'admin-head-callback' => '',
+    'admin-preview-callback' => ''
+    )
+);      
+
+// rss thingy           
+add_theme_support('automatic-feed-links'); 
+
+// to add header image support go here: http://themble.com/support/adding-header-background-image-support/
+
+// adding post format support
+add_theme_support( 'post-formats',  
+    array( 
+        'aside',             // title less blurb
+        'gallery',           // gallery of images
+        'link',              // quick link to other site
+        'image',             // an image
+        'quote',             // a quick quote
+        'status',            // a Facebook like status update
+        'video',             // video 
+        'audio',             // audio
+        'chat'               // chat transcript 
+    )
+);  
+
+// wp menus
+add_theme_support( 'menus' );  
+
+// registering wp3+ menus          
+//register_nav_menus(                      
+//    array( 
+//        'main-nav' => __( 'Primary', 'bonestheme' )
+//    )
+//);
+
 /*
 2. library/custom-post-type.php
     - an example custom post type
@@ -32,6 +85,7 @@ require_once('library/academy-video-type.php'); // you can disable this if you l
     - prevent users from disabling core plugins
 */
 require_once('library/admin.php'); // this comes turned off by default
+require_once('library/custom-fields.php');
 /*
 4. library/translation/translation.php
     - adding support for other languages
@@ -40,14 +94,16 @@ require_once('library/admin.php'); // this comes turned off by default
 5. library/bundles/something.php
     - bundles crucial plugins.
 */
-require_once('library/bundles/series/orgSeries.php');
+//require_once('library/bundles/series/orgSeries.php');
 // require_once('library/translation/translation.php'); // this comes turned off by default
 
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-add_image_size( 'bones-thumb-600', 600, 150, true );
-add_image_size( 'bones-thumb-300', 300, 100, true );
+add_image_size( 'video-small', 350, 193, true );
+add_image_size( 'video-medium', 570, 321, true );
+add_image_size( 'video-large', 720, 405, true );
+add_image_size( 'video-jumbo', 1140, 641, true );
 /* 
 to add more sizes, simply copy a line from above 
 and change the dimensions & name. As long as you
@@ -85,13 +141,23 @@ you like. Enjoy!
 function bones_register_sidebars() {
     register_sidebar(array(
     	'id' => 'home',
-    	'name' => 'Front Page Sidebar',
-    	'description' => 'This sidebar appears specifically on the front page. Use wisely.',
+    	'name' => 'Front Page Sidebar (sans Container)',
+    	'description' => 'This sidebar appears specifically on the front page. Use wisely. This sidebar has no container.',
     	'before_widget' => '<div id="%1$s">',
     	'after_widget' => '</div>',
-    	'before_title' => '',
-    	'after_title' => '',
-    ));   
+    	'before_title' => '<h3 class="section-title hide-text">',
+    	'after_title' => '</h3>',
+    ));
+
+    register_sidebar(array(
+        'id' => 'video',
+        'name' => 'Single Video Sidebar (sans Container)',
+        'description' => 'This sidebar appears specifically on the individual videos. Use wisely. This sidebar has no container.',
+        'before_widget' => '<div id="%1$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="section-title hide-text">',
+        'after_title' => '</h3>',
+    ));
 } // don't remove this bracket!
 
 /* ==================
@@ -100,7 +166,7 @@ function bones_register_sidebars() {
 function namespace_add_custom_types( $query ) {
   if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
     $query->set( 'post_type', array(
-     'post', 'academy_video'
+     'post', 'academy_video', 'nav_menu_item'
         ));
       return $query;
     }
@@ -189,8 +255,8 @@ function bones_comments($comment, $args, $depth) {
 
 // Search Form
 function sherman_wpsearch($form) {
-    $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '" >
-    <input type="search" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__('Learn something new!','bonestheme').'" />
+    $form = '<form role="search" method="get" id="searchform" action="' . home_url( '/' ) . '">
+    <input type="search" value="' . get_search_query() . '" name="s" id="s" placeholder="'.esc_attr__('Learn something new!','bonestheme').'" x-webkit-speech speech />
     <input class="search-button" type="submit" id="searchsubmit" value="'. esc_attr__('Go') .'" />
     </form>';
     return $form;

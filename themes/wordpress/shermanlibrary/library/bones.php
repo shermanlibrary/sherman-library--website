@@ -38,7 +38,7 @@ function bones_ahoy() {
     add_filter( 'style_loader_tag', 'bones_ie_conditional', 10, 2 );
     
     // launching this stuff after theme setup
-    add_action('after_setup_theme','bones_theme_support');	
+    //add_action('after_setup_theme', 'bones_theme_support');	
     // adding sidebars to Wordpress (these are created in functions.php)
     add_action( 'widgets_init', 'bones_register_sidebars' );
     // adding the bones search form (created in functions.php)
@@ -158,7 +158,7 @@ function bones_ie_conditional( $tag, $handle ) {
 /*********************
 THEME SUPPORT
 *********************/
-	
+/*	
 // Adding WP 3+ Functions & Theme Support
 function bones_theme_support() {
 	
@@ -203,13 +203,13 @@ function bones_theme_support() {
 	add_theme_support( 'menus' );  
 	
 	// registering wp3+ menus          
-	register_nav_menus(                      
-		array( 
-			'main-nav' => __( 'The Main Menu', 'bonestheme' ),   // main nav in header
-			'footer-links' => __( 'Footer Links', 'bonestheme' ) // secondary nav in footer
-		)
-	);
-} /* end bones theme support */
+	//register_nav_menus(                      
+	//	array( 
+	//		'main-nav' => __( 'The Main Menu', 'bonestheme' ),   // main nav in header
+	//		'footer-links' => __( 'Footer Links', 'bonestheme' ) // secondary nav in footer
+	//	)
+	//);
+}*/ /* end bones theme support */
 
 
 /*********************

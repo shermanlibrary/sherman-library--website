@@ -172,7 +172,7 @@ tinsleyfied_menu = function() {
     /* ==================
      * Portlet Sub Menu
      * ================== */
-    $('.widget_nav_menu a[href=#parent]').on('click', function() {
+    $('.vertical-menu a[href=#parent]').on('click', function() {
         
         if ( $(this).hasClass('active') ) {
             $(this).removeClass('active');
@@ -184,14 +184,11 @@ tinsleyfied_menu = function() {
 
     });
 
-    tinsleyfied_menu_quick_search = function() {
-        $('li.quick-search > a ').on('click', function( e ) {
-            $(this).parent('li').html('<form name="hc_search" method="post" action="index.php?com=searchresult"><input type="search" name="hc_search_keyword" class="text-input form in-menu" placeholder="ex.: sharkey\'s storytime" speech x-webkit-speech></form>');
-            e.preventDefault();
-        });
-    }
+     $('.utilities > .lib-button-small > a.has-subnav').on('click', function( e ) {
 
-    tinsleyfied_menu_quick_search();
+        $(this).parent().toggleClass('active');
+        e.preventDefault();
+    });
 
 } // tinsleyfied_menu()
 
@@ -199,7 +196,7 @@ tinsleyfied_menu = function() {
  * Ask a Librarian */
 tinsleyfied_ask = function() {
 
-    var ask_badge = '<header class="gradient--rtl"><span class="h3">Ask a Librarian</span></header><div class="wrap"><div class="ask-badge"><div class="twocol first"><span title="Visit the reference desk" class="icon-user active" aria-hidden="true" data-description="Speak with a librarian in person at the second-floor <b>Reference Desk</b>. <br><table style=width: 75%; font-size: .85em; margin-top: 1em;><tr><td><b>Mon - Fri:</b></td><td>9a.m. - 9p.m.</td></tr><tr><td><b>Saturday:</b></td><td>9a.m. - 8p.m.</td></tr><tr><td><b>Sunday:</b></td><td>11a.m. - 9p.m.</td></tr></table>"></span></div><div class="twocol"><span title="Call the reference desk" class="icon-phone" aria-hidden="true" data-description="<span style=font-size:.85em;><b>Local</b>: <a href=tel:9542624613>(954) 262 - 4613</a><br><b>Toll Free (USA)</b>: <a href=tel:18005416682>1 (800) 541 - 6682 x. 24613</a><br><b>Toll Free (Canada, Panama, Caribbean)</b>: <a href=tel:18005546682>1 (800) 554 - 6682 x. 24613</a></span>"></span></div><!-- Email a Question======================--><div class="twocol"><span title="Email a research question" class="icon-mail" aria-hidden="true" data-description="<b>Email</b> a brief question and receive an answer typically within one day. <a href=http://nova.edu/library/main/ask.html#by-email title=Write an Email>Click here</a>."></span></div><!-- Chat with a Librarian======================--><div class="twocol"><span title="Chat with a librarian" class="icon-comments" aria-hidden="true" data-description="<b>Chat</b> one-on-one with a Florida librarian. <a href=http://nova.edu/library/help/askbychat.html>See our schedule</a>."></span></div><div class="twocol"><span title="Send us a text message" class="icon-keyboard" data-description="<b>Text-a-Librarian</b> to <a href=tel:9543723505>(954) 372 - 3505</a>. <br>Write <b>NSU</b> at the beginning of your text and then ask a brief question. Your carrier\'s normal texting charges and limits apply."></span></div><div class="twocol last"><span title="Schedule an appointment" class="icon-users" aria-hidden="true" data-description="<b>Make an appointment</b> to meet one-on-one with a librarian for an instructional session. <a href=http://www.nova.edu/library/main/ask.html#by-appointment title=Appointment Form>Start here</a>."></span></div></div><p class="ask-message"> Speak with a librarian in person at the second-floor <b>Reference Desk</b>.</p></div>';
+    var ask_badge = '<header class="gradient--rtl"><span class="icon-bubbles" aria-hidden="true"></span><span class="h3">Ask a Librarian</span></header><div class="wrap"><div class="ask-badge"><div class="twocol first"><span title="Visit the reference desk" class="icon-user active" aria-hidden="true" data-description="Speak with a librarian in person at the second-floor <b>Reference Desk</b>. <br><table style=width: 75%; font-size: .85em; margin-top: 1em;><tr><td><b>Mon - Fri:</b></td><td>9a.m. - 9p.m.</td></tr><tr><td><b>Saturday:</b></td><td>9a.m. - 8p.m.</td></tr><tr><td><b>Sunday:</b></td><td>11a.m. - 9p.m.</td></tr></table>"></span></div><div class="twocol"><span title="Call the reference desk" class="icon-phone" aria-hidden="true" data-description="<span style=font-size:.85em;><b>Local</b>: <a href=tel:9542624613>(954) 262 - 4613</a><br><b>Toll Free (USA)</b>: <a href=tel:18005416682>1 (800) 541 - 6682 x. 24613</a><br><b>Toll Free (Canada, Panama, Caribbean)</b>: <a href=tel:18005546682>1 (800) 554 - 6682 x. 24613</a></span>"></span></div><!-- Email a Question======================--><div class="twocol"><span title="Email a research question" class="icon-mail" aria-hidden="true" data-description="<b>Email</b> a brief question and receive an answer typically within one day. <a href=http://nova.edu/library/main/ask.html#by-email title=Write an Email>Click here</a>."></span></div><!-- Chat with a Librarian======================--><div class="twocol"><span title="Chat with a librarian" class="icon-comments" aria-hidden="true" data-description="<b>Chat</b> one-on-one with a Florida librarian. <a href=http://nova.edu/library/help/askbychat.html>See our schedule</a>."></span></div><div class="twocol"><span title="Send us a text message" class="icon-keyboard" data-description="<b>Text-a-Librarian</b> to <a href=tel:9543723505>(954) 372 - 3505</a>. <br>Write <b>NSU</b> at the beginning of your text and then ask a brief question. Your carrier\'s normal texting charges and limits apply."></span></div><div class="twocol last"><span title="Schedule an appointment" class="icon-users" aria-hidden="true" data-description="<b>Make an appointment</b> to meet one-on-one with a librarian for an instructional session. <a href=http://www.nova.edu/library/main/ask.html#by-appointment title=Appointment Form>Start here</a>."></span></div></div><p class="ask-message"> Speak with a librarian in person at the second-floor <b>Reference Desk</b>.</p></div>';
     
     $('section#ask-a-librarian').append(ask_badge).addClass('portlet shadow'); 
 
@@ -262,13 +259,6 @@ if (responsive_viewport < 481) {
 
 
 } /* end smallest screen */
-
-if (responsive_viewport <= 481 ) {
-
-    $('header.header').after('<nav id=springboard class="old-gradient"><a href="http://sherman.library.nova.edu/m/research.php" class="icon-book" title="">Research</a><a href="http://sherman.library.nova.edu/heliosdev" class="icon-calendar" title="">Events</a><a href="http://sherman.library.nova.edu/rooms/" class="icon-key" title="">Rooms</a><a href="http://sherman.library.nova.edu/m/directions.php" class="icon-map" title="">Directions</a><a href="http://sherman.library.nova.edu/m/hours.php" class="icon-clock" title="">Hours</a></nav>');
-
-}
-
 /* if is larger than 481px */
 if (responsive_viewport > 481) {
     
