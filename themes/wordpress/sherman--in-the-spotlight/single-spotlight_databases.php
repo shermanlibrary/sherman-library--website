@@ -3,24 +3,26 @@
 			<div id="content">
 			
 				<div id="inner-content" class="wrap clearfix">
-			
-				    <div class="ninecol typeplate clearfix" role="main">
 
 					    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					    <?php 
-					    	$authURL	= get_post_meta(get_the_id(), 'authenticated_url', true);
+					    	$authURL		= get_post_meta(get_the_ID(), 'authenticated_url', true);
+					    	$dbID			= get_post_meta(get_the_ID(), 'aid', true);
+					    	$resourceLogo 	= get_post_meta( get_the_ID(), 'resource_logo', true );
 					    	$instructions = get_post_meta(get_the_ID(), 'instructions', true);
-					    	$tutorial = get_post_meta(get_the_ID(), 'tutorial', true);
+					    	$tutorial = get_post_meta(get_the_ID(), 'handout', true);
 					    	$screencast = get_post_meta(get_the_ID(), 'screencast', true);
+
+					    	$screencast = substr( $screencast, strpos($screencast, 'watch/') + 6 ); // knowing "watch/"
 						?>
 					
 					<!-- Main Article
 					======================
 					--> <article id="post-<?php the_ID(); ?>" <?php post_class('post clearfix'); ?> role="article" style="background: transparent; border-bottom: none;">
 
-						<div class="sixcol first">
+						<div class="sevencol first">
 
-						    <section class="post-content clearfix shadow" style="background: white;">
+						    <section class="post-content clearfix shadow">
 
 						    <header class="article-header">
 								
@@ -45,60 +47,43 @@
 
 					    </div>					
 
-					    	<div class="sixcol last">						
-						
-						    <section style="margin-top: -.8em;">
-								<nav class="menu--feedly" style="font-size: 15px; ">
-								  <ul>
-								    <li class="coral" style="opacity: 1;">
-								      <a class="on" href="#">
-								        <span class="icon-grid-view icon"></span>
-								        
-								        <span class="label">
-								          How it works ...
-								        </span>
-								      </a>
+				    	<div class="sidebar fivecol last clearfix contrast-against-white">	
 
-								      <ul class="sub-menu">
-								      	<p>
-								      		<?php echo $instructions; ?>
-								      	</p>
-								      	<p>
-								      		<a class="lib-button-small gradient--coral" style="color: white;"href="<?php echo $authURL ?>"> 
-								      			Check it out!
-								      		</a>
-							      		</p>
-								      </ul>
-								    </li> 
+						    <?php if ( $screencast != '' ) : ?>
+						    <!-- Relevant Video
+						    ======================
+						    -->	<section class="media">
+									<video src="#" poster="http://placehold.it/570x321" controls>									</video>
+								</section>
 
-								    <?php if ( $screencast != '' ) : ?>
-								    <li>
-								    	<a href="#">
-								    		<span class="icon-film icon"></span>
-								    		<span class="label"> 
-								    			Video
-								    		</span>
-								    	</a>
-								    </li>
-									<?php endif; ?>
+							<?php endif; ?>					
+							
+							<?php if ( $instructions != '' ) : ?>
+							<!-- Instructions
+							======================
+							--> <section class="stack-blocks">
+									<?php echo $instructions; ?>					      		
+					      		</section>					      		
 
-									<?php if ( $tutorial != '' ) : ?>
-								    <li>
-								    	<a href="#">
-								    		<span class="icon-link icon"></span>
-								    		<span class="label"> 
-								    			See the Tutorial
-								    		</span>
-								    	</a>
-								    </li>
-									<?php endif; ?>
+							<?php endif; ?>
 
+							<!-- Buttons
+							======================
+							-->	<section class="">
+
+							<?php if ( $tutorial != '' ) : ?>
+						    
+						    	<a class="button orange" href="<?php echo $tutorial; ?>" title="Tutorial">
+						    		Tutorial
+						    	</a> &nbsp;
+						    
+							<?php endif; ?>
+
+							<!-- Authenticating Button
+							======================
+							-->	<a class="button" href="<?php echo $authURL ?>" title="<?php the_title(); ?>">Check it Out</a>
+								</section>
 								  </ul>
-
-								</nav>
-						    </section>
-
-							<section id="ask-a-librarian" class="flat" style="font-size: 15px; max-width: 300px;"></section>
 						</div>
 
 					    </article> <!-- end article -->
@@ -120,8 +105,6 @@
         					</article>
 					
 					    <?php endif; ?>
-			
-				    </div> <!-- end #main -->
     
 				    <?php //get_sidebar(); // sidebar 1 ?>
 				    
