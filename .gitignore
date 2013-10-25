@@ -230,7 +230,9 @@ congif.rb
 ################
 ## Themes
 ################
-themes/wordpress/*/library/Detector
+themes/wordpress/sherman--in-the-spotlight/library/Detector
+themes/wordpress/sherman--library_academy/library/Detector
+themes/wordpress/*/library/bundles
 themes/wordpress/*/library/translation
 themes/wordpress/*/library/scss
 themes/wordpress/*/library/css
