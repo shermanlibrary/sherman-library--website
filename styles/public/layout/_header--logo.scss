@@ -1,0 +1,88 @@
+/* ==================
+ * $Logo 
+ */	//
+ #logo { 
+ 	display: inline-block;
+	font-size: 2em;
+	//position: relative;
+	//top: -8px;
+
+	@include breakpoint(tablet) {
+		font-size: 2em;
+		line-height: $line-height;
+	}
+
+	@include breakpoint(squarescreen) {
+		line-height: $line-height;
+	}
+
+	&.has-tagline {
+		
+		/* Example of .logo with .has-tagline:
+		<div id="logo" class="has-tagline">
+			<a class="logo" href="#">
+				The Title
+			</a>
+
+			<span class="tagline">
+				The Tagline
+			</span>	
+		</div>
+		*/
+
+		margin-top: .5em; // a little extra padding from the top.
+		position: relative;
+
+		@include breakpoint( tablet ) {
+			margin-top: .15em;
+		}
+	}
+
+
+	.tagline {
+
+		right: 0;
+		top: 0;
+		font-size: .5em;
+		font-size: 1rem;
+		position: absolute;
+
+	}
+ }
+
+.logo,
+.tagline {
+	color: white !important;
+	text-transform: lowercase;
+}
+
+.logo {
+
+	.main-accent {
+		color: $logo--secondary-color;
+	}
+
+	.secondary-accent {
+		color: $logo--tertiary-color;
+	}
+}
+
+.kids .logo, .kids .tagline {
+	color: $coral !important; 
+
+	.main-accent {
+		color: $blue-tropical;
+	}
+	.secondary-accent {
+		color: $orange;
+	}
+}
+
+.white .logo, .white .tagline {
+	color: $light-blue-object !important;
+}
+
+.social a, .social a:visited { color: white; }
+.social a:before {
+	top: 3px; 
+}

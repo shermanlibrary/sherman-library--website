@@ -1,6 +1,14 @@
 /* ==================
  * $Colors 
- */
+ */ 
+$blue-tropical:			#1fbaf2;
+$coral:					#E2624F;
+$green:					#21aabd;
+$gray:					#555555;
+$mint-green:			#75D4BA;
+$orange:				#ffae3d;
+$sea-green:				#61D4E4;
+
 
 $soft-blue-base: 		#91CDEB;
 $dark-blue-base: 		#313547;
@@ -11,6 +19,22 @@ $border-color-light: 	#e9e9e9;
 $header-background:		$soft-blue-base;
 $content-contrast-background:	#4B5971;
 
+$dark-link-color: darken($content-contrast-background, 3%);
+
+$content-contrast-text: #e9e9e9;
+
+$border-color-dark: #4b5971;
+$link-color: $soft-blue-base;
+
+/* ==================
+ * Color Variables
+ */
+
+// Logo
+$logo--text-color:			white;
+$logo--secondary-color:		$dark-blue-tinsley;
+$logo--tertiary-color:		$green;
+
 
 /* ==================
  * $MEDIA-QUERY VARIABLES
@@ -19,7 +43,7 @@ $handheld: 30.062em; // 481px
 $handheld-end: $handheld - .1em;
 $snapscreen: 37.375em; // 16 base
 $snapscreen-end: $snapscreen - .1em;
-$tablet: 48em; // 678px
-$squarescreen: 63.9375em; // 1024px
+$tablet: 45em;
+$squarescreen: 64em; // 1024px
 $widescreen: 64.375em; // 1030px+
 $cinemascreen: 77.5em; // 1240px

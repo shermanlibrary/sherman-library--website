@@ -1,0 +1,97 @@
+/* ==================
+ * $Slide-Panel Menu
+ * ================== */
+.slide-panel {
+
+	& > label {
+		display: block;
+		margin-top: 0;
+		padding: .5em;
+		text-align: center;
+
+		@include breakpoint(tablet) {			
+			float: right;
+			margin: .5em auto;
+			padding: .5em 2em;
+		}
+	}
+
+	@include breakpoint( widescreen ) { .checkbox-toggle, .label { display: none; }	}
+}
+
+.slide-panel-menu {
+
+	background-color: $dark-blue-base;
+	border-left: 10px solid #455268;
+	bottom: 0;
+	position: fixed;
+	right: -100%;
+	overflow-y: auto;
+	text-align: left;
+	top: 0;
+	width: 100%;
+	z-index: 5; 
+
+	.menu li {
+		border-top: 1px solid white;
+		
+		& a { padding: .5em 1em 0; }
+	}
+
+	& > label {
+		cursor: pointer;
+		font-size: 2em; 
+	}
+
+
+	.menu-mobile-fly-out {
+		padding: 0;
+	}
+
+	label { color: $border-color-light; }
+
+	@include breakpoint( tablet ) {
+		width: 50%; 
+		.menu-mobile-menu-container {
+			width: 100%;
+		}
+	}
+
+	@include breakpoint( widescreen ) {
+		background-color: transparent;
+		border: none;
+		position: static;
+		width: auto;
+
+		.menu-mobile-fly-out-container { display: none; }		
+	}
+
+
+	ul li {
+	  list-style-type: none;
+
+	    margin: 0 auto 1em;
+
+	    a { 
+	    	display: block;
+	    	padding: .25em .5em; 
+	    }
+
+	    .sub-menu { 
+	      margin: .5em auto; 
+	    }
+
+	    .sub-menu li {
+	    	margin-bottom: .5em;
+	    }
+	}
+
+}
+
+.slide-panel input.checkbox-toggle:checked ~ .slide-panel-menu {
+  right: 0;
+} 
+
+/* ==================
+ * Fallback */
+ 

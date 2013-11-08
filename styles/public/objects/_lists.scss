@@ -1,0 +1,25 @@
+.feed {
+	list-style-type: none;
+	padding: 0;
+
+	li {
+		border-bottom: 2px solid $dark-blue-base;
+		padding: .5em 0; 
+
+		&:last-child { border-bottom: none; }
+		&.has-date-stamp {
+			border: none; 
+			padding-top: 0;
+			padding-bottom: 2em;
+		}
+
+	}
+
+	li a {
+		color: $dark-blue-tinsley;
+	}
+
+	p { margin-bottom: 0; }
+
+
+}

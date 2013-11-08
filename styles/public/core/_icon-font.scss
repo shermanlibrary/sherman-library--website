@@ -3,11 +3,11 @@
  * ================== */
 @font-face {
     font-family: 'icomoon';
-    src:url('fonts/icons/icomoon.eot');
-    src:url('fonts/icons/icomoon.eot?#iefix') format('embedded-opentype'),
-        url('fonts/icons/icomoon.woff') format('woff'),
-        url('fonts/icons/icomoon.svg#icomoon') format('svg'),
-        url('fonts/icons/icomoon.ttf') format('truetype');
+    src:url('//sherman.library.nova.edu/cdn/styles/css/fonts/icons/icomoon.eot');
+    src:url('//sherman.library.nova.edu/cdn/styles/css/fonts/icons/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('//sherman.library.nova.edu/cdn/styles/css/fonts/icons/icomoon.woff') format('woff'),
+        url('//sherman.library.nova.edu/cdn/styles/css/fonts/icons/icomoon.svg#icomoon') format('svg'),
+        url('//sherman.library.nova.edu/cdn/styles/css/fonts/icons/icomoon.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -47,6 +47,7 @@
 .icon-facebook-2:before { content: "v";}
 .icon-feed:before { content: "|";}
 .icon-film:before { content: "\'"; }
+.icon-fire:before { content: "`"; }
 .icon-firefox:before { content: "D"; }
 .icon-happy:before { content: "e"; }
 .icon-help:before { content: "i"; }
@@ -62,6 +63,8 @@
 .icon-mail:before { content: "J"; }
 .icon-marker:before { content: "K"; }
 .icon-map:before { content: "3"; }
+.icon-pinterest:before { content: "z"; }
+.icon-podcast:before { content: ")"; }
 .icon-twitter:before { content: "w"; }
 .icon-rss:before { content: "x"; }
 .icon-screen:before { content: "5"; }

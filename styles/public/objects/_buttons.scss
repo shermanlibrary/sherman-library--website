@@ -1,0 +1,68 @@
+/* ==================
+ * $BUTTONS
+ */ // To be generally used with <a>
+ // with helper class "zeta". Huge buttons
+ // can be created by going up the chain 
+ // ( epsilon, delta, etc.). 
+ //
+a.button, label.button {
+	border: 0 none;
+	border-radius: 4px;
+	color: white !important; // overrides link color
+	cursor: pointer;
+	margin: 1em 0;
+	text-decoration: none;
+	padding: 1em 2em;
+	transition: all .2s ease-out;
+
+	&:hover, &:active {
+		text-decoration: none;
+	}
+
+	&.tinsley {
+		background-color: $dark-blue-tinsley;
+		&:hover, &:active, &:focus { background-color: lighten($dark-blue-tinsley, 9%); }		
+	}
+
+	&.green {
+		background-color: $green;
+
+		&:hover, &:active, &:focus { background-color: lighten($green, 9%); }
+	}
+
+	&.orange {
+		background-color: $orange;
+		&:hover, &:active, &:focus { background-color: lighten($orange, 9%); }
+	}
+
+	&.coral {
+		background-color: $coral;
+		&:hover, &:active, &:focus { background-color: lighten( $coral, 9% ); }
+	}
+}
+
+.contrast-against-white {
+	a.button {
+		background-color: $coral;
+		color: white !important;
+	}
+
+	a.button:hover, a.button:active {
+		background-color: lighten( $coral, 9% );
+	}
+
+	a.button.orange {
+		background-color: $orange;
+	}
+
+	a.button.orange:hover, a.button.orange:active {
+		background-color: lighten( $orange, 9% );
+	}
+}
+
+.contrast-against-dark {
+	a.button { background-color: $content-contrast-background; color: white; }
+	a.button:hover, a.button:active {
+		background-color: lighten( $content-contrast-background, 9% ); color: white;
+	}
+}

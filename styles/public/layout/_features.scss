@@ -1,0 +1,255 @@
+/* ==================
+ * $LIBRARYLEARN Styles
+ * ================== */
+.librarylearn .feature {
+	background-color: $dark-blue-base;
+	color: $border-color-light;
+	padding-bottom: 2em;
+	padding-top: 2em;
+
+	.single-title {
+		color: white;
+	}
+
+	.post-content {
+		font-size: 1.1em;
+	}
+}
+
+/* ==================
+ * $SPOTLIGHT Styles
+ * ================== */
+
+.feature {}
+
+.assorted-features { margin-top: 1em; }
+
+/* ==================
+ * Featured Events
+ - Top-of-the-page, full-width features.
+ - The background-image is determined inline,
+ - but we can control the rest here.
+ */
+
+.feature-event, .feature-image {
+	
+	display: none;
+
+	@include breakpoint( tablet ) {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: block;
+		height: 0; 
+		padding-bottom: 39.25%;
+	}
+}
+
+.feature-image {
+	position: relative;
+
+	.caption {
+		background-color: rgba( white, .8);
+		border-radius: 4px;
+		bottom: 0;
+		color: $dark-blue-tinsley;		
+		left: 0;			
+		padding: 1em;
+		position: absolute;
+		right: 0;
+		top: 0;
+
+		@include breakpoint( squarescreen ) {
+			bottom: 1em;
+			left: 1em;
+			right: 1em;
+			top: auto;
+		}
+	}
+}
+
+.feature-event .promotion {
+
+	@include breakpoint( tablet ) {
+
+		background-color: rgba( white, .8 );
+		border-radius: 4px;
+		margin-top: 6%; // magic number
+		padding: 2em; 
+		text-align: center;
+
+		.excerpt { display: none; }
+	}
+
+	@include breakpoint( squarescreen ) {
+		margin-top: 9%; 
+	}
+
+	@include breakpoint( widescreen ) {
+
+		width: 66.666%;
+
+		&.center {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		&.right {
+			margin-left: 50%;
+		}
+
+		&.left {
+			margin-right: 50%;
+		}
+	}
+
+	@include breakpoint( cinemascreen ) {
+		margin-top: 21%;
+		width: 50%;
+
+		&.has-excerpt {
+			margin-top: 5%;
+			text-align: left; 
+			.excerpt { display: block; }
+
+		}
+	}
+
+}
+
+.promotion {
+	background-color: rgba(white, .8);
+	color: $dark-blue-tinsley;
+	z-index: 1;
+
+	h1, h2, h3, h4, h5 { font-weight: normal; }
+
+	time { display: block; }
+
+	.promotion-title { 
+		color: $dark-blue-tinsley;  
+		font-style: italic; 
+	}
+}
+
+.event {
+
+	position: relative;
+
+	.image { 
+		vertical-align: bottom;
+		width: 100%; 
+	}
+
+	.promotion {
+		border-radius: 0 0 100%;
+		padding: 3em 3em 3em 1em;
+		position: absolute;
+	}
+
+	.button {
+		position: absolute;
+		right: 1em;
+		bottom: 1em;
+		z-index: 1;
+	}
+
+	@include breakpoint( squarescreen ) {
+
+		&:hover > .image {
+			//-webkit-filter: grayscale(65%);
+		}
+
+		//.image { border-top-right-radius: 40%; }
+	}
+
+	&.small {
+
+		.promotion {
+			box-shadow: none;
+			border-radius: 0;
+			padding: 2em;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+		}
+
+	}
+
+	&.caption {
+		.button {
+			position: static;
+		}
+
+		.description { font-style: italic; }
+
+		p { margin-top: 1em; }
+	}
+
+}
+
+
+.book {
+
+	.cover { 
+		width: 34%%;
+	}
+
+	.cover img {
+		width: 100%;
+	}
+
+	header a, header a:visited {
+		color: $border-color-dark; 
+	}
+	
+	&.showcase header {
+		height: 100%;
+		position: absolute;
+		right: 0;
+		width: 60%;
+	}
+
+	.genre {
+		border-left: 3px solid $green;
+		color: $green;
+		font-style: italic;
+		padding-left: .5em; 
+	}
+}
+
+/* ==================
+ * $SERIES
+ */ 
+.feature-series {
+	background-color: $dark-blue-base;
+	border-top: 2px solid white;
+	min-height: 300px;
+	padding-bottom: 3em; 
+	padding-top: 1em;
+
+	@include breakpoint(tablet) { padding-top: 3em;	}
+	
+	&.series {
+
+		.second-in-series { margin-top: 1em; }
+		.third-in-series { margin-top: 2em; }
+	}
+
+	&.video {
+
+	}
+
+	&.separator:after {
+		border-top-color: $dark-blue-base;
+	}
+
+	.single-title {
+		margin-top: .5em;
+
+		@include breakpoint(tablet) { margin-top: 0;}
+	}
+
+}
+

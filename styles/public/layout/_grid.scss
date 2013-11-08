@@ -51,9 +51,20 @@
         float: right;
     }
 
-    .typeplate {
+    .center-grid {
         float: none;
         margin: 0 auto;
+    }
+
+    .one-half {
+        width: 50%;
+    }
+    .one-third {
+        width: 33.3333%;
+    }
+
+    .one-fourth {
+        width: 25%;
     }
 
 }

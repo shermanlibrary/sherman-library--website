@@ -1,23 +1,23 @@
 /* ==================
  * Styles: Alvin Sherman [Public] Library
- * Author: Michael Schofield (www.ns4lib.com)
+ * Author: Michael Schofield
  * ================== */
 /* ==================
  * CONTENTS
  * ================== */
 /* ==================
  */
-
+ 
 /* ==================
  * $UTILITIES
  * ================== */
- @import "compass";
  @import 'core/_normalize'; // v2.1.2  
 
- /* ==================
+ /* ================== 
   * $Typeplate */
  @import 'core/typography/_vars-typeplate.scss'; // v1.1.0 
- @import 'core/typography/_typeplate.scss'; // v1.1.0 
+ @import 'core/typography/_typeplate.scss'; // v1.1.0  
+ @import 'core/_icon-font';
  
 /* ==================
  * $Variables */
@@ -26,33 +26,57 @@
 /* ==================
  * $Mixins */
 @import '_mixins'; 
- //@import 'core/_gradients';
-// @import 'core/_code';
 
+
+/* ==================
+ * $OBJECTS
+ * ================== */
+ @import 'objects/_buttons';
+ @import 'objects/_forms';
+
+/* ==================
+ * $MENU 
+ */ @import 'objects/_menus'; 
+ 	@import 'objects/_menus--slide-panel';
+ 	@import 'objects/_menus--panels';
+ 	@import 'objects/_menu--global';
+
+/* ==================
+ * $MEDIA Object
+ */ @import 'objects/_media'; 
+ 	@import 'objects/_media--mejs'; // Media Elements JS Styles
+
+/* ==================
+ * $LISTS
+ */ @import 'objects/_lists';
+
+/* ==================
+ * $SHAPES
+ */ @import 'objects/_shapes';
 
 /* ==================
  * $LAYOUT
  * ================== */
-/* ==================
- * Header, Header Menu */
  @import 'layout/_grid';
- @import 'layout/_header';
+
+/* ==================
+ * $HEADER
+ */ @import 'layout/_header';
+ 	@import 'layout/_header--logo';
+ 	
  @import 'layout/_content';
+ @import 'layout/_features';
+ @import 'layout/_footer';
 
- /* ==================
-  * $OBJECTS
-  * ================== */
-  @import 'objects/_forms';
-  @import 'objects/_menus';
-  @import 'objects/_media';
 
+ 
 
 /* ==================
  * Foundation
  * ================== */
 /* ==================
  * Load here only the most basic styles.*/
- //@import 'base'; 
+ @import 'base'; 
 
 /* ==================
  * Larger Mobile Devices

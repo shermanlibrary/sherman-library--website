@@ -1,0 +1,85 @@
+/* ==================
+ * $FORMS
+ * ================== */
+/* ==================
+ * $SEARCH 
+ */
+.search {
+
+  input[type="search"], input[type="text"] {
+    @include border-radius(4px 0 0 5px);
+    -webkit-appearance: none !important; 
+    border-style: none;
+    color: #454545;
+    min-height: 36px;
+    padding: 0 .25em;
+    margin-right: -5px;
+    width: 90%;
+
+    @include breakpoint( tablet ) {
+      outline: 1px solid $border-color-light; 
+      outline-offset: -1px; 
+    }
+    
+  }
+
+  input[type="submit"] {
+    background-color: #f2f2f2;
+    border-radius: 0 5px 5px 0;
+    border-style: none;
+    color: #555;
+    min-height: 36px;
+    margin-top: 10px;
+  }
+
+  /* ==================
+   * Catalog */
+  &.catalog {
+    background-color: white;
+    padding: .5em 0;
+    position: relative;
+    z-index: 1;
+  }
+
+}
+
+/* ==================
+ * Search in Header */
+header .search {
+
+  text-align: center;
+  
+  @include breakpoint(tablet) { text-align: right; }
+
+  input[type="text"], input[type="search"] { 
+    border-color: $border-color-light; 
+    border-width: 1px;
+    border-style: solid;
+    width: 75%; 
+  }
+
+  input[type="submit"] {  
+    min-height: 38px;
+    min-width: 35px; 
+  }
+
+  @include breakpoint( squarescreen ) {
+
+    input[type="text"], input[type="search"] { 
+      border-style: none;
+      width: 235px; 
+    }
+
+    input[type="submit"] {  min-height: 36px; }
+
+  }
+
+}
+
+/* ==================
+ * If against white */
+.catalog input[type="text"],
+.catalog input[type="search"] { 
+  outline: 1px solid $border-color-light; 
+  outline-offset: -1px; 
+}

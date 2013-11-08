@@ -6,7 +6,11 @@
 	border-bottom: 10px solid $dark-blue-tinsley;
 	color: white;
 	margin: 0 auto;
+	text-align: center;
 
+	&.kids, &.white {
+		background-color: white;
+	}
 
 	a {
 		color: inherit;
@@ -14,12 +18,17 @@
 	}
 
 	.pill-menu {
-		display: inline-block;
+		display: none;
+		margin: 1em auto; 
+
+		@include breakpoint( widescreen ) {
+			display: block; 
+		}
 
 		& > ul { 
-			margin-bottom: 0;
+			margin: 0;
+			padding: 0;
 			position: relative;
-			top: -.25em;
 		}
 
 		.primary > .label {
@@ -40,8 +49,5 @@
 
 		} // .secondary > .label
 	} // .pill-menu
-}
 
-	/* ==================
-	 * $Logo */	
-	.logo span { color: $dark-blue-tinsley; }
+}

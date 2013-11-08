@@ -4,19 +4,23 @@
  * $MIXINS
  * ================== */
 /* ==================
- * Media Query 
- */
-
-/* ==================
- * Tools
- * ================== */
+ * Helper Classes */
 .hide-text {
 	line-height: 0;
 	font-size: 0;
 	color: transparent;
 }
 
+.shadow { box-shadow: 0 5px 11px rgba(0, 0, 0, 0.3); }
+
+.small-caps { @include smallcaps($link-color, $font-weight); }
+
+.no-margin { margin: 0; }
+.no-bullets { list-style-type: none; padding: 0;}
+
 .align-center { text-align: center; }
+.align-left { text-align: left; }
+.align-right { text-align: right; }
 
 .checkbox-toggle {
 	opacity: 0;
@@ -24,8 +28,12 @@
 	visibility: hidden;
 }
 
-/* ==================
- * Clearfix */
+.force-ratio {
+	height: 0; 
+	padding-bottom: 56.25%; 
+	position: relative;	
+}
+
 .clearfix { 
 	&:before,
 	&:after {
@@ -37,7 +45,6 @@
 	}
 	zoom: 1; 
 } 
-
 
 /* ====================== *
  * Media Query
@@ -90,4 +97,7 @@
 	        transition: $what $time $how;
 }
 
-
+.event > .image,
+.panel,
+.slide-panel-menu,
+.top-menu {	@include css-transition(all, .2s, ease-out); }

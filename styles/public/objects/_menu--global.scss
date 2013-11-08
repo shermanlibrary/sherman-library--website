@@ -1,0 +1,59 @@
+/* ==================
+ * NSU Libraries Menu
+ * ================== */
+.universal {
+  background-color: $dark-blue-base;
+  border-bottom: 10px solid  darken($content-contrast-background, 3%);
+  //box-shadow: inset 0 -2px 3px darken($dark-blue-base, 3%); 
+  color: $content-contrast-text;
+  display: none;
+
+  @include breakpoint( tablet ) { display: block; }
+  
+  .menu { margin: 0; }
+
+  .nsu {
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .has-subnav { 
+    border-right: 1px solid darken($content-contrast-background, 3%);
+    display: inline-block;
+    font-size: .9em; 
+    padding: 0 .5em; 
+
+    @include breakpoint( tablet ) {
+      float: right; 
+    }
+
+    &:before {
+      color: darken($content-contrast-background, 3%);
+      top: 2px; 
+    }
+  }
+
+  label { color: $border-color-light; cursor: pointer; &:hover, &:active { text-decoration: underline; color: lighten($link-color, 9%); } }
+
+  input.checkbox-toggle:checked ~ .sub-menu { display: block; }
+
+  .menu .has-subnav > .sub-menu {
+    background-color: darken($content-contrast-background, 3%);
+    border: 1px solid $dark-blue-base;
+    margin-top: .1em;
+    right: 0;
+    width: 75%;
+
+    &:before { border-bottom: transparent; }
+
+    li a { color: white; }
+  }
+
+  .universal-link {
+    
+    color: $border-color-light;
+
+  }
+
+  //.align-right .sub-menu { //right: 0; }
+} // .universal

@@ -1,0 +1,259 @@
+/* ==================
+ * $PANELS
+ * ================== */
+.panel {
+	display: block;
+	float: left;
+	height: 250px; // Alternative to hardcoding?
+	position: relative;
+	width: 50%;
+
+	a.button {
+		color: white !important;
+		display: block;
+		margin: 0 auto;
+		position: absolute;
+		width: 100%;
+		word-wrap: normal;
+
+		&.align-bottom { bottom: 10%; }
+
+		@include breakpoint( tablet ) {
+			border: 2px solid white; 
+			left: 10%;
+			right: 10%;
+			width: 80%;
+		}
+
+		@include breakpoint( squarescreen ) {
+
+			font-size: 21px;
+			font-size: 1.16667rem;
+
+		}
+	}
+	
+	&.ask { background: $dark-blue-tinsley url('media/ask.png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten($dark-blue-tinsley, 5%); }
+		.button:hover { background-color: lighten($dark-blue-tinsley, 9%); }
+	}
+
+	&.audiobooks { background: $sea-green url('media/music.png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten($sea-green, 5%); }
+		.button:hover { background-color: lighten($sea-green, 9%); }
+	}
+
+	&.bus { background: $mint-green url('media/bus.png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten($mint-green, 5%); }
+		.button:hover { background-color: lighten($mint-green, 9%); }
+	}
+
+	&.books { background: $coral url('media/dictionary(2x).png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten($coral, 5%); }
+		.button:hover { background-color: lighten($coral, 9%); }
+	}
+
+	&.compose { background: $sea-green url('media/compose.png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten($coral, 5%); }
+		.button:hover { background-color: lighten($coral, 9%); }
+	}
+
+	&.catalog { 
+		
+		background: $sea-green url('media/search(2x).png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten( $sea-green, 5% ); }
+		.button:hover { background-color: lighten( $sea-green, 9% ); }
+
+	}
+
+	&.citation-management { 
+		
+		background: #4CC3FF url('media/books(2x).png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten( $sea-green, 5% ); }
+		.button:hover { background-color: lighten( $sea-green, 9% ); }
+
+	}
+
+	&.dictionary { background: transparent url('media/dictionary(2x).png') no-repeat center 1em; }
+
+	&.ebooks { background: $blue-tropical url('media/ebooks.png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten($blue-tropical, 5%); }
+		.button:hover { background-color: lighten($blue-tropical, 9%); }
+	}
+
+
+	&.event {
+		background: $green url('media/event(2x).png') no-repeat center 1em;
+
+		&:hover {
+			background-color: lighten($green, 5%);
+		}
+
+		.button:hover {
+			background-color: lighten( $green, 9% );
+		}
+	}
+
+	&.games { background: $orange url('media/games(2x).png') no-repeat center 1em; 
+		
+		&:hover { background-color: lighten($orange, 5%); }
+		.button:hover { background-color: lighten($orange, 9%); }
+
+	}
+
+	&.genealogy { background: $green url('media/genealogy.png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten($green, 5%); }
+		.button:hover { background-color: lighten($green, 9%); }
+	}
+
+	&.guides { background: $light-blue-object url('media/guides.png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten($light-blue-object, 5%); }
+		.button:hover { background-color: lighten($light-blue-object, 9%); }
+	}
+
+	&.heart { background: $coral url('media/heart.png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten($coral, 5%); }
+		.button:hover { background-color: lighten($coral, 9%); }
+	}
+
+	&.help { background: $green url('media/help.png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten($green, 5%); }
+		.button:hover { background-color: lighten($green, 9%); }
+	}
+
+	&.kids { background: $coral url('media/kids(2x).png') no-repeat center 1em;
+		&:hover { background-color: lighten($coral, 3%); } 
+		.button:hover { background-color: lighten( $coral, 9% ); } 
+	}
+
+	&.library-card { 
+
+		background-color: #3EBED6;
+
+		&:hover {
+			background-color: lighten(#3EBED6, 3%);
+		}
+
+		.button:hover {
+			background-color: lighten( #3EBED6, 9% );
+		} 
+
+	}
+
+
+	&.movies { background: $gray url('media/movies.png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten($gray, 5%); }
+		.button:hover { background-color: lighten($gray, 9%); }
+	}
+
+	&.music { background: $mint-green url('media/record.png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten($mint-green, 5%); }
+		.button:hover { background-color: lighten($mint-green, 9%); }
+	}
+
+
+	&.new-and-good { 
+
+		background: #4CC3FF url('media/picks(2x).png') no-repeat center 1em;
+
+		&:hover {
+			background-color: lighten(#61D4E4, 3%);
+		}
+
+		.button:hover {
+			background-color: lighten( #61D4E4, 9% );
+		} 
+
+	}
+
+	&.periodical { background: $dark-blue-tinsley url('media/periodical.png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten($dark-blue-tinsley, 5%); }
+		.button:hover { background-color: lighten($dark-blue-tinsley, 9%); }
+	}
+
+	&.piechart { background: $gray url('media/piechart.png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten($gray, 5%); }
+		.button:hover { background-color: lighten($gray, 9%); }
+	}
+
+	&.research {
+		background: $border-color-dark url('media/scholar(2x).png') no-repeat center 1em;
+
+		&:hover {
+			background-color: lighten( $border-color-dark, 5%);
+		}
+
+		.button:hover {
+			background-color: lighten( $border-color-dark, 9% );
+		}
+	}
+
+	&.scholar { background: $orange url('media/scholar(2x).png') no-repeat center 1em; }
+
+	&.support { background: $dark-blue-tinsley url('media/support.png') no-repeat center 1em;
+		
+		&:hover { background-color: lighten($dark-blue-tinsley, 5%); }
+		.button:hover { background-color: lighten($dark-blue-tinsley, 9%); }
+	}
+
+	&.teens {
+		background: $orange url('media/rocket.png') no-repeat center 1em;
+
+		&:hover {
+			background-color: lighten( $orange, 5%);
+		}
+
+		.button:hover {
+			background-color: lighten( $orange, 9% );
+		}
+	}
+	
+
+	/* ==================
+	 * Status Buttons
+	 */ // Hours
+	 	&.status-hours { background: url('media/hours(2x).png') no-repeat center center; } 
+
+	 	// Calendar
+	 	&.status-calendar { background: url('media/support.png') no-repeat center center; }
+	 	// Contact Us
+	 	&.status-contact { background: url('media/contact(2x).png') no-repeat center center; }
+
+	 	// Directions
+	 	&.status-directions { background: url('media/directions(2x).png') no-repeat center center; }
+
+	 	@include breakpoint(squarescreen) {
+		 	&.status-hours, &.status-calendar, &.status-contact, &.status-directions {
+
+		 		background-size: 50%; 
+		 		&:hover {
+		 			background-size: 60%;
+		 		}
+		 	}
+	 	}
+
+	.label {
+		bottom: 0;
+		color: $dark-link-color;
+		position: absolute;		
+		left: 0;
+		right: 0;
+	}
+
+}

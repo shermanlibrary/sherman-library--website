@@ -1,0 +1,48 @@
+/* ==================
+ * $Date Stamp */
+.date-stamp {
+	display: none;
+
+	@include breakpoint( tablet ) {
+		background-color: $border-color-dark;
+		border-radius: 4px;
+		display: block;
+		float: left;
+		margin: .5em 1em 2em 0;
+		padding: 0 20px 10px;
+	}
+
+	time {
+		background-color: $coral;
+		border: .6em solid white;
+		border-radius: 100%;
+		display: block;
+		height: 8em;		
+		margin-top: -50%;
+		position: relative;
+		width: 8em;
+
+		span {
+			bottom: 33%;
+			color: white;
+			display: block;
+			font-size: 1.1667em;			
+			left:23%;
+			position: absolute;;
+		}
+	}
+
+	.event-date {
+		padding: .5em 0;
+	}
+
+	.date {
+		color: white; 
+		font-size: 1.1667em;
+	}
+
+	.day {
+		color: $border-color-light;
+		text-transform: uppercase;
+	}
+}
